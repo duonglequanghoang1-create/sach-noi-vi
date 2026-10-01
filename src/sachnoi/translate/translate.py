@@ -39,7 +39,7 @@ from typing import Any, Callable, Iterable, Protocol, Sequence
 
 from ..config import Config, TranslateConfig
 from ..extract import Document, Section
-from .gloss import Gloss, collapse_spaces_keep_lines, normalize_title
+from .gloss import Gloss, collapse_spaces_keep_lines, normalize_title, strip_control_chars
 
 __all__ = [
     "MODES",
@@ -83,7 +83,7 @@ class OffEngine:
     name: str = "off"
 
     def translate(self, text: str) -> str:
-        return collapse_spaces_keep_lines(text.strip())
+        return collapse_spaces_keep_lines(strip_control_chars(text).strip())
 
 
 @dataclass

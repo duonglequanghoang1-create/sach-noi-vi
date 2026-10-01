@@ -156,11 +156,32 @@ def extract(
     )
 
 
-#: A line that is only a page number, or the repeated running head. `drop_page_number_lines`
-#: handles the first; the second is caught by the repeat detector in that function.
-_PDF_JUNK_RE = re.compile(
-    r"^[\s]*(đ[èa]o trang\s+\d+|\d+)$", re.IGNORECASE
-)
+#: A line that is only a running-head number. `drop_page_number_lines` handles
+#: the first form; this also catches localised labels like "đèo trang 12".
+_PDF_JUNK_RE = re.compile(r"^(?:đ[èe]o trang\s+\d+|trang\s+\d+|\d+)$", re.IGNORECASE)
+_FORM_FEED = "\f"
+
+
+def _strip_page_furniture(raw: str) -> str:
+    """Drop page numbers and give every page break its own line.
+
+    `pdftotext` separates pages with a form feed that is *not* a newline, so the
+    raw text reads `"...chẳng đáp.\\n                    1\\n\\fCô bé nghĩ..."`.
+    Without turning the form feed into a line break, the page number and the
+    first line of the next page end up on one line, get joined into the previous
+    sentence, and the chapter heading that follows is swallowed with it.
+    """
+    raw = raw.replace(_FORM_FEED, f"\n{_FORM_FEED}\n")
+    out: list[str] = []
+    for line in raw.split("\n"):
+        s = line.strip()
+        if not s or s == _FORM_FEED:
+            out.append("")
+            continue
+        if _PDF_JUNK_RE.match(s):
+            continue
+        out.append(line.rstrip())
+    return "\n".join(out)
 
 
 def _clean_pdf_text(raw: str, *, pages: list[str], use_layout: bool) -> str:
@@ -171,9 +192,11 @@ def _clean_pdf_text(raw: str, *, pages: list[str], use_layout: bool) -> str:
         # full line and never joins anything.
         raw = "\n".join(line.rstrip() for line in raw.split("\n"))
         # Collapse the 2-4 space gutter that column layout inserts mid-sentence.
-        # Only inside a line, and only when the gap is not sentence-final.
-        raw = re.sub(r"(?<=[^\s\d])\s{2,}(?=[^\s])", " ", raw)
-    raw = _PDF_JUNK_RE.sub("", raw)
+        # The gap must be spaces and tabs only: `\s{2,}` would also match a run
+        # of newlines, and collapsing those welds a page break into the sentence
+        # before it (and drags the page number along).
+        raw = re.sub(r"(?<=[^\s\d])[ \t]{2,}(?=[^\s])", " ", raw)
+    raw = _strip_page_furniture(raw)
     raw = drop_page_number_lines(raw)
     raw = join_wrapped_lines(raw)
     raw = sanitize_prose(raw)

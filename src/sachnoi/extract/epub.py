@@ -88,6 +88,12 @@ def _html_to_text(markup: str) -> str:
         tag.decompose()
     for tag in soup.find_all("rt"):
         tag.decompose()  # furigana reading -- reading it aloud would be noise
+    for tag in soup.find_all(["sup", "sub"]):
+        # A footnote *marker* ("[1]", "12") is noise; a real subscript is not.
+        marker = tag.get_text(strip=True)
+        classes = " ".join(tag.get("class") or []).lower()
+        if "footnote" in classes or "note" in classes or re.fullmatch(r"[\[\(]?\d+[\]\)]?", marker):
+            tag.decompose()
     for tag in soup.find_all(list(_UNWRAP_TAGS)):
         tag.unwrap()
 
@@ -141,13 +147,22 @@ def parse_document(markup: str, *, min_words: int = 40) -> list[Section]:
     text = sanitize_prose(text)
     lines = text.split("\n")
 
-    # Promote h3 (===) to h2 (==) if the book never uses h1/h2, so a book whose
-    # top level is <h3> still yields chapters.
-    has_12 = any(re.match(r"^==\s", ln) for ln in lines)
-    if not has_12:
-        lines = [re.sub(r"^===\s*(.*?)\s*===$", r"== \1 ==", ln) for ln in lines]
+    # Promote a book whose top level is <h3> (or deeper) down to <h2>, so its
+    # top-level headings become chapters. Sano applies the same "smallest
+    # heading level present becomes the chapter level" rule to .docx.
+    headings = [ln for ln in lines if re.match(r"^={2,6}\s*.*?\s*=+\s*$", ln)]
+    if headings and not any(re.match(r"^==\s*[^=]", ln) for ln in headings):
+        lines = [_promote_heading(ln) for ln in lines]
 
     return detect_chapters("\n".join(lines), min_words=min_words)
+
+
+def _promote_heading(line: str) -> str:
+    """Rewrite `==== X ====` as `== X ==`, keeping the title intact."""
+    m = re.match(r"^\s*(=+)\s*(.*?)\s*\1\s*$", line)
+    if not m:
+        return line
+    return f"== {m.group(2).strip()} =="
 
 
 def extract(
@@ -171,13 +186,20 @@ def extract(
     book = epub.read_epub(str(p), options={"ignore_ncx": True})
 
     # The spine is the reading order; the manifest order is a reasonable
-    # fallback for a malformed package.
+    # fallback for a malformed package. ebooklib 0.18+ yields
+    # `(id, href)` tuples rather than bare id strings, so both are accepted.
     items = list(getattr(book, "spine", []) or [])
     ordered: list = []
     seen: set[str] = set()
     for entry in items:
-        item = book.get_item_with_id(entry) if isinstance(entry, str) else entry
-        if item is None:
+        item: object | None
+        if isinstance(entry, str):
+            item = book.get_item_with_id(entry)
+        elif isinstance(entry, (tuple, list)) and entry:
+            item = book.get_item_with_id(entry[0])
+        else:
+            item = entry
+        if item is None or not hasattr(item, "get_name"):
             continue
         key = item.get_name()
         if key in seen:

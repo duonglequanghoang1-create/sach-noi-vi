@@ -41,6 +41,23 @@ _SETEXT_RE = re.compile(r"^([=\-~*_])\1{2,}\s*$")
 _PAGEBREAK_RE = re.compile(r"^[\s]*(pagebreak|page break|-{4,}|={4,})[\s]*$", re.IGNORECASE)
 
 
+def _is_chapter_heading_line(line: str) -> bool:
+    """A short line that reads as a chapter title, printed without markup.
+
+    A PDF has no heading structure, only the chapter word and a number, so this
+    is the only signal available. Kept deliberately narrow: a *short* line that
+    matches the chapter keyword list.
+    """
+    from . import CHAPTER_RE
+
+    s = line.strip()
+    if not s or len(s) > 70 or not CHAPTER_RE.match(s):
+        return False
+    # Reject "Chương 1 kể về những chuyến đi xa của cậu ấy." -- that is a
+    # sentence that happens to start with the keyword, not a title.
+    return len(s.split()) <= 8
+
+
 def dehyphenate(text: str) -> str:
     """Join words split across a line break by a typesetting hyphen.
 
@@ -57,8 +74,10 @@ def join_wrapped_lines(text: str) -> str:
     Rules, in order:
     * a blank line is always a paragraph break;
     * a line ending in `.`/`!`/`?`/`…` ends its paragraph;
-    * a short line surrounded by blank lines is a heading, kept as its own
-      paragraph so chapter detection can still see it;
+    * a line that reads as a chapter heading ("Chương 2", "Phần I") is kept on
+      its own -- without this, a PDF's chapter title is glued onto the first
+      sentence of the chapter and the whole book becomes one track;
+    * a short line surrounded by blank lines is kept as its own paragraph;
     * everything else is joined with a single space.
     """
     text = text.replace("\r\n", "\n").replace("\r", "\n")
@@ -72,6 +91,8 @@ def join_wrapped_lines(text: str) -> str:
         if not s.strip():
             kinds.append("blank")
         elif _MD_HEADING_RE.match(s) or _WIKITEXT_HEADING_RE.match(s) or _PAGEBREAK_RE.match(s):
+            kinds.append("heading")
+        elif _is_chapter_heading_line(s):
             kinds.append("heading")
         elif _SETEXT_RE.match(s) and i > 0 and raw[i - 1].strip():
             # Setext underline: title is the line above.

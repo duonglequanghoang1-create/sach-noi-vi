@@ -178,12 +178,16 @@ _ARROW_CONNECTIVES = (
 
 # 9b. "/" in its many meanings.
 _URL_RE = re.compile(r"(?i)\b(?:https?://|www\.)\S+|\S+@\S+\.\S+")
-_SLASH_RE = re.compile(r"([^\W_%\d][^\W_ ]*|[^\W_]+[\d.,]*)[\s]*/[\s]*([^\W_]+)", re.UNICODE)
+# The left side may be a number or a percentage ("1%/tháng"), so it is not
+# restricted to a leading letter the way the right side is.
+_SLASH_RE = re.compile(r"([^\W_]+%?)[ \t]*/[ \t]*([^\W_]+)", re.UNICODE)
 _MEASURE_SLASH_RE = re.compile(
     r"(\d[\d.,]*%?(?:[ \t]*[-–][ \t]*\d[\d.,]*%?)?[ \t]+\w+)[ \t]*/[ \t]*(\w+)", re.UNICODE
 )
 _NUMERIC_TOKEN_RE = re.compile(r"^[\d.,]+$")
-_QUANTITY_TOKEN_RE = re.compile(r"^\d[\d.,]*[^\W_]?%?$|^[^\W\d_]{1,3}$")
+#: A count with an optional unit: 200, 15k, 7kg, 5%. A leading digit is
+#: required, otherwise "ngày/tháng" becomes "ngày một tháng".
+_QUANTITY_TOKEN_RE = re.compile(r"^\d[\d.,]*[^\W_]{0,3}%?$", re.UNICODE)
 #: Units that make "X/Y" a rate: "3 ngày/tuần" -> "3 ngày một tuần".
 _PER_UNITS = frozenset(
     """năm tháng quý tuần ngày giờ phút giây người lần lượt khách đơn ca suất
