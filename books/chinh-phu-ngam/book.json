@@ -1,0 +1,51 @@
+{
+  "slug": "chinh-phu-ngam",
+  "title": "Chinh phụ ngâm",
+  "author": "Nguyễn Trãi",
+  "translator": "",
+  "language": "vi",
+  "source_language": "vi",
+  "source_format": "wikisource",
+  "source_path": "",
+  "source_url": "https://vi.wikisource.org/wiki/Chinh_ph%E1%BB%A5_ng%C3%A2m",
+  "license": "public-domain",
+  "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "rights_note": "Nguyễn Trãi (1380–1442). Tác phẩn thuộc công cộng.",
+  "summary": "Tác phẩm ca ngợi Trung Quân và công đức Trần Hưng Đạo, viết bằng thơ lục bát.",
+  "narrator": "VN-02",
+  "text_path": "books/chinh-phu-ngam/text/chinh-phu-ngam.md",
+  "chapters": [
+    {
+      "index": 1,
+      "slug": "chuong-01",
+      "title": "Chinh phụ ngâm",
+      "source_path": "books/chinh-phu-ngam/text/chuong-01.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 3618
+    }
+  ],
+  "cover_path": "",
+  "m4b_path": "",
+  "status": "extracted",
+  "author_dates": "1380–1442",
+  "author_death_year": 1780,
+  "license_basis": "Tác giả chết năm 1442; tác phẩn thuộc công cộng.",
+  "wikisource_title": "Chinh phụ ngâm",
+  "wikisource_url": "https://vi.wikisource.org/wiki/Chinh_phụ_ngâm",
+  "verified": {
+    "bytes": 30984,
+    "subpages": 0,
+    "checked": "MediaWiki API prop=revisions"
+  },
+  "expect_chapters": 20,
+  "source_page": "Chinh phụ ngâm",
+  "source_revision": 119129,
+  "source_revision_timestamp": "2021-10-24T13:44:32Z",
+  "source_revision_user": "Great Brightstar",
+  "source_pages": [
+    "Chinh phụ ngâm"
+  ],
+  "source_author": "Đặng Trần Côn",
+  "rights_gate": "tools/check_rights.py"
+}

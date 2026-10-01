@@ -1,0 +1,84 @@
+{
+  "book": {
+    "slug": "truyen-kieu",
+    "title": "Truyện Kiều",
+    "author": "Nguyễn Du",
+    "translator": "",
+    "language": "vi",
+    "source_language": "vi",
+    "source_format": "wikisource",
+    "source_path": "",
+    "source_url": "https://vi.wikisource.org/wiki/Truy%E1%BB%87n_Ki%E1%BB%81u",
+    "license": "public-domain",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "rights_note": "Nguyễn Du (1765–1820). Tác phẩn thuộc công cộng. Bản Wikisource nên theo văn bản của Bảo Nghiêm (sau 1820) và Đoàn Thị Điểm; nếu trang ghi rõ bản dịch của ai thì ghi vào translator.",
+    "summary": "Tác phẩm kinh điển của Nguyễn Du, được coi là bản thơ chuẩn của tiếng Việt.",
+    "narrator": "VN-01",
+    "text_path": "books/truyen-kieu/text/truyen-kieu.md",
+    "chapters": [
+      {
+        "index": 1,
+        "slug": "chuong-01",
+        "title": "Truyện Kiều",
+        "source_path": "books/truyen-kieu/text/chuong-01.md",
+        "audio_path": null,
+        "duration_sec": null,
+        "word_count": 4805
+      },
+      {
+        "index": 2,
+        "slug": "chuong-02",
+        "title": "Truyện Kiều (tiếp 2)",
+        "source_path": "books/truyen-kieu/text/chuong-02.md",
+        "audio_path": null,
+        "duration_sec": null,
+        "word_count": 4807
+      },
+      {
+        "index": 3,
+        "slug": "chuong-03",
+        "title": "Truyện Kiều (tiếp 3)",
+        "source_path": "books/truyen-kieu/text/chuong-03.md",
+        "audio_path": null,
+        "duration_sec": null,
+        "word_count": 4807
+      },
+      {
+        "index": 4,
+        "slug": "chuong-04",
+        "title": "Truyện Kiều (tiếp 4)",
+        "source_path": "books/truyen-kieu/text/chuong-04.md",
+        "audio_path": null,
+        "duration_sec": null,
+        "word_count": 4807
+      },
+      {
+        "index": 5,
+        "slug": "chuong-05",
+        "title": "Truyện Kiều (tiếp 5)",
+        "source_path": "books/truyen-kieu/text/chuong-05.md",
+        "audio_path": null,
+        "duration_sec": null,
+        "word_count": 3575
+      },
+      {
+        "index": 6,
+        "slug": "chuong-06",
+        "title": "Truyện Kiều (tiếp 6)",
+        "source_path": "books/truyen-kieu/text/chuong-06.md",
+        "audio_path": null,
+        "duration_sec": null,
+        "word_count": 7
+      }
+    ],
+    "cover_path": "",
+    "m4b_path": "",
+    "status": "extracted"
+  },
+  "stage": "extract",
+  "created_at": "2026-10-01T18:37:33+00:00",
+  "notes": [
+    "chapter count 1 != catalog expect_chapters 92; the source has no more structure than this",
+    "1 source section(s) were split into 6 audio chapters at 6000 words; the work has no internal headings, so part titles are mechanical continuations, not real chapters"
+  ]
+}

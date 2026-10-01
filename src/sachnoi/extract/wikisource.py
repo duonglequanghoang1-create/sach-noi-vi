@@ -892,6 +892,61 @@ def extract(
     raise LookupError("; ".join(notes) or f"cannot fetch {url}")
 
 
+def page_authorship(page_wiki: str) -> dict[str, str]:
+    """Read `tác giả` / `dịch giả` / `năm` out of the page's own header template.
+
+    Worth doing even when we do not need it: the catalog and the source can
+    disagree. `catalog/books.json` credits *Chinh phụ ngâm* to Nguyễn Trãi, but
+    the page's own `{{đầu đề}}` says Đặng Trần Côn (Nguyễn Trãi wrote the
+    preface to *Văn Tế*, which is the confusion). A rights claim has to be made
+    about the person who actually wrote the work, so the build records both and
+    says so.
+    """
+    parsed = _parse_template(page_wiki, page_wiki.find("{{"))
+    if parsed is None:
+        return {}
+    _name, params, _end = parsed
+    if _norm_title(_name) not in _TITLE_NORMS and "tác giả" not in {
+        k for k, _ in params if k
+    }:
+        # Not a header template; try the first template that carries `tác giả`.
+        for start in _iter_template_starts(page_wiki):
+            got = _parse_template(page_wiki, start)
+            if got and any(k == "tác giả" for k, _ in got[1] if k):
+                parsed = got
+                break
+        else:
+            return {}
+    _name, params, _end = parsed
+    keyed: dict[str, str] = {}
+    for key, value in params:
+        if key:
+            keyed.setdefault(key, _unwrap_templates(value).strip())
+    out = {}
+    for field, keys in (
+        ("author", ("tác giả", "tac gia")),
+        ("translator", ("dịch giả", "dich gia", "người dịch")),
+        ("year", ("năm", "nam")),
+    ):
+        for k in keys:
+            if keyed.get(k):
+                out[field] = keyed[k]
+                break
+    return out
+
+
+def _iter_template_starts(text: str, limit: int = 200) -> Iterable[int]:
+    i = 0
+    seen = 0
+    while seen < limit:
+        j = text.find("{{", i)
+        if j < 0:
+            return
+        yield j
+        i = j + 2
+        seen += 1
+
+
 def _sections_from_wikitext(page_title: str, wiki: str, *, min_words: int) -> list[Section]:
     """Sections for one page, from its wikitext."""
     found = split_wikitext_sections(wiki, min_words=min_words)
@@ -1016,6 +1071,7 @@ def _extract_one(
                 "revision_timestamp": rev.timestamp,
                 "revision_user": rev.user,
                 "pages": pages,
+                "authorship": page_authorship(wiki),
             },
         )
     finally:

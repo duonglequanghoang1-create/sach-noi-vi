@@ -1,0 +1,52 @@
+{
+  "slug": "hoa-phi",
+  "title": "Đại Đồng phong cảnh phú",
+  "author": "Phan Phu Tiên",
+  "translator": "",
+  "language": "vi",
+  "source_language": "vi",
+  "source_format": "wikisource",
+  "source_path": "",
+  "source_url": "https://vi.wikisource.org/wiki/%C4%90%E1%BA%A1i_%C4%90%E1%BB%93ng_phong_c%E1%BA%A3nh_ph%C3%BA",
+  "license": "public-domain",
+  "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "rights_note": "Phan Phu Tiên (1712–1780). Tác phẩm thuộc công cộng.",
+  "summary": "Hoành phi độc nhất của Phan Phu Tiên. Tác phẩm ngắn, hợp làm mẫu kiểm thử nhanh.",
+  "narrator": "VN-05",
+  "text_path": "books/hoa-phi/text/hoa-phi.md",
+  "chapters": [
+    {
+      "index": 1,
+      "slug": "chuong-01",
+      "title": "Đại Đồng phong cảnh phú",
+      "source_path": "books/hoa-phi/text/chuong-01.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 318
+    }
+  ],
+  "cover_path": "",
+  "m4b_path": "",
+  "status": "extracted",
+  "author_dates": "1712–1780",
+  "author_death_year": 1780,
+  "license_basis": "Tác giả chết năm 1780; tác phẩn thuộc công cộng.",
+  "wikisource_title": "Đại Đồng phong cảnh phú",
+  "wikisource_url": "https://vi.wikisource.org/wiki/Đại_Đồng_phong_cảnh_phú",
+  "verified": {
+    "bytes": 3979,
+    "subpages": 0,
+    "checked": "MediaWiki API prop=revisions"
+  },
+  "expect_chapters": 1,
+  "notes": "Bài ngắn (~4 KB). Dùng làm ca end-to-end nhanh nhất.",
+  "source_page": "Đại Đồng phong cảnh phú",
+  "source_revision": 175515,
+  "source_revision_timestamp": "2024-07-04T09:56:32Z",
+  "source_revision_user": "Hongphubk",
+  "source_pages": [
+    "Đại Đồng phong cảnh phú"
+  ],
+  "source_author": "Nguyễn Hàng",
+  "rights_gate": "tools/check_rights.py"
+}

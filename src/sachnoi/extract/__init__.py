@@ -575,18 +575,29 @@ def render_chapter_markdown(section: Section, *, index: int | None = None) -> st
     * a blank line between every paragraph;
     * one sentence per line inside a paragraph;
     * no HTML, images, tables, footnotes or emphasis markers.
+
+    A line break already present in the source is *kept* and each of its lines
+    is then split into sentences. That matters for verse: `Truyện Kiều` is one
+    câu thơ per line with no sentence-final punctuation at all, so collapsing the
+    lines would produce a 4,000-word run-on paragraph and no TTS could place a
+    pause. Prose has already been unwrapped upstream (`txt.join_wrapped_lines`,
+    `pdftotext -layout` + the same repair), so keeping its breaks costs nothing.
     """
-    title = chapter_title(section.title)
+    heading = f"# {chapter_title(section.title)}"
     body = sanitize_prose(section.text)
     paragraphs = [p.strip() for p in re.split(r"\n\s*\n", body) if p.strip()]
-    # A "paragraph" can also be a run of soft-wrapped lines; group them.
+
     grouped: list[str] = []
     for para in paragraphs:
-        sentences = split_sentences(re.sub(r"\s*\n\s*", " ", para))
-        text = " ".join(sentences).strip()
-        if text:
-            grouped.append(text)
-    heading = f"# {title}"
+        lines: list[str] = []
+        for raw_line in para.split("\n"):
+            line = raw_line.strip()
+            if not line:
+                continue
+            sentences = split_sentences(line)
+            lines.extend(sentences or [line])
+        if lines:
+            grouped.append("\n".join(lines))
     if not grouped:
         return f"{heading}\n"
     return heading + "\n\n" + "\n\n".join(grouped) + "\n"
@@ -674,6 +685,7 @@ def split_oversized(
     *,
     max_words: int = 6000,
     min_words: int = 400,
+    base_title: str = "",
 ) -> list[Section]:
     """Break a chapter that is too long for one audio track, at paragraph edges.
 
@@ -683,8 +695,11 @@ def split_oversized(
     lie about the source.
 
     So the split is mechanical, on paragraph boundaries, and every part is
-    labelled as a continuation (`Chương một (tiếp 2)`). The caller records the
+    labelled as a continuation (`<title> (tiếp 2)`). The caller records the
     fact in the manifest, and nothing pretends the work has chapters it does not.
+
+    `base_title` replaces a generic placeholder title ("Nội dung") so a
+    structureless work is named after the work rather than after nothing.
 
     Returns the input unchanged when nothing is oversized.
     """
@@ -692,17 +707,28 @@ def split_oversized(
         return list(sections)
     out: list[Section] = []
     for sec in sections:
+        title = _rename_placeholder(sec.title, base_title)
         if sec.word_count <= max_words:
-            out.append(sec)
+            out.append(dataclasses.replace(sec, title=title))
             continue
         parts = _split_text_by_words(sec.text, max_words=max_words, min_words=min_words)
         if len(parts) <= 1:
-            out.append(sec)
+            out.append(dataclasses.replace(sec, title=title))
             continue
         for i, chunk in enumerate(parts, start=1):
-            title = sec.title if i == 1 else f"{sec.title} (tiếp {i})"
-            out.append(Section(title=title, text=chunk, level=sec.level))
+            part_title = title if i == 1 else f"{title} (tiếp {i})"
+            out.append(Section(title=part_title, text=chunk, level=sec.level))
     return out
+
+
+def _rename_placeholder(title: str, base_title: str) -> str:
+    """Swap a generic detected title for the real work title, if we have one."""
+    if not base_title:
+        return title
+    stripped = re.sub(r"^[\d\W_]+", "", title or "").strip()
+    if stripped in {"Nội dung", "Phần mở đầu", "Nội Dung", ""}:
+        return base_title
+    return title
 
 
 def _split_text_by_words(text: str, *, max_words: int, min_words: int) -> list[str]:
@@ -754,17 +780,20 @@ def _split_long_paragraph(para: str, *, max_words: int) -> list[str]:
     for line in lines:
         n = count_words(line)
         if buf and size + n > max_words:
-            out.append(" ".join(buf))
+            # Keep the hard line breaks: for verse one câu thơ per line is the
+            # unit the narrator needs, and for prose the lines are already
+            # sentences.
+            out.append("\n".join(buf))
             buf, size = [line], n
             continue
         buf.append(line)
         size += n
         # Cut early at a sentence end so a chunk does not end mid-thought.
         if size >= max_words * 0.8 and _SENTENCE_TAIL_RE.search(line):
-            out.append(" ".join(buf))
+            out.append("\n".join(buf))
             buf, size = [], 0
     if buf:
-        out.append(" ".join(buf))
+        out.append("\n".join(buf))
     return out
 
 

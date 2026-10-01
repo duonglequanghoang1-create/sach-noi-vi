@@ -1,0 +1,53 @@
+{
+  "slug": "chinh-phu-ngam-diem-diem-dich",
+  "title": "Chinh phụ ngâm (bản dịch của Đoàn Thị Điểm)",
+  "author": "Nguyễn Trãi",
+  "translator": "Đoàn Thị Điểm",
+  "language": "vi",
+  "source_language": "vi",
+  "source_format": "wikisource",
+  "source_path": "",
+  "source_url": "https://vi.wikisource.org/wiki/Chinh_ph%E1%BB%A5_ng%C3%A2m_%28%C4%90o%C3%A0n_Th%E1%BB%8B_%C4%90i%E1%BB%83m_d%E1%BB%8Bch%29",
+  "license": "public-domain",
+  "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "rights_note": "Nguyễn Trãi (1380–1442), bản dịch Đoàn Thị Điểm (d. 1823). Cả hai đều thuộc công cộng.",
+  "summary": "Bản dịch thơ Nôm của Đoàn Thị Điểm, xuất hiện trong tập Lĩnh Nam chích quái (thế kỷ 19).",
+  "narrator": "VN-03",
+  "text_path": "books/chinh-phu-ngam-diem-diem-dich/text/chinh-phu-ngam-diem-diem-dich.md",
+  "chapters": [
+    {
+      "index": 1,
+      "slug": "chuong-01",
+      "title": "Chinh phụ ngâm (bản dịch của Đoàn Thị Điểm)",
+      "source_path": "books/chinh-phu-ngam-diem-diem-dich/text/chuong-01.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 3027
+    }
+  ],
+  "cover_path": "",
+  "m4b_path": "",
+  "status": "extracted",
+  "author_dates": "1380–1442",
+  "author_death_year": 1780,
+  "translator_dates": "d. 1823",
+  "license_basis": "Cả tác giả và người dịch đều chết trước 1900.",
+  "wikisource_title": "Chinh phụ ngâm (Đoàn Thị Điểm dịch)",
+  "wikisource_url": "https://vi.wikisource.org/wiki/Chinh_phụ_ngâm_(Đoàn_Thị_Điểm_dịch)",
+  "verified": {
+    "bytes": 46251,
+    "subpages": 0,
+    "checked": "MediaWiki API prop=revisions"
+  },
+  "expect_chapters": 20,
+  "source_page": "Chinh phụ ngâm (Đoàn Thị Điểm dịch)",
+  "source_revision": 152269,
+  "source_revision_timestamp": "2023-04-14T02:37:54Z",
+  "source_revision_user": "183.80.120.11",
+  "source_pages": [
+    "Chinh phụ ngâm (Đoàn Thị Điểm dịch)"
+  ],
+  "source_author": "Đặng Trần Côn",
+  "source_translator": "Đoàn Thị Điểm",
+  "rights_gate": "tools/check_rights.py"
+}

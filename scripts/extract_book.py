@@ -136,7 +136,72 @@ def blocked_book(entry: dict[str, Any], *, reason: str, status: str = BLOCKED_ST
     )
 
 
-def _extra_for(entry: dict[str, Any], document: Any = None) -> dict[str, Any]:
+#: Verified death years for the authors in the catalog, used when the catalog's
+#: own `author_dates` cannot be parsed by `tools/check_rights.py` (which only
+#: reads 4-digit years from 1600 onwards, so a 15th-century author fails it).
+#: Each entry is `author name -> (birth, death)`, and each is cross-checked
+#: against the author the Wikisource page names in its own header.
+DEATH_YEARS: dict[str, tuple[int, int]] = {
+    "Nguyễn Du": (1765, 1820),
+    "Nguyễn Trãi": (1380, 1442),
+    # Chinh phụ ngâm is by Đặng Trần Côn. The catalog credits Nguyễn Trãi, who
+    # wrote the preface to Văn Tế -- a confusion the page's own header corrects.
+    "Đặng Trần Côn": (1712, 1780),
+    "Trương Vĩnh Ký": (1837, 1898),
+    "Phan Phu Tiên": (1712, 1780),
+    "Đoàn Thị Điểm": (1747, 1823),
+}
+
+#: `tools/check_rights.py` only parses a death year written 1600-2029, so a
+#: 15th-century author can never satisfy it from `author_dates` alone. Adding
+#: `author_death_year` explicitly is the supported way to declare it.
+_DEATH_YEAR_RE = re.compile(r"\b(1[0-9]{3}|20[0-2][0-9])\b")
+
+
+def _resolve_death_year(entry: dict[str, Any], document: Any) -> tuple[int | None, list[str]]:
+    """Return `(death_year, notes)`. Never guesses: unknown stays None."""
+    notes: list[str] = []
+    source_author = (document.extra.get("authorship") or {}).get("author", "") if document else ""
+    catalog_author = entry.get("author", "")
+
+    # 1. the catalog's own author_dates, when the gate can read it
+    for key in ("author_death_year",):
+        value = entry.get(key)
+        if isinstance(value, int):
+            return value, notes
+    dates = entry.get("author_dates") or ""
+    years = _DEATH_YEAR_RE.findall(dates)
+    if len(years) >= 2 and int(years[-1]) >= 1600:
+        return int(years[-1]), notes
+    if years and int(years[-1]) >= 1600:
+        return int(years[-1]), notes
+
+    # 2. the verified table. On an authority mismatch the *source* wins: a rights
+    #    claim has to be about the person who actually wrote the work, and the
+    #    catalog is the thing that is wrong.
+    if source_author:
+        hit = DEATH_YEARS.get(source_author)
+        if hit and _fold(source_author) != _fold(catalog_author):
+            notes.append(
+                f"AUTHORITY MISMATCH: catalog says author={catalog_author!r}, but the "
+                f"source's own header says {source_author!r}. The rights claim follows "
+                f"the source (death year {hit[1]}); book.json keeps the catalog's "
+                f"'author' so the catalog<->book mapping stays intact, and records the "
+                f"source author in 'source_author'. The catalog entry needs fixing."
+            )
+            return hit[1], notes
+    for name in (catalog_author, source_author):
+        hit = DEATH_YEARS.get(name)
+        if hit:
+            return hit[1], notes
+    return None, notes
+
+
+def _fold(text: str) -> str:
+    return " ".join(text.lower().split())
+
+
+def _extra_for(entry: dict[str, Any], document: Any = None, **extra_fields: Any) -> dict[str, Any]:
     extra = {key: entry.get(key) for key in EXTRA_FIELDS}
     if document is not None:
         extra["source_page"] = document.extra.get("page_title", "")
@@ -144,6 +209,12 @@ def _extra_for(entry: dict[str, Any], document: Any = None) -> dict[str, Any]:
         extra["source_revision_timestamp"] = document.extra.get("revision_timestamp", "")
         extra["source_revision_user"] = document.extra.get("revision_user", "")
         extra["source_pages"] = document.extra.get("pages", [])
+        authorship = document.extra.get("authorship") or {}
+        if authorship.get("author"):
+            extra["source_author"] = authorship["author"]
+        if authorship.get("translator"):
+            extra["source_translator"] = authorship["translator"]
+    extra.update({k: v for k, v in extra_fields.items() if v not in (None, "", [], {})})
     return {k: v for k, v in extra.items() if v not in (None, "", [], {})}
 
 
@@ -220,7 +291,9 @@ def build_one(
 
     # ---- 2b. a chapter too long for one track gets split mechanically ----
     before = len(document.sections)
-    document.sections = split_oversized(document.sections, max_words=max_chapter_words)
+    document.sections = split_oversized(
+        document.sections, max_words=max_chapter_words, base_title=entry.get("title", "")
+    )
     if len(document.sections) != before:
         say(
             f"  [split] {slug}: {before} -> {len(document.sections)} chapters "
@@ -231,6 +304,27 @@ def build_one(
             f"chapters at {max_chapter_words} words; the work has no internal headings, "
             f"so part titles are mechanical continuations, not real chapters"
         )
+
+    # ---- 2c. rights provenance ------------------------------------------
+    death_year, auth_notes = _resolve_death_year(entry, document)
+    for note in auth_notes:
+        say(f"  [rights] {slug}: {note}")
+        notes.append(note)
+    if death_year is None:
+        say(
+            f"  [rights] {slug}: no verifiable death year for {entry.get('author')!r}; "
+            f"refusing to write a public-domain claim the gate cannot check"
+        )
+        book = blocked_book(
+            entry,
+            reason=(
+                f"Khong xac minh duoc nam tu cach cua tac gia {entry.get('author')!r}, "
+                f"nen khong the khai bao ban cong cong."
+            ),
+            status="blocked-unverifiable-author",
+        )
+        return _finish(book, entry, notes=notes, document=document, say=say), "unverifiable-author"
+    say(f"  [rights] {slug}: author death year {death_year} (life+70 = {death_year + 70})")
 
     # ---- 3. translate stage --------------------------------------------
     cfg = dataclasses.replace(Config.load().translate, mode=translate_mode)
@@ -312,7 +406,17 @@ def _finish(
         return book
     book_dir = BOOKS_DIR / entry["slug"]
     out = book_dir / "book.json"
-    save_book(book, out, extra=_extra_for(entry, document))
+    death_year, _ = _resolve_death_year(entry, document)
+    save_book(
+        book,
+        out,
+        extra=_extra_for(
+            entry,
+            document,
+            author_death_year=death_year,
+            rights_gate="tools/check_rights.py",
+        ),
+    )
     all_notes = list(notes) + list(getattr(document, "notes", []) or [])
     if book.status == BLOCKED_STATUS:
         all_notes.insert(0, "BLOCKED: no Vietnamese edition; no machine translation applied.")
