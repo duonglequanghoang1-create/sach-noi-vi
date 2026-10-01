@@ -38,3 +38,4 @@ books/*/dist/*.m4b
 .DS_Store
 .idea/
 .vscode/
+# Local safety net: refuse commits that stage a non-public-domain book.
