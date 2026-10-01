@@ -1,7 +1,12 @@
 {
   "note": "CHUAN DU LIEU — suy ra khong duoc may dich. Chi dua vao trang co ban tieng Viet da cong khai, hoac tac pham chua ban dich (status=blocked-no-vi-source) de khong bao gio gia mao ban dich. Moi muc 'verified' la ket qua kiem truc tiep bang MediaWiki API; dung no de kiem chung lai truoc khi nap. Mot muc co 'subpages' thi truc goc chi la trang muc, noi dung nam o trang con dung tien to 'Title/'.",
   "license_ruLe": {
-    "allow": ["public-domain", "CC0", "CC-BY-4.0", "CC-BY-SA-4.0"],
+    "allow": [
+      "public-domain",
+      "CC0",
+      "CC-BY-4.0",
+      "CC-BY-SA-4.0"
+    ],
     "coSo": "Tac gia chet truoc 01/01/2012: tac pham thuoc cong cong (Luat Ban quyen 2005/Nghi dinh 49/2013/ND-CP). Toan so muc day deu chet truoc 1900.",
     "camKet": "Neu khong chay duoc mau 'verified' thi doi sang status=blocked-no-vi-source. KHONG bao gio may dich."
   },
@@ -21,16 +26,22 @@
       "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
       "license_basis": "Tác giả chết năm 1820; tác phẩn thuộc công cộng.",
       "rights_note": "Nguyễn Du (1765–1820). Tác phẩn thuộc công cộng. Bản Wikisource nên theo văn bản của Bảo Nghiêm (sau 1820) và Đoàn Thị Điểm; nếu trang ghi rõ bản dịch của ai thì ghi vào translator.",
-      "verified": { "bytes": 148663, "subpages": 0, "checked": "MediaWiki API prop=revisions" },
+      "verified": {
+        "bytes": 148663,
+        "subpages": 0,
+        "checked": "MediaWiki API prop=revisions"
+      },
       "expect_chapters": 92,
       "narrator": "VN-01",
-      "summary": "Tác phẩm kinh điển của Nguyễn Du, được coi là bản thơ chuẩn của tiếng Việt."
+      "summary": "Tác phẩm kinh điển của Nguyễn Du, được coi là bản thơ chuẩn của tiếng Việt.",
+      "notes": "Phai chia theo CAU TRUC THO CUA BAI (92 cau tho / cac phan), KHONG chia theo so byte. Ban hien tai cat thanh 6 muc ~4800 chu va muc cuoi chi 7 chu.",
+      "min_chapter_words": 400
     },
     {
       "slug": "chinh-phu-ngam",
       "title": "Chinh phụ ngâm",
-      "author": "Nguyễn Trãi",
-      "author_dates": "1380–1442",
+      "author": "Đặng Trần Côn",
+      "author_dates": "d. 1780",
       "source_language": "vi",
       "language": "vi",
       "translator": "",
@@ -39,18 +50,23 @@
       "wikisource_url": "https://vi.wikisource.org/wiki/Chinh_phụ_ngâm",
       "license": "public-domain",
       "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-      "license_basis": "Tác giả chết năm 1442; tác phẩn thuộc công cộng.",
-      "rights_note": "Nguyễn Trãi (1380–1442). Tác phẩn thuộc công cộng.",
-      "verified": { "bytes": 30984, "subpages": 0, "checked": "MediaWiki API prop=revisions" },
-      "expect_chapters": 20,
+      "license_basis": "Tác giả chết năm 1780; tác phẩm thuộc công cộng.",
+      "rights_note": "Đặng Trần Côn (d. 1780). Tác phẩm thuộc công cộng.",
+      "verified": {
+        "bytes": 30984,
+        "subpages": 0,
+        "checked": "MediaWiki API prop=revisions; header nguon khai tac gia = Đặng Trần Côn"
+      },
+      "expect_chapters": 1,
       "narrator": "VN-02",
-      "summary": "Tác phẩm ca ngợi Trung Quân và công đức Trần Hưng Đạo, viết bằng thơ lục bát."
+      "summary": "Chinh phụ ngâm khúc của Đặng Trần Côn, thơ lục bát ra đời khoảng năm 1741 thời Cảnh Hưng.",
+      "authority_note": "Có nhầm lẫn thường gặp: Nguyễn Trãi có một Chinh phụ ngâm bằng chữ Hán năm 1428, nhưng bản chữ Nôm mà Wikisource đăng là của Đặng Trần Côn. Trang nguồn tự khai tác giả là Đặng Trần Côn. Lấy đúng trang này thì tác giả phải là Đặng Trần Côn, không phải Nguyễn Trãi."
     },
     {
       "slug": "chinh-phu-ngam-diem-diem-dich",
       "title": "Chinh phụ ngâm (bản dịch của Đoàn Thị Điểm)",
-      "author": "Nguyễn Trãi",
-      "author_dates": "1380–1442",
+      "author": "Đặng Trần Côn",
+      "author_dates": "d. 1780",
       "source_language": "vi",
       "language": "vi",
       "translator": "Đoàn Thị Điểm",
@@ -61,11 +77,16 @@
       "license": "public-domain",
       "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
       "license_basis": "Cả tác giả và người dịch đều chết trước 1900.",
-      "rights_note": "Nguyễn Trãi (1380–1442), bản dịch Đoàn Thị Điểm (d. 1823). Cả hai đều thuộc công cộng.",
-      "verified": { "bytes": 46251, "subpages": 0, "checked": "MediaWiki API prop=revisions" },
-      "expect_chapters": 20,
+      "rights_note": "Đặng Trần Côn (d. 1780), bản dịch Đoàn Thị Điểm (d. 1823). Cả hai đều thuộc công cộng.",
+      "verified": {
+        "bytes": 46251,
+        "subpages": 0,
+        "checked": "MediaWiki API prop=revisions; header nguon khai tac gia = Đặng Trần Côn"
+      },
+      "expect_chapters": 1,
       "narrator": "VN-03",
-      "summary": "Bản dịch thơ Nôm của Đoàn Thị Điểm, xuất hiện trong tập Lĩnh Nam chích quái (thế kỷ 19)."
+      "summary": "Bản dịch thơ Nôm của Đoàn Thị Điểm, lưu trong Lĩnh Nam chích quái (thế kỷ 19).",
+      "authority_note": "Tác giả là Đặng Trần Côn, không phải Nguyễn Trãi. Xem authority_note của muc chinh-phu-ngam."
     },
     {
       "slug": "truyen-kieu-ban-truong-vinh-ky-1911",
@@ -82,11 +103,16 @@
       "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
       "license_basis": "Bản 1911 của Trương Vĩnh Ký (1837–1898), tác giả chết năm 1898.",
       "rights_note": "Nguyễn Du; bản in Trương Vĩnh Ký năm 1911. Tác phẩm thuộc công cộng.",
-      "verified": { "bytes": 768, "subpages": 6, "checked": "MediaWiki API list=allpages apprefix" },
+      "verified": {
+        "bytes": 768,
+        "subpages": 6,
+        "checked": "MediaWiki API list=allpages apprefix"
+      },
       "expect_chapters": 6,
       "narrator": "VN-04",
       "summary": "Bản in kinh điển năm 1911. Trang gốc chỉ là trang mục, nội dung nằm ở 6 trang con.",
-      "notes": "Dùng mục này để kiểm tra đường 'trang muc + trang con' trong backend wikisource."
+      "notes": "Ban in 1911. CAN SUA TRUOC KHI NARRATE: 47/71 chuong nguon duoi 100 chu (trung binh 60 chu) => moi chuong ~30 giay audio. Toan bo front matter (nha xuat ban, Avant-propos tieng Phap, muc luc) dang bi coi nhu chuong. Phai don front matter va gom cac phu \"AN\" vao muc cha.",
+      "min_chapter_words": 400
     },
     {
       "slug": "hoa-phi",
@@ -103,7 +129,11 @@
       "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
       "license_basis": "Tác giả chết năm 1780; tác phẩn thuộc công cộng.",
       "rights_note": "Phan Phu Tiên (1712–1780). Tác phẩm thuộc công cộng.",
-      "verified": { "bytes": 3979, "subpages": 0, "checked": "MediaWiki API prop=revisions" },
+      "verified": {
+        "bytes": 3979,
+        "subpages": 0,
+        "checked": "MediaWiki API prop=revisions"
+      },
       "expect_chapters": 1,
       "narrator": "VN-05",
       "summary": "Hoành phi độc nhất của Phan Phu Tiên. Tác phẩm ngắn, hợp làm mẫu kiểm thử nhanh.",
@@ -123,12 +153,15 @@
       "license": "public-domain",
       "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
       "license_basis": "Tác giả chết năm 1898; tác phẩm thuộc công cộng.",
-      "rights_note": "Trương Vĩnh Ký (1837–1898). Tác phẩm thuộc công cộng.",
-      "verified": { "bytes": 265, "subpages": 0, "checked": "MediaWiki API prop=revisions" },
-      "expect_chapters": 3,
+      "rights_note": "Trương Vĩnh Ký (1837–1898). Tác phẩm thuộc công cộng. KHÔNG NẠP ĐƯỢC: cả bản \"Lục Vân Tiên\" lẫn \"Lục Vân Tiên (bản Quốc ngữ 2082 câu)\" trên vi.wikisource.org đều là trang stub ~1 KB chỉ trỏ sang nomna.org, không có văn bản. Ghi chú \"nội dung nằm ở trang con\" trước đây là SAI.",
+      "verified": {
+        "bytes": 265,
+        "subpages": 0,
+        "checked": "MediaWiki API; ca hai ban deu la stub tro sang nomna.org"
+      },
       "narrator": "VN-01",
       "summary": "Trường thi bằng Hán tự do Trương Vĩnh Ký soạn, lấy theo Văn Tế của Nguyễn Trãi. Trang gốc rất nhỏ, nội dung ở trang con.",
-      "notes": "Trang gốc chỉ 265 byte. Phải nạp trang con, nếu không sẽ ra sách rỗng."
+      "notes": "Nội dung KHÔNG nằm ở trang con. Cả hai bản đều stub. Cần nguồn khác hoặc giữ blocked."
     }
   ],
   "viet_nam_co_ban_dich": [
