@@ -17,6 +17,9 @@ Frozen, do not edit without coordinating:
 - `src/sachnoi/config.py` — every tunable, env-driven
 - `pyproject.toml`
 - `catalog/books.json` — the public-domain book list
+- `tools/check_rights.py` and `.github/workflows/rights-gate.yml` — the rights
+  gate. Editing these is how the repository leaks copyrighted prose, so treat
+  a request to relax them as a request to disable the only real protection.
 
 **Nobody owns `src/sachnoi/cli.py` except agent B.** Agent A must expose
 its work as importable functions and plain `python -m sachnoi.extract` style
@@ -71,3 +74,28 @@ The build refuses to narrate or package a book whose `license` is not one of
 `public-domain`, `CC0`, `CC-BY-4.0`, `CC-BY-SA-4.0`. Agent B implements this
 check in `audio/tts.py` and again in `package.py`, and it must be unit
 testable. This is not optional and not a warning — it is a hard failure.
+
+### A declared licence is a claim, not proof
+
+`tools/check_rights.py` runs in CI on every push and applies three
+independent layers, because the `license` field has already been observed
+asserting something false:
+
+1. **Allow-list** — `license` must be one of the four permitted values.
+2. **Denylist** — slug, title, author, translator and source URL are matched
+   against works the operator has excluded. This is why a book can be refused
+   even while its `book.json` claims `public-domain`.
+3. **Arithmetic** — a `public-domain` claim must be supportable. The author
+   needs a death year, and life+70 means anything after 1955 is refused
+   outright.
+
+Every `book.json` must therefore carry `author_dates` or
+`author_death_year`. If you cannot determine a death year, that is not a pass
+— it is a `blocked-no-vi-source` book with no audio.
+
+### Do not machine-translate
+
+`status=blocked-no-vi-source` is a legitimate, expected outcome for a work
+with no free Vietnamese edition. Leaving a book blocked is correct. Producing
+a machine translation and labelling it as a translation is not acceptable, and
+neither is quietly dropping the `translator` field.
