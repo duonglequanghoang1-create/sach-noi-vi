@@ -112,6 +112,7 @@ class Revision:
     timestamp: str = ""
     user: str = ""
     title: str = ""
+    pageid: int = 0
 
     def describe(self) -> str:
         when = self.timestamp.replace("T", " ").replace("Z", " UTC") if self.timestamp else "?"
@@ -257,6 +258,7 @@ class MediaWikiClient:
             timestamp=str(rev.get("timestamp", "")),
             user=str(rev.get("user", "")),
             title=str(page.get("title", title)),
+            pageid=int(page.get("pageid", 0) or 0),
         )
 
     def subpages(self, title: str) -> list[str]:
@@ -343,6 +345,140 @@ def _strip_templates(text: str) -> str:
     return re.sub(r"\{\{[^{}]*\}\}", "", text)  # any pathological remnant
 
 
+#: Vietnamese Wikisource wraps a chapter's prose in `{{văn| ... }}` and puts the
+#: chapter name in a `{{đầu đề}}` header template. These carry the *content*, so
+#: they must be unwrapped rather than deleted -- removing them as ordinary
+#: templates silently destroys the whole chapter.
+CONTENT_TEMPLATES = frozenset(
+    {
+        "văn", "van", "văn bản", "van ban", "text", "thơ", "thơ ca", "poem",
+        "truyện", "truyện ngắn", "truyện dài", "kịch bản",
+        # `{{drop cap|B}}ắt đầu từ gà gáy` -- the first letter of the chapter is
+        # a parameter, so deleting the template would eat the word's first
+        # character. This one is easy to miss and produces subtly broken prose.
+        "drop cap", "dropcap", "drop-cap", "hoa chữ", "hoa chữ đầu",
+    }
+)
+#: Header templates whose `phần` parameter is the chapter title. Emitted as a
+#: `==` heading so the chapter keeps its name after the template is unwrapped.
+TITLE_TEMPLATES = frozenset({"đầu đề", "đầu đề sách", "đầu đề tác phẩm", "tiêu đề", "header"})
+_TITLE_PARAM_KEYS = ("phần", "phan", "chương", "mục", "phụ lục", "tên phần", "tiêu đề phần", "mục lục")
+_KEYED_PARAM_RE = re.compile(r"^[\s]*([\wÀ-ỹ][\wÀ-ỹ \-]*?)[\s]*=")
+
+#: Pre-folded lookup sets: `_norm_title` is not free and these are compared
+#: once per template in the document.
+_CONTENT_NORMS = frozenset(_norm_title(c) for c in CONTENT_TEMPLATES)
+_TITLE_NORMS = frozenset(_norm_title(t) for t in TITLE_TEMPLATES)
+
+
+def _parse_template(s: str, start: int) -> tuple[str, list[tuple[str | None, str]], int] | None:
+    """Parse the `{{...}}` starting at `s[start]`.
+
+    Returns `(name, params, end_index)` where `params` is a list of
+    `(key, value)` and `key` is `None` for a positional argument. Returns None
+    if the closing braces are missing. Handles nested templates, wikilinks and
+    parser functions, so a `|` inside them does not split a parameter.
+    """
+    i = start + 2
+    depth = 1
+    while i < len(s):
+        if s.startswith("{{", i):
+            depth += 1
+            i += 2
+        elif s.startswith("}}", i):
+            depth -= 1
+            if depth == 0:
+                break
+            i += 2
+        else:
+            i += 1
+    else:
+        return None
+    body = s[start + 2 : i]
+    end = i + 2
+
+    parts: list[str] = []
+    cur: list[str] = []
+    depth = 0
+    j = 0
+    while j < len(body):
+        two = body[j : j + 2]
+        if two in ("{{", "[["):
+            depth += 1
+            cur.append(two)
+            j += 2
+        elif two in ("}}", "]]"):
+            depth = max(0, depth - 1)
+            cur.append(two)
+            j += 2
+        elif body[j] == "|" and depth == 0:
+            parts.append("".join(cur))
+            cur = []
+            j += 1
+        else:
+            cur.append(body[j])
+            j += 1
+    parts.append("".join(cur))
+
+    params: list[tuple[str | None, str]] = []
+    for part in parts[1:]:
+        m = _KEYED_PARAM_RE.match(part)
+        if m:
+            params.append((m.group(1).strip().lower(), part[m.end() :]))
+        else:
+            params.append((None, part))
+    return parts[0].strip(), params, end
+
+
+def _template_to_heading(params: list[tuple[str | None, str]]) -> str:
+    """Pull a chapter title out of a `{{đầu đề}}` parameter list."""
+    keyed = {k: v.strip() for k, v in params if k}
+    for key in _TITLE_PARAM_KEYS:
+        if keyed.get(key):
+            title = _INTERNAL_RE.sub(lambda m: m.group(2) or m.group(1), keyed[key]).strip()
+            # `tựa đề = [[../]]` points at the parent page; that is navigation,
+            # not a title.
+            if title and not re.fullmatch(r"[./]*", title):
+                return f"\n== {title} ==\n"
+    return ""
+
+
+def _unwrap_templates(s: str, _depth: int = 0) -> str:
+    """Keep the content of prose templates, turn header templates into headings,
+    and drop every other template (navboxes, metadata, maintenance).
+
+    Recurses into an unwrapped body, because the interesting templates nest:
+    `{{văn| {{drop cap|B}}ắt đầu ... }}` is the ordinary shape of a Vietnamese
+    Wikisource chapter, and a single pass would leave the inner `{{drop cap}}`
+    for the destructive stripper to delete.
+    """
+    if _depth > 10:  # malformed wikitext; stop unwrapping rather than recurse
+        return s
+    out: list[str] = []
+    i = 0
+    while True:
+        j = s.find("{{", i)
+        if j < 0:
+            out.append(s[i:])
+            break
+        out.append(s[i:j])
+        parsed = _parse_template(s, j)
+        if parsed is None:
+            out.append("{{")
+            i = j + 2
+            continue
+        name, params, end = parsed
+        norm = _norm_title(name)
+        if norm in _CONTENT_NORMS:
+            positional = [v for k, v in params if k is None]
+            # `{{văn|prose|note=...}}` -> the first positional argument is the prose.
+            out.append(_unwrap_templates(positional[0], _depth + 1) if positional else "")
+        elif norm in _TITLE_NORMS:
+            out.append(_template_to_heading(params))
+        i = end
+    return "".join(out)
+
+
 def strip_wikitext(text: str) -> str:
     """Remove every trace of wiki markup, keeping prose and `==` headings.
 
@@ -367,13 +503,17 @@ def strip_wikitext(text: str) -> str:
     # 3. tables: drop the `{| ... |}` block including nested cells
     s = _drop_tables(s)
 
-    # 4. templates, behaviour switches, categories, files
+    # 4. behaviour switches, categories, files
     s = _BEHAVIOR_TOGGLE_RE.sub("", s)
     s = _FILE_LINK_RE.sub("", s)
     s = _CATEGORY_RE.sub("", s)
-    s = _strip_templates(s)
 
-    # 5. inline markup -> plain text
+    # 5. templates: unwrap the ones that hold the prose, then remove the rest
+    s = _unwrap_templates(s)
+    s = _strip_templates(s)
+    s = re.sub(r"\{\{\{[^{}]*\}\}\}", "", s)  # parser-function arguments
+
+    # 6. inline markup -> plain text
     s = _INTERNAL_RE.sub(lambda m: m.group(2) if m.group(2) else m.group(1), s)
     s = _EXT_LINK_RE.sub(lambda m: (m.group(1) or "").strip(), s)
     s = _BOLD_ITALIC_RE.sub("", s)
@@ -488,6 +628,11 @@ def split_wikitext_sections(
             merged[-1] = _join([merged[-1], *buf]) if merged else _join(buf)
         kept = merged
     return kept
+
+
+def _is_placeholder_title(title: str) -> bool:
+    """A generic title invented by the fallback detector, not a real one."""
+    return not title.strip() or title.strip() in {"Nội dung", "Phần mở đầu", "Nội Dung"}
 
 
 def _join(parts: Sequence[Section]) -> Section:
@@ -662,11 +807,10 @@ def _extract_one(
         for page_title, page_wiki in parts:
             found = split_wikitext_sections(page_wiki, min_words=min_words)
             for sec in found:
-                # For a multi-page work the subpage name is the better title.
-                if page_title != title and not re.match(
-                    r"^\s*(chương|chuong|phần|phan|chapter|part)\b", sec.title, re.IGNORECASE
-                ):
-                    sec.title = f"{page_title.split('/')[-1]}: {sec.title}" if sec.title else page_title.split("/")[-1]
+                # A subpage name ("Chương 4", "IX") is a better title than the
+                # generic placeholder the fallback detector invents.
+                if page_title != title and _is_placeholder_title(sec.title):
+                    sec.title = page_title.split("/")[-1]
                 sections.append(sec)
 
         if not sections:

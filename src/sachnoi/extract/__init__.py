@@ -47,6 +47,7 @@ __all__ = [
     "check_license",
     "normalize_license",
     "detect_chapters",
+    "chapter_title",
     "split_sentences",
     "render_chapter_markdown",
     "write_markdown",
@@ -476,6 +477,10 @@ def count_words(text: str) -> int:
     return len([t for t in text.split() if t])
 
 
+_BARE_ROMAN_RE = re.compile(r"^[\s]*([IVXLCDM]{1,7})[\s]*$", re.IGNORECASE)
+_BARE_NUMBER_TITLE_RE = re.compile(r"^[\s]*(\d{1,3})[\s]*$")
+
+
 def _clean_title(title: str) -> str:
     title = sanitize_prose(title)
     title = re.sub(r"^[\s#=*_]+|[\s#=*_]+$", "", title)
@@ -487,6 +492,32 @@ def _clean_title(title: str) -> str:
     return title or "Chương"
 
 
+def chapter_title(title: str) -> str:
+    """A chapter title usable as both a markdown H1 and an M4B track name.
+
+    A bare numeral is the common case on Vietnamese Wikisource, where chapters
+    are subpages named `I`, `II`, `III`. `I` alone is a terrible track name and
+    `_clean_title` would reject it as too short, so it is expanded to
+    `Chương một` -- the same expansion Sano applies to roman chapter headings.
+    """
+    raw = (title or "").strip()
+    if not raw:
+        return "Chương"
+    m = _BARE_ROMAN_RE.match(raw)
+    if m:
+        from ..translate.gloss import roman_to_int, ROMAN_WORDS
+
+        n = roman_to_int(m.group(1))
+        if 0 < n < len(ROMAN_WORDS):
+            return f"Chương {ROMAN_WORDS[n]}"
+    m = _BARE_NUMBER_TITLE_RE.match(raw)
+    if m:
+        from ..translate.gloss import int_to_viet
+
+        return f"Chương {int_to_viet(int(m.group(1)))}"
+    return _clean_title(raw)
+
+
 def render_chapter_markdown(section: Section, *, index: int | None = None) -> str:
     """Render one chapter exactly the way CONTRACT.md demands.
 
@@ -495,10 +526,7 @@ def render_chapter_markdown(section: Section, *, index: int | None = None) -> st
     * one sentence per line inside a paragraph;
     * no HTML, images, tables, footnotes or emphasis markers.
     """
-    title = _clean_title(section.title)
-    if not title.lower().startswith("chương") and not title.lower().startswith("phan "):
-        # Keep the source's own words; only strip decoration.
-        pass
+    title = chapter_title(section.title)
     body = sanitize_prose(section.text)
     paragraphs = [p.strip() for p in re.split(r"\n\s*\n", body) if p.strip()]
     # A "paragraph" can also be a run of soft-wrapped lines; group them.
@@ -640,7 +668,7 @@ def assemble_book(
             Chapter(
                 index=i,
                 slug=chapter_slug(i),
-                title=_clean_title(section.title),
+                title=chapter_title(section.title),
                 source_path=chapter_paths.get(i, text_rel),
                 word_count=count_words(md),
             )
