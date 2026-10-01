@@ -178,7 +178,7 @@ class Document:
 #: Sano's `scripts/pdf_to_docx.py` chapter word list. Kept verbatim in spirit:
 #: the same trigger words are what Vietnamese and English editions actually use.
 CHAPTER_RE = re.compile(
-    r"^[\s]*(chương|chuong|phần|phan|mục|muc|thi|chuyện|chuyen|"
+    r"^[\s]*(chương|chuong|phần|phan|mục|muc|bài|bai|thi|chuyện|chuyen|"
     r"chapter|part|book|cuốn|cuon)\s*"
     r"([0-9]+|[ivxlcdm]+|[a-z])\b[^\n]*$",
     re.IGNORECASE,
@@ -227,28 +227,42 @@ def looks_like_chapter_heading(line: str) -> bool:
 
 
 def parse_heading(line: str) -> tuple[int, str] | None:
-    """Return `(level, title)` for a markdown / wikitext / underlined heading.
+    """Return `(level, title)` for a markdown or wikitext heading.
 
     Returns ``None`` for ordinary prose. Wikitext `=== X ===` yields level 2
     and markdown `## X` also yields level 2, so both sources compare equal.
+    Setext headings (`Title` then `====`) need the *next* line and are handled
+    by :func:`detect_chapters` instead.
     """
     m = _HEADING_WIKITEXT_RE.match(line)
     if m:
-        # `== X ==` is the *outermost* level; the task contract treats both
-        # `==` and `===` as chapter boundaries, so normalise to 1 and 2.
-        return (max(1, 6 - (len(m.group(1)) - 2)), m.group(2).strip())
+        # `== X ==` is the outermost level, so it becomes level 1 and `===` level 2.
+        # Getting this backwards silently folds every chapter into the previous
+        # one, because `split_wikitext_sections` treats `level > max_level` as a
+        # subsection.
+        return (len(m.group(1)) - 1, m.group(2).strip())
     m = _HEADING_MARKDOWN_RE.match(line)
     if m:
         return (len(m.group(1)), m.group(2).strip())
-    stripped = line.rstrip()
-    if stripped and _HEADING_UNDERLINE_RE.match(stripped) and len(line) > 3:
-        prev = line  # caller supplies only one line; handled in detect_chapters
-        return (1, prev)
     return None
 
 
 def is_non_chapter_title(title: str) -> bool:
-    return bool(NON_CHAPTER_TITLES.match(re.sub(r"^[\d\W_]+", "", title).strip()))
+    """True when `title` is *exactly* a front/back-matter heading.
+
+    The whole line has to be the apparatus title. A prefix match would be a
+    trap: `NON_CHAPTER_TITLES` contains "lời nói đầu", and a paragraph that
+    merely starts with those words is prose, not a heading -- prefix-matching it
+    deleted the first chapter of any book with an introduction.
+    """
+    cleaned = re.sub(r"^[\d\W_]+", "", title).strip()
+    if not cleaned or len(cleaned) > 60:
+        return False
+    m = NON_CHAPTER_TITLES.match(cleaned)
+    if not m:
+        return False
+    # Allow only trailing decoration, e.g. "Ghi chú bản dịch." or "Mục lục 2".
+    return not cleaned[m.end() :].strip(" .:-–—")
 
 
 def detect_chapters(
@@ -276,61 +290,86 @@ def detect_chapters(
     # novel "12." is a list item or a stray number, not a chapter.
     allow_bare = allow_bare_numbers and total_words < 4000
 
-    marks: list[tuple[int, int, str]] = []  # (line index, level, title)
+    # (line index, level, title, is_apparatus)
+    marks: list[tuple[int, int, str, bool]] = []
     for i, line in enumerate(lines):
         heading = parse_heading(line)
         if heading:
-            # Setext (underline) headings: the *previous* line is the title.
-            if heading[2] and _HEADING_UNDERLINE_RE.match(line.rstrip()) and i > 0:
-                marks.append((i - 1, 1, lines[i - 1].strip()))
-            else:
-                marks.append((i, heading[0], heading[1]))
+            title = heading[1]
+            marks.append((i, heading[0], title, is_non_chapter_title(title)))
+            continue
+        # Setext: the *next* line is an underline, so this line is the title.
+        if (
+            i + 1 < len(lines)
+            and line.strip()
+            and len(line) <= 90
+            and _HEADING_UNDERLINE_RE.match(lines[i + 1].rstrip())
+        ):
+            marks.append((i, 1, line.strip(), is_non_chapter_title(line)))
             continue
         if is_non_chapter_title(line):
+            # Record apparatus as a mark so the text *under* it is skipped too.
+            # Without this, a table of contents becomes the preamble of the
+            # first real chapter.
+            marks.append((i, 1, line.strip(), True))
             continue
         if CHAPTER_RE.match(line):
-            marks.append((i, 1, line.strip()))
+            marks.append((i, 1, line.strip(), False))
             continue
         if allow_bare and _BARE_NUMBER_RE.match(line) and i + 1 < len(lines):
-            marks.append((i, 1, line.strip()))
+            marks.append((i, 1, line.strip(), False))
             continue
         if _is_caps_heading(line):
-            marks.append((i, 1, line.strip()))
+            marks.append((i, 1, line.strip(), False))
 
     if not marks:
+        # No structure at all: the whole document is one chapter.
         body = "\n".join(lines)
         return [Section(title="Nội dung", text=body, level=1)] if body.strip() else []
 
     # --- carve the text into sections ------------------------------------
-    start = 0
-    if marks[0][0] > 0:
-        preamble = "\n".join(lines[: marks[0][0]]).strip()
+    # Anything before the first *content* mark is kept as a preamble chapter,
+    # unless it is only apparatus (then it is dropped).
+    first_content = next((i for i, m in enumerate(marks) if not m[3]), len(marks))
+    if first_content == len(marks):
+        # Structure was found, and all of it is front/back matter. Returning the
+        # raw text here would turn a table of contents into a chapter of
+        # navigation links, so return nothing and let the caller try another
+        # source (a linked edition, a subpage).
+        return []
+    if marks[first_content][0] > 0:
+        preamble = "\n".join(lines[: marks[first_content][0]]).strip()
         if count_words(preamble) >= 8:
-            marks.insert(0, (0, 1, "Phần mở đầu"))
+            # line_no = -1 so the body slice starts at line 0: a synthetic
+            # preamble has no heading line of its own to step over.
+            marks.insert(first_content, (-1, 1, "Phần mở đầu", False))
 
     sections: list[Section] = []
-    skip_until: int | None = None
-    for idx, (line_no, _level, title) in enumerate(marks):
-        if skip_until is not None and line_no < skip_until:
-            continue
-        skip_until = None
+    for idx, (line_no, _level, title, apparatus) in enumerate(marks):
         end = marks[idx + 1][0] if idx + 1 < len(marks) else len(lines)
+        if apparatus:
+            continue  # heading and body both dropped
         body = "\n".join(lines[line_no + 1 : end]).strip()
-        if is_non_chapter_title(title):
-            # Front/back matter: drop the heading, keep nothing.
-            continue
         sections.append(Section(title=title, text=body, level=1))
-        del start
 
     sections = [s for s in sections if not s.is_empty()]
     sections = _merge_short_sections(sections, min_words=min_words)
-    return sections or [Section(title="Nội dung", text=text.strip())]
+    return sections
 
 
 def _is_caps_heading(line: str) -> bool:
-    """A short line in ALL CAPS is how a PDF prints a lost chapter title."""
+    """A short line in ALL CAPS is how a PDF prints a lost chapter title.
+
+    Needs at least one word of three letters or more, and must not look like a
+    path or a wiki link: without that guard `../II` (a leftover navigation link)
+    reads as a heading and turns an index page into a chapter of links.
+    """
     words = line.split()
     if not 1 <= len(words) <= 8 or len(line) > 80:
+        return False
+    if "/" in line or line.lstrip().startswith((".", "#", "|", "[", "*")):
+        return False
+    if not any(len(re.sub(r"[^\w]", "", w)) >= 3 for w in words):
         return False
     letters = [c for c in line if c.isalpha()]
     if len(letters) < 2:
@@ -340,7 +379,12 @@ def _is_caps_heading(line: str) -> bool:
 
 
 def _merge_short_sections(sections: list[Section], *, min_words: int) -> list[Section]:
-    """Fold runs of tiny sections forward into the next substantial one."""
+    """Fold runs of tiny sections forward into the next substantial one.
+
+    A trailing run is folded *backwards* into the previous chapter, unless it is
+    itself a full chapter -- otherwise the last chapter of every book would be
+    glued onto the one before it.
+    """
     if min_words <= 0 or len(sections) < 2:
         return sections
     merged: list[Section] = []
@@ -351,7 +395,9 @@ def _merge_short_sections(sections: list[Section], *, min_words: int) -> list[Se
             merged.append(_combine(pending))
             pending = []
     if pending:
-        if merged:
+        if len(pending) == 1 and pending[0].word_count >= min_words:
+            merged.append(pending[0])
+        elif merged:
             merged[-1] = _combine([merged[-1], *pending])
         else:
             merged.append(_combine(pending))
@@ -359,10 +405,17 @@ def _merge_short_sections(sections: list[Section], *, min_words: int) -> list[Se
 
 
 def _combine(parts: Sequence[Section]) -> Section:
+    """Join several sections into one, keeping the longest section's title.
+
+    The longest section is the real chapter; the others are stubs folded into it
+    (a short preamble, a "Ghi chú" leftover). Taking `parts[0]` instead would
+    label chapter 1 with the title of the four-line blurb in front of it.
+    """
     if len(parts) == 1:
         return parts[0]
+    best = max(parts, key=lambda p: p.word_count)
     body = "\n\n".join(p.text.strip() for p in parts if p.text.strip())
-    return Section(title=parts[0].title, text=body, level=1)
+    return Section(title=best.title, text=body, level=1)
 
 
 # --------------------------------------------------------------------------
@@ -433,43 +486,40 @@ def sanitize_prose(text: str) -> str:
     return out
 
 
-def drop_page_number_lines(text: str) -> str:
-    """Remove running headers/footers that are nothing but a page number.
+def _head_key(line: str) -> str | None:
+    """Return a running-head key for `line`, or None if it cannot be one.
 
-    Also removes a repeated line that is clearly a running head: the same short
-    line on >=5 pages worth of occurrences. That is what a PDF's running title
-    looks like once `pdftotext -layout` has flattened it.
+    A running head is a short line that ends in no terminal punctuation. A real
+    sentence of prose almost always does, so this is a cheap and surprisingly
+    reliable discriminator -- and it does not depend on the text being title
+    case, which Vietnamese running heads frequently are not.
     """
-    kept: list[str] = []
-    counts: dict[str, int] = {}
-    for line in text.split("\n"):
-        if PAGE_NUMBER_LINE_RE.match(line):
-            continue
-        kept.append(line)
-    # Second pass: repeated short lines, ignoring the page-number lines we just
-    # dropped. Only fire on lines that repeat a lot and are short.
+    s = line.strip()
+    if not s or len(s) > 80 or len(s.split()) > 8:
+        return None
+    if s[-1] in ".!?…,:;\"'”’»)]}":
+        return None
+    return s
+
+
+def drop_page_number_lines(text: str, *, min_repeats: int = 5) -> str:
+    """Remove running headers/footers: page numbers, then repeated short lines.
+
+    The first pass drops a line that is nothing but a number (`12`, `- 13 -`,
+    `Trang 14`). The second drops a short, punctuation-free line that repeats at
+    least `min_repeats` times -- which is what a PDF's running title looks like
+    once `pdftotext -layout` has flattened it.
+    """
+    kept = [ln for ln in text.split("\n") if not PAGE_NUMBER_LINE_RE.match(ln)]
     counter: dict[str, int] = {}
     for line in kept:
         key = _head_key(line)
         if key:
             counter[key] = counter.get(key, 0) + 1
-    noisy = {k for k, n in counter.items() if n >= 5}
+    noisy = {k for k, n in counter.items() if n >= min_repeats}
     if noisy:
         kept = [line for line in kept if _head_key(line) not in noisy]
-    del counts
     return "\n".join(kept)
-
-
-def _head_key(line: str) -> str | None:
-    s = line.strip()
-    if not s or len(s) > 80:
-        return None
-    words = s.split()
-    if len(words) > 8:
-        return None
-    if s != s.capitalize() and not _is_caps_heading(s):
-        return None
-    return s
 
 
 def count_words(text: str) -> int:
@@ -619,21 +669,122 @@ def extract_url(
 # --------------------------------------------------------------------------
 
 
-def write_chapter_files(book_dir: str | Path, slug: str, sections: Sequence[Section]) -> dict[int, str]:
-    """Write `text/chNN.md` per chapter and return index -> repo-relative path."""
-    from ..config import REPO_ROOT
+def split_oversized(
+    sections: Sequence[Section],
+    *,
+    max_words: int = 6000,
+    min_words: int = 400,
+) -> list[Section]:
+    """Break a chapter that is too long for one audio track, at paragraph edges.
 
+    Some sources have no internal structure at all: *Truyện Kiều* on
+    vi.wikisource is a single 22,000-word `<poem>` with no headings. Emitting
+    that as one track is not usable, but inventing chapter titles would be a
+    lie about the source.
+
+    So the split is mechanical, on paragraph boundaries, and every part is
+    labelled as a continuation (`Chương một (tiếp 2)`). The caller records the
+    fact in the manifest, and nothing pretends the work has chapters it does not.
+
+    Returns the input unchanged when nothing is oversized.
+    """
+    if max_words <= 0:
+        return list(sections)
+    out: list[Section] = []
+    for sec in sections:
+        if sec.word_count <= max_words:
+            out.append(sec)
+            continue
+        parts = _split_text_by_words(sec.text, max_words=max_words, min_words=min_words)
+        if len(parts) <= 1:
+            out.append(sec)
+            continue
+        for i, chunk in enumerate(parts, start=1):
+            title = sec.title if i == 1 else f"{sec.title} (tiếp {i})"
+            out.append(Section(title=title, text=chunk, level=sec.level))
+    return out
+
+
+def _split_text_by_words(text: str, *, max_words: int, min_words: int) -> list[str]:
+    """Greedily pack paragraphs up to `max_words`, never below `min_words`.
+
+    A single paragraph that is itself over the limit is split at line boundaries
+    instead. That matters for verse: *Truyện Kiều* is one 22,000-word `<poem>`
+    with a hard return per câu thơ and no blank lines at all, so paragraph
+    packing alone cannot divide it. Breaks are preferred after a line that ends
+    in punctuation, so a chunk boundary never lands mid-sentence in prose.
+    """
+    paragraphs = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
+    chunks: list[str] = []
+    buf: list[str] = []
+    size = 0
+    for para in paragraphs:
+        n = count_words(para)
+        if n > max_words:
+            if buf:
+                chunks.append("\n\n".join(buf))
+                buf, size = [], 0
+            chunks.extend(_split_long_paragraph(para, max_words=max_words))
+            continue
+        if buf and size + n > max_words and size >= min_words:
+            chunks.append("\n\n".join(buf))
+            buf, size = [para], n
+        else:
+            buf.append(para)
+            size += n
+    if buf:
+        chunks.append("\n\n".join(buf))
+    return chunks
+
+
+_SENTENCE_TAIL_RE = re.compile(r"[.!?…][\"'”’»)\]]*$")
+
+
+def _split_long_paragraph(para: str, *, max_words: int) -> list[str]:
+    """Split one oversized block at line boundaries, preferring sentence ends."""
+    lines = [ln.strip() for ln in para.split("\n") if ln.strip()]
+    if len(lines) <= 1:
+        # A single very long line: cut on whitespace so no word is broken.
+        words = para.split()
+        return [" ".join(words[i : i + max_words]) for i in range(0, len(words), max_words)]
+
+    out: list[str] = []
+    buf: list[str] = []
+    size = 0
+    for line in lines:
+        n = count_words(line)
+        if buf and size + n > max_words:
+            out.append(" ".join(buf))
+            buf, size = [line], n
+            continue
+        buf.append(line)
+        size += n
+        # Cut early at a sentence end so a chunk does not end mid-thought.
+        if size >= max_words * 0.8 and _SENTENCE_TAIL_RE.search(line):
+            out.append(" ".join(buf))
+            buf, size = [], 0
+    if buf:
+        out.append(" ".join(buf))
+    return out
+
+
+def write_chapter_files(book_dir: str | Path, sections: Sequence[Section]) -> dict[int, str]:
+    """Write `books/<slug>/text/chNN.md` per chapter; return index -> repo path.
+
+    The per-chapter files are what `Chapter.source_path` points at, so agent B
+    can read one track without re-parsing the assembled book. They are generated
+    from the same `Section` objects as `<slug>.md`, so the two cannot diverge.
+    """
     root = Path(book_dir)
     text_dir = root / "text"
     text_dir.mkdir(parents=True, exist_ok=True)
+    repo = _repo()
     paths: dict[int, str] = {}
     for i, section in enumerate(sections, start=1):
-        rel = f"books/{slug}/text/{chapter_slug(i)}.md"
         (text_dir / f"{chapter_slug(i)}.md").write_text(
             render_chapter_markdown(section), encoding="utf-8"
         )
-        paths[i] = rel
-    del REPO_ROOT
+        paths[i] = str((text_dir / f"{chapter_slug(i)}.md").resolve().relative_to(repo))
     return paths
 
 
@@ -657,9 +808,8 @@ def assemble_book(
         raise ValueError(f"{slug}: extraction produced no chapters")
 
     text_rel = text_path or f"books/{slug}/text/{slug}.md"
-    chapter_paths = (
-        write_chapter_files(Path(_repo()), slug, sections) if write_files else {}
-    )
+    book_dir = _repo() / "books" / slug
+    chapter_paths = write_chapter_files(book_dir, sections) if write_files else {}
 
     chapters: list[Chapter] = []
     for i, section in enumerate(sections, start=1):
@@ -675,7 +825,7 @@ def assemble_book(
         )
 
     if write_files:
-        target = Path(_repo()) / text_rel
+        target = book_dir / "text" / Path(text_rel).name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(write_markdown(sections), encoding="utf-8")
 
@@ -700,6 +850,30 @@ def assemble_book(
     )
     del extra_notes
     return book
+
+
+def save_book(book: Book, path: str | Path, *, extra: dict[str, Any] | None = None) -> Path:
+    """Write `book.json`, merging in provenance fields `models.Book` has no slot for.
+
+    `models.Book` is frozen by CONTRACT.md, but the repository rights gate
+    (`tools/check_rights.py`) needs `author_dates` or `author_death_year` to check
+    a `public-domain` claim arithmetically. There is no field for it, so the extra
+    keys are merged into the JSON after `Book.save()`.
+
+    This is safe for the other machine: `Book.from_dict()` drops unknown keys, so
+    agent B's `Book.load()` sees exactly the dataclass it expects.
+    """
+    out = Path(path)
+    book.save(out)
+    if not extra:
+        return out
+    data = json.loads(out.read_text(encoding="utf-8"))
+    for key, value in extra.items():
+        if value in (None, "", [], {}):
+            continue
+        data[key] = value
+    out.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return out
 
 
 def write_manifest(book: Book, path: str | Path, notes: Sequence[str] = ()) -> Path:

@@ -61,6 +61,21 @@ USER_AGENT = (
     "sach-noi-vi/0.1 (https://github.com/duonglequanghoang1-create/sach-noi-vi)"
 )
 
+#: A page whose *wikitext* is smaller than this is treated as a stub: a header
+#: template plus a transclusion such as `<pages index="...pdf" from=207 />`.
+#: The text only exists after template expansion, so the rendered HTML is used.
+WIKITEXT_STUB_CHARS = 400
+#: Below this many words a whole page is treated as an index, not a chapter.
+MIN_PAGE_WORDS = 150
+#: Below this many words in total, the result is an index or a stub, not the
+#: work, and the caller is told so instead of narrating editorial notes.
+#: Set between the two real cases in the catalog: *Đại Đồng phong cảnh phú* is a
+#: genuine 312-word work, *Lục Vân Tiên* is a 197-word stub that links off-site.
+MIN_TOTAL_WORDS = 250
+#: A transclusion marker that means "the text lives in the rendered page".
+_TRANSCLUSION_RE = re.compile(r"<\s*pages\b|\{\{\s*pages\b|\{\{\s*đầu đơn\b|\{\{\s*Image\b", re.IGNORECASE)
+
+
 #: Search results below this similarity to the wanted title are noise.
 SEARCH_SIMILARITY = 0.72
 
@@ -273,6 +288,39 @@ class MediaWikiClient:
         )
         return sorted((p["title"] for p in data.get("query", {}).get("allpages", [])), key=natural_key)
 
+    def linked_pages(self, title: str) -> list[str]:
+        """Pages the root page links to that look like other parts of the same work.
+
+        *Lục Vân Tiên* is an index page whose two editions are **siblings**, not
+        subpages, so `subpages()` finds nothing. Matching the link target against
+        the root title finds them. Returned in natural order, without the root
+        itself and without navigation links to unrelated works.
+        """
+        data = self.api(
+            action="query", titles=title, prop="links", plnamespace="0", pllimit="max"
+        )
+        want = _norm_title(title)
+        out: list[str] = []
+        for page in data.get("query", {}).get("pages", []):
+            for link in page.get("links", []):
+                target = str(link.get("title", ""))
+                norm = _norm_title(target)
+                if target == title or not norm:
+                    continue
+                if norm.startswith(want) and len(norm) > len(want):
+                    out.append(target)
+        return sorted(set(out), key=natural_key)
+
+    def rendered_html(self, title: str) -> str:
+        """`action=parse&prop=text` -- the fully expanded page.
+
+        Needed for pages that transclude a proofread scan
+        (`<pages index="Kim Van Kieu....pdf" from=207 to=219 />`): the wikitext is
+        a 350-byte stub and the text only exists after expansion.
+        """
+        data = self.api(action="parse", page=title, prop="text", redirects="1")
+        return str(data.get("parse", {}).get("text", ""))
+
 
 # --------------------------------------------------------------------------
 # Wikitext -> prose
@@ -359,6 +407,11 @@ CONTENT_TEMPLATES = frozenset(
         "drop cap", "dropcap", "drop-cap", "hoa chữ", "hoa chữ đầu",
     }
 )
+#: Formatting wrappers that carry no meaning: the text inside them is the text.
+#: Without this, `{{đầu đề|phần={{nowrap|Chương 4}}}}` loses its chapter title.
+WRAPPER_TEMPLATES = frozenset(
+    {"nowrap", "nowrap begin", "nowrap end", "lang", "small", "big", "sic", "emphasis", "strong", "abbr"}
+)
 #: Header templates whose `phần` parameter is the chapter title. Emitted as a
 #: `==` heading so the chapter keeps its name after the template is unwrapped.
 TITLE_TEMPLATES = frozenset({"đầu đề", "đầu đề sách", "đầu đề tác phẩm", "tiêu đề", "header"})
@@ -368,6 +421,8 @@ _KEYED_PARAM_RE = re.compile(r"^[\s]*([\wÀ-ỹ][\wÀ-ỹ \-]*?)[\s]*=")
 #: Pre-folded lookup sets: `_norm_title` is not free and these are compared
 #: once per template in the document.
 _CONTENT_NORMS = frozenset(_norm_title(c) for c in CONTENT_TEMPLATES)
+_WRAPPER_NORMS = frozenset(_norm_title(c) for c in WRAPPER_TEMPLATES)
+_KEEP_NORMS = _CONTENT_NORMS | _WRAPPER_NORMS
 _TITLE_NORMS = frozenset(_norm_title(t) for t in TITLE_TEMPLATES)
 
 
@@ -430,12 +485,14 @@ def _parse_template(s: str, start: int) -> tuple[str, list[tuple[str | None, str
     return parts[0].strip(), params, end
 
 
-def _template_to_heading(params: list[tuple[str | None, str]]) -> str:
+def _template_to_heading(params: list[tuple[str | None, str]], depth: int = 0) -> str:
     """Pull a chapter title out of a `{{đầu đề}}` parameter list."""
     keyed = {k: v.strip() for k, v in params if k}
     for key in _TITLE_PARAM_KEYS:
         if keyed.get(key):
-            title = _INTERNAL_RE.sub(lambda m: m.group(2) or m.group(1), keyed[key]).strip()
+            value = _unwrap_templates(keyed[key], depth + 1) if depth < 10 else keyed[key]
+            title = _INTERNAL_RE.sub(lambda m: m.group(2) or m.group(1), value).strip()
+            title = _BOLD_ITALIC_RE.sub("", title).strip()
             # `tựa đề = [[../]]` points at the parent page; that is navigation,
             # not a title.
             if title and not re.fullmatch(r"[./]*", title):
@@ -469,7 +526,7 @@ def _unwrap_templates(s: str, _depth: int = 0) -> str:
             continue
         name, params, end = parsed
         norm = _norm_title(name)
-        if norm in _CONTENT_NORMS:
+        if norm in _KEEP_NORMS:
             positional = [v for k, v in params if k is None]
             # `{{văn|prose|note=...}}` -> the first positional argument is the prose.
             out.append(_unwrap_templates(positional[0], _depth + 1) if positional else "")
@@ -500,8 +557,8 @@ def strip_wikitext(text: str) -> str:
     s = _REF_NAME_RE.sub("", s)
     s = _STRAGGLING_REF_RE.sub("", s)
 
-    # 3. tables: drop the `{| ... |}` block including nested cells
-    s = _drop_tables(s)
+    # 3. tables: flatten them, because on this wiki a table often *is* the poem
+    s = _flatten_tables(s)
 
     # 4. behaviour switches, categories, files
     s = _BEHAVIOR_TOGGLE_RE.sub("", s)
@@ -538,22 +595,70 @@ def strip_wikitext(text: str) -> str:
     return s.strip("\n")
 
 
-def _drop_tables(s: str) -> str:
-    """Remove `{| ... |}` wikitext tables, honouring nesting."""
+_CELL_ATTR_RE = re.compile(r"^\s*(?:style|class|colspan|rowspan|align|valign|width|height)\s*=\s*(\"[^\"]*\"|'[^']*'|\S+)\s*", re.IGNORECASE)
+
+
+def _cell_text(cell: str) -> str:
+    """Strip a cell's attribute soup and return its text."""
+    text = cell.strip()
+    while True:
+        m = _CELL_ATTR_RE.match(text)
+        if not m:
+            return text.strip()
+        text = text[m.end() :]
+
+
+def _split_cells(line: str) -> list[str]:
+    """Split one `| a || b` or `! a !! b` table line into cells."""
+    parts = re.split(r"\|\||!!", line)
+    return [_cell_text(p) for p in parts if _cell_text(p)]
+
+
+def _flatten_tables(s: str) -> str:
+    """Turn a wikitext table into plain lines, keeping the text inside it.
+
+    A table is not always apparatus. On vi.wikisource the two-column Nôm/Vietnamese
+    editions of *Chinh phụ ngâm* put the entire poem inside `{| ... |}`, so
+    dropping tables as furniture deletes the whole book. Emitting each cell on
+    its own line satisfies CONTRACT.md ("no tables" means no markdown table
+    syntax) without losing a syllable.
+    """
     out: list[str] = []
     depth = 0
     for line in s.split("\n"):
-        opens = line.count("{|")
-        closes = line.count("|}")
-        if depth == 0 and opens:
-            depth = 1 + (opens - 1) - closes
+        t = line.strip()
+        if depth == 0:
+            brace = t.find("{|")
+            if brace >= 0:
+                # `{|` can sit mid-line: "... prose {| \n | a \n |}". Keep whatever
+                # came before it, then start the table.
+                head = line[: line.index("{|")].strip()
+                if head:
+                    out.append(head)
+                depth = 1 + t.count("{|") - 1 - t.count("|}")
+                out.append("")
+                continue
+            out.append(line)
             continue
-        if depth > 0:
-            depth += opens - closes
-            if depth <= 0:
-                depth = 0
+        # Inside a table.
+        if t.startswith("|-") or t.startswith("|}"):
+            depth = max(0, depth - 1) if t.startswith("|}") else depth
+            if t.startswith("|+"):
+                out.extend(_split_cells(t[2:]))
             continue
-        out.append(line)
+        depth += t.count("{|")
+        depth -= t.count("|}")
+        if depth <= 0:
+            depth = 0
+            continue
+        if t.startswith("!"):
+            out.extend(_split_cells(t.lstrip("!")))
+        elif t.startswith("|"):
+            out.extend(_split_cells(t.lstrip("|")))
+        elif t:
+            # A continuation line inside a cell: `<poem>` body, plain verse.
+            out.append(t)
+    # `|}` on its own line closed the table above; make sure nothing is left open.
     return "\n".join(out)
 
 
@@ -587,9 +692,10 @@ def split_wikitext_sections(
     for idx, (line_no, level, title) in enumerate(marks):
         end = marks[idx + 1][0] if idx + 1 < len(marks) else len(lines)
         if level > max_level:
-            # Too deep to be a chapter: fold its text into the running chapter.
+            # Too deep to be a chapter: fold its text into the running chapter,
+            # heading included, so a subsection title is not lost.
             if sections:
-                extra = "\n".join(lines[line_no + 1 : end]).strip()
+                extra = "\n".join(lines[line_no:end]).strip()
                 if extra:
                     sections[-1].text = (sections[-1].text + "\n\n" + extra).strip()
             continue
@@ -617,16 +723,9 @@ def split_wikitext_sections(
             continue
         kept.append(s)
     if min_words > 0 and len(kept) > 1:
-        merged: list[Section] = []
-        buf: list[Section] = []
-        for s in kept:
-            buf.append(s)
-            if s.word_count >= min_words:
-                merged.append(_join(buf))
-                buf = []
-        if buf:
-            merged[-1] = _join([merged[-1], *buf]) if merged else _join(buf)
-        kept = merged
+        from . import _merge_short_sections
+
+        kept = _merge_short_sections(kept, min_words=min_words)
     return kept
 
 
@@ -741,6 +840,7 @@ def extract(
     language: str = "vi",
     fallback_language: str = "",
     min_words: int = 40,
+    min_total_words: int = MIN_TOTAL_WORDS,
     client: MediaWikiClient | None = None,
     include_subpages: bool = True,
 ) -> Document:
@@ -750,23 +850,36 @@ def extract(
     exists but yields no usable prose. `fallback_language` is opt-in and never
     silent: if it is used, `Document.language` and `Document.notes` say so, so
     a caller cannot mistake English text for Vietnamese.
+
+    `min_total_words` is the "is this actually the book?" test. *Lục Vân Tiên*
+    is the case that forces it: both of its editions on vi.wikisource are
+    1,000-byte stubs that link to nomna.org, so stripping the wikitext yields a
+    few hundred words of editorial notes. Without this floor the build would
+    happily narrate the notes and call it the poem.
     """
     notes: list[str] = []
-    doc_lang = language
-    for lang in ([language] + ([fallback_language] if fallback_language else [])):
+    for lang in [language] + ([fallback_language] if fallback_language else []):
         try:
             doc = _extract_one(
                 url,
                 language=lang,
                 min_words=min_words,
-                client=client,
+                # An injected client is bound to one endpoint, so it is only used
+                # for the language it was built for; the fallback gets its own.
+                client=client if (client is not None and lang == language) else None,
                 include_subpages=include_subpages,
             )
         except LookupError as exc:
             notes.append(f"{lang}: {exc}")
             continue
+        total = sum(s.word_count for s in doc.sections)
+        if total < min_total_words:
+            notes.append(
+                f"{lang}: page {doc.extra.get('page_title')!r} yielded only {total} words "
+                f"(floor {min_total_words}); it is an index or a stub, not the work"
+            )
+            continue
         doc.notes = notes
-        doc.language = doc_lang
         if lang != language:
             doc.notes.append(
                 f"VIETNAMESE EDITION NOT FOUND -- extracted the {lang} edition instead. "
@@ -779,6 +892,34 @@ def extract(
     raise LookupError("; ".join(notes) or f"cannot fetch {url}")
 
 
+def _sections_from_wikitext(page_title: str, wiki: str, *, min_words: int) -> list[Section]:
+    """Sections for one page, from its wikitext."""
+    found = split_wikitext_sections(wiki, min_words=min_words)
+    if found:
+        return found
+    # No `==` structure: fall back to the shared heading/keyword detector rather
+    # than giving up on a page that plainly has prose.
+    from . import drop_page_number_lines
+
+    flat = drop_page_number_lines(strip_wikitext(wiki))
+    return detect_chapters(sanitize_prose(flat), min_words=min_words)
+
+
+def _sections_from_html(html: str, *, min_words: int, page_title: str = "") -> list[Section]:
+    """Sections for one page, from the rendered HTML.
+
+    Reuses the EPUB walker: both are XHTML with `<h1>`..`<h6>` for structure.
+    """
+    from .epub import parse_document
+
+    found = parse_document(html, min_words=min_words)
+    if page_title:
+        for sec in found:
+            if _is_placeholder_title(sec.title):
+                sec.title = page_title.split("/")[-1] or page_title
+    return found
+
+
 def _extract_one(
     url: str,
     *,
@@ -786,7 +927,19 @@ def _extract_one(
     min_words: int,
     client: MediaWikiClient | None,
     include_subpages: bool,
+    follow_links: bool = True,
 ) -> Document:
+    """Fetch one page (and whatever holds its text) and return clean chapters.
+
+    vi.wikisource stores a work in four different shapes, and all four are in
+    the catalog, so all four are handled here:
+
+    1. **one page with `==` headings** -- the easy case;
+    2. **a root page plus subpages** -- `Truyện Kiều (bản Trương Vĩnh Ký 1911)`;
+    3. **an index page linking to sibling editions** -- `Lục Vân Tiên`;
+    4. **a transclusion stub** whose text only exists in the rendered HTML --
+       `<pages index="Kim Van Kieu truyen Truong Vinh Ky.pdf" from=207 />`.
+    """
     mw = client or MediaWikiClient(language)
     owns = client is None
     try:
@@ -796,30 +949,56 @@ def _extract_one(
             raise LookupError(f"page {want!r} not found on {language}.wikisource.org")
         _, wiki = mw.wikitext(title)
         rev = mw.revision(title)
-        parts: list[tuple[str, str]] = [(title, wiki)]
-
-        if include_subpages:
-            for sub in mw.subpages(title):
-                _, sub_wiki = mw.wikitext(sub)
-                parts.append((sub, sub_wiki))
-
+        pages: list[str] = [title]
         sections: list[Section] = []
-        for page_title, page_wiki in parts:
-            found = split_wikitext_sections(page_wiki, min_words=min_words)
-            for sec in found:
+        root_is_stub = False
+
+        def add(page_title: str, page_wiki: str) -> int:
+            """Extract one page; return the word count found in its *wikitext*.
+
+            The wikitext count is what decides "is this page an index?", because
+            the rendered HTML of an index page is mostly site navigation and would
+            wrongly look like prose.
+            """
+            got = _sections_from_wikitext(page_title, page_wiki, min_words=min_words)
+            from_wikitext = sum(s.word_count for s in got)
+            # (4) wikitext is a transclusion stub -> read the rendered page.
+            stub = len(page_wiki) < WIKITEXT_STUB_CHARS or bool(
+                _TRANSCLUSION_RE.search(page_wiki)
+            )
+            if from_wikitext < MIN_PAGE_WORDS and stub:
+                html = mw.rendered_html(page_title)
+                from_html = _sections_from_html(
+                    html, min_words=min_words, page_title=page_title
+                )
+                if sum(s.word_count for s in from_html) > from_wikitext:
+                    got = from_html
+            for sec in got:
                 # A subpage name ("Chương 4", "IX") is a better title than the
                 # generic placeholder the fallback detector invents.
                 if page_title != title and _is_placeholder_title(sec.title):
                     sec.title = page_title.split("/")[-1]
                 sections.append(sec)
+            return from_wikitext
 
-        if not sections:
-            # A page with no `==` structure at all still has prose; split it
-            # with the shared heading/keyword detector rather than giving up.
-            from . import drop_page_number_lines
+        root_is_stub = add(title, wiki) < MIN_PAGE_WORDS
 
-            flat = drop_page_number_lines(strip_wikitext(wiki))
-            sections = detect_chapters(sanitize_prose(flat), min_words=min_words)
+        kids = mw.subpages(title) if include_subpages else []
+        for sub in kids:
+            _, sub_wiki = mw.wikitext(sub)
+            pages.append(sub)
+            add(sub, sub_wiki)
+
+        # (3) Still a stub and there were no subpages: the root page is an index
+        # to *sibling editions* of the work. Guarding on `not kids` matters --
+        # `Truyện Kiều (bản Trương Vĩnh Ký 1911)` has 6 subpages, and following
+        # its links as well would concatenate two different editions of Kiều.
+        if follow_links and root_is_stub and not kids:
+            for linked in mw.linked_pages(title):
+                _, linked_wiki = mw.wikitext(linked)
+                pages.append(linked)
+                add(linked, linked_wiki)
+
         if not sections:
             raise ValueError(f"page {title!r} has no usable prose")
 
@@ -827,7 +1006,8 @@ def _extract_one(
             sections=sections,
             title=title,
             source_format="wikisource",
-            source_url=f"https://{language}.wikisource.org/wiki/" + urllib.parse.quote(title.replace(" ", "_")),
+            source_url=f"https://{language}.wikisource.org/wiki/"
+            + urllib.parse.quote(title.replace(" ", "_")),
             language=language,
             extra={
                 "page_title": title,
@@ -835,7 +1015,7 @@ def _extract_one(
                 "revision": rev.revid,
                 "revision_timestamp": rev.timestamp,
                 "revision_user": rev.user,
-                "pages": [p for p, _ in parts],
+                "pages": pages,
             },
         )
     finally:

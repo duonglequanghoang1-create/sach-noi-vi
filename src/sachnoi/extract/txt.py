@@ -214,11 +214,16 @@ def extract(
     if raw_is_markdown:
         text = parse_markdown(text)
     else:
+        # Cut the Gutenberg header *before* the wrap repair: the START marker is
+        # a line of its own, and `join_wrapped_lines` would otherwise glue it
+        # onto the preceding paragraph, leaving the licence header in the text.
+        if drop_front_matter:
+            text = _drop_gutenberg_boilerplate(text)
         text = join_wrapped_lines(text)
 
     text = sanitize_prose(text)
     text = drop_page_number_lines(text)
-    if drop_front_matter:
+    if drop_front_matter and raw_is_markdown:
         text = _drop_gutenberg_boilerplate(text)
 
     sections = detect_chapters(text, min_words=min_words)

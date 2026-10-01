@@ -1,34 +1,39 @@
 #!/usr/bin/env python3
 """Build `books/<slug>/text/<slug>.md` and `books/<slug>/book.json` from the catalog.
 
-    python3 scripts/extract_book.py --all
-    python3 scripts/extract_book.py --slug alice-luc-tiec-vung-nguon-roi
-    python3 scripts/extract_book.py --all --translate-mode gloss
-    python3 scripts/extract_book.py --all --dry-run
+    python3 scripts/extract_book.py                     # every book in the catalog
+    python3 scripts/extract_book.py --slug truyen-kieu  # just one
+    python3 scripts/extract_book.py --translate-mode gloss
+    python3 scripts/extract_book.py --probe             # check sources, write nothing
+    python3 scripts/extract_book.py --offline           # rebuild from books/*/source/
 
-What it does, in order:
+Pipeline, in order:
 
-1. rights gate -- refuses a book whose `license` is not public-domain or an
-   explicitly redistributable Creative Commons licence, before any fetch;
-2. fetch the source (Wikisource, or a local file under `books/<slug>/source/`);
-3. run the translate stage (mode `off` by default -- the Wikisource text is
-   already Vietnamese, and this project never machine-translates a public-domain
-   book without an explicit operator decision);
-4. write `text/<slug>.md` plus one `text/chNN.md` per chapter;
-5. write `book.json` from `models.Book`, copying every provenance field
-   verbatim from the catalog;
-6. write a `Manifest` for the other machine.
+1. **Rights gate** -- refuses a book whose `license` is not public-domain or an
+   explicitly redistributable Creative Commons licence, before any fetch.
+2. **Fetch** the source: the Vietnamese Wikisource page named by
+   `wikisource_url` (and its subpages), or a file the operator dropped into
+   `books/<slug>/source/`.
+3. **Translate** with the configured mode. The default is `off`: every catalog
+   entry is already a Vietnamese edition, and CONTRACT.md forbids machine
+   translation. A book with no Vietnamese source becomes
+   `status=blocked-no-vi-source` -- never a machine translation.
+4. **Write** `text/<slug>.md` plus one `text/chNN.md` per chapter.
+5. **Write** `book.json` from `models.Book`, copying provenance from the catalog
+   and merging the fields the repository rights gate needs.
+6. **Write** a `Manifest` for the other machine.
 
-Exit codes: 0 all books built, 1 a hard failure, 2 at least one book had no
-usable source (the run still succeeded for the others).
+Exit codes: 0 all books built, 1 a hard failure, 2 at least one book was blocked
+(the others still built).
 """
 
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import json
+import re
 import sys
-import urllib.parse
 from pathlib import Path
 from typing import Any, Sequence
 
@@ -42,109 +47,123 @@ from sachnoi.extract import (  # noqa: E402
     check_license,
     count_words,
     normalize_license,
+    save_book,
+    split_oversized,
     write_manifest,
 )
 from sachnoi.extract import wikisource  # noqa: E402
 from sachnoi.models import Book  # noqa: E402
 from sachnoi.translate import TranslationError, build_engine, translate_document  # noqa: E402
-from sachnoi.translate.gloss import normalize_title  # noqa: E402
 
 CATALOG = CONFIG_ROOT / "catalog" / "books.json"
 BOOKS_DIR = CONFIG_ROOT / "books"
 
-#: Written into `book.json` when a book has no usable Vietnamese source. The
-#: brief is explicit: do NOT machine-translate in this case.
-NO_VI_SOURCE_STATUS = "blocked-no-vi-source"
-NO_VI_SOURCE_TRANSLATOR = (
-    "Khong tim thay ban dich tieng Viet public-domain tren vi.wikisource.org. "
-    "KHONG dung may dich: ban dich may la tac pham phai sinh va co the khong "
-    "duoc phan phoi. Can nguoi dich tay va ghi ten dich gia tai day truoc khi doc."
+#: CONTRACT.md: the expected outcome for a work with no free Vietnamese edition.
+#: Not a failure of the build, and never a machine translation.
+BLOCKED_STATUS = "blocked-no-vi-source"
+BLOCKED_TRANSLATOR = (
+    "Chua co ban dich tieng Viet public-domain cho tac pham nay. KHONG dung may dich: "
+    "mot ban dich may la tac pham phai sinh va co the khong duoc phan phoi. Can nguoi dich "
+    "tay va ghi ten dich gia tai truong 'translator' truoc khi doc."
+)
+
+#: Keys copied from the catalog into `book.json` on top of the `models.Book`
+#: fields. `models.py` is frozen by CONTRACT.md, but the repository rights gate
+#: reads `author_dates` / `author_death_year`, so they have to be on disk.
+EXTRA_FIELDS = (
+    "author_dates",
+    "author_death_year",
+    "translator_dates",
+    "license_basis",
+    "wikisource_title",
+    "wikisource_url",
+    "verified",
+    "expect_chapters",
+    "notes",
 )
 
 
-def load_catalog(path: Path = CATALOG) -> list[dict[str, Any]]:
+def load_catalog(path: Path = CATALOG) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     data = json.loads(path.read_text(encoding="utf-8"))
     books = data.get("books", [])
     if not books:
         raise SystemExit(f"{path} has no books")
-    return books
+    return books, data
 
 
-def pick(entry: dict[str, Any], slugs: Sequence[str]) -> list[dict[str, Any]]:
-    if not slugs:
-        return entry
-    return [e for e in entry if e["slug"] in set(slugs)]
+def source_url_of(entry: dict[str, Any]) -> str:
+    """The page to fetch. `wikisource_url` is the only field we trust."""
+    return entry.get("wikisource_url") or entry.get("source_url") or ""
 
 
-def local_source(book_dir: Path) -> Path | None:
-    """A hand-supplied file in `books/<slug>/source/`, if the operator added one.
-
-    Checked before the network so an offline build is always possible.
-    """
+def local_source(book_dir: Path) -> list[Path]:
+    """Files the operator dropped into `books/<slug>/source/`, in reading order."""
     src = book_dir / "source"
     if not src.is_dir():
-        return None
-    for pattern in ("*.txt", "*.md", "*.wikitext", "*.epub", "*.pdf"):
-        hits = sorted(src.glob(pattern))
+        return []
+    for pattern in ("*.wikitext", "*.txt", "*.md", "*.epub", "*.pdf"):
+        hits = sorted(src.glob(pattern), key=lambda p: wikisource.natural_key(p.stem))
         if hits:
-            return max(hits, key=lambda p: p.stat().st_size)
-    return None
+            return hits
+    return []
 
 
-def blocked_book(
-    entry: dict[str, Any],
-    *,
-    reason: str,
-    status: str = NO_VI_SOURCE_STATUS,
-    translator: str = "",
-    extra: dict[str, Any] | None = None,
-) -> Book:
-    """A `book.json` that is honest about having no Vietnamese text yet.
-
-    Still written, and still carries the full rights provenance from the
-    catalog, so agent B can see exactly which book is missing what.
-    """
-    license_id = normalize_license(entry.get("license", ""))
-    rights = entry.get("rights_note", "")
-    book = Book(
+def blocked_book(entry: dict[str, Any], *, reason: str, status: str = BLOCKED_STATUS) -> Book:
+    """A `book.json` that is honest about having no Vietnamese text yet."""
+    return Book(
         slug=entry["slug"],
         title=entry.get("title", ""),
         author=entry.get("author", ""),
-        translator=translator or NO_VI_SOURCE_TRANSLATOR,
+        translator=BLOCKED_TRANSLATOR,
         language=entry.get("language", "vi"),
-        source_language=entry.get("source_language", "en"),
-        source_format="wikisource",
+        source_language=entry.get("source_language", "vi"),
+        source_format=entry.get("source_format", "wikisource"),
         source_path="",
-        source_url=entry.get("source_url", ""),
-        license=license_id,
+        source_url=entry.get("source_url", "") or source_url_of(entry),
+        license=normalize_license(entry.get("license", "")),
         license_url=entry.get("license_url", ""),
         rights_note=(
-            f"{rights} | VIETNAMESE EDITION: {reason} No machine translation was "
-            f"applied. This book is NOT narratable until a human translation with "
-            f"clear redistribution rights is added."
-        ).strip(),
+            f"{entry.get('rights_note', '').rstrip('.')}. "
+            f"VIETNAMESE EDITION: {reason} No machine translation was applied. This book "
+            f"is NOT narratable until a human translation with clear redistribution "
+            f"rights is added."
+        ),
+        summary=entry.get("summary", ""),
         narrator=entry.get("narrator", ""),
         text_path="",
         chapters=[],
         status=status,
     )
-    return book
+
+
+def _extra_for(entry: dict[str, Any], document: Any = None) -> dict[str, Any]:
+    extra = {key: entry.get(key) for key in EXTRA_FIELDS}
+    if document is not None:
+        extra["source_page"] = document.extra.get("page_title", "")
+        extra["source_revision"] = document.extra.get("revision", 0)
+        extra["source_revision_timestamp"] = document.extra.get("revision_timestamp", "")
+        extra["source_revision_user"] = document.extra.get("revision_user", "")
+        extra["source_pages"] = document.extra.get("pages", [])
+    return {k: v for k, v in extra.items() if v not in (None, "", [], {})}
 
 
 def build_one(
     entry: dict[str, Any],
     *,
-    translate_mode: str,
+    translate_mode: str = "off",
     offline: bool = False,
     dry_run: bool = False,
-    fallback_language: str = "",
-    report: list[str] | None = None,
+    cache: bool = True,
+    max_chapter_words: int = 6000,
+    min_words: int = 250,
+    say=lambda _m: None,
 ) -> tuple[Book | None, str]:
     """Build one book. Returns `(book_or_None, status_word)`."""
+    from sachnoi.config import Config
+
     slug = entry["slug"]
     book_dir = BOOKS_DIR / slug
     notes: list[str] = []
-    say = report.append if report is not None else (lambda _m: None)
 
     # ---- 1. rights gate, before anything is fetched or written ----------
     try:
@@ -155,131 +174,172 @@ def build_one(
 
     # ---- 2. source ------------------------------------------------------
     local = local_source(book_dir)
-    if local is not None:
-        say(f"  [source] {slug}: local file {local.relative_to(CONFIG_ROOT)}")
-        from sachnoi.extract import extract_file
-
-        document = extract_file(
-            local,
-            license_id=entry.get("license", ""),
-            source_url=entry.get("source_url", ""),
-        )
+    document = None
+    if local:
+        say(f"  [source] {slug}: {len(local)} cached file(s) under source/")
+        document = _from_local(local, entry)
     elif offline:
-        say(f"  [source] {slug}: offline, no local file")
-        book = blocked_book(entry, reason="Offline run with no local source file.")
-        if not dry_run:
-            _finish(book, entry, say=say)
-        return book, "offline"
+        say(f"  [source] {slug}: offline and nothing cached under source/")
+        return _finish(blocked_book(entry, reason="Offline run with no cached source."), entry, say=say, dry_run=dry_run), "offline"
     else:
-        vi_url = entry.get("vi_source_url") or ""
         try:
             document = wikisource.extract(
-                vi_url or entry.get("source_url", ""),
-                translator=entry.get("translator", ""),
-                language="vi",
-                fallback_language=fallback_language,
-            )
-            say(
-                f"  [source] {slug}: {document.extra.get('page_title')} "
-                f"({len(document.sections)} chapters, "
-                f"{sum(s.word_count for s in document.sections)} words)"
+                source_url_of(entry), language="vi", min_total_words=min_words
             )
         except (LookupError, ValueError, RuntimeError) as exc:
             say(f"  [source] MISS {slug}: {exc}")
             book = blocked_book(
                 entry,
                 reason=(
-                    "Khong co ban dich tieng Viet public-domain tren "
-                    f"vi.wikisource.org: khong tai duoc trang "
-                    f"{vi_url or entry.get('source_url', '')} ({exc})."
+                    "Khong nap duoc trang "
+                    f"{source_url_of(entry)} ({exc})."
                 ),
             )
-            if not dry_run:
-                _finish(book, entry, say=say)
-            return book, "no-source"
+            return _finish(book, entry, say=say, dry_run=dry_run), "no-source"
+        say(
+            f"  [source] {slug}: {document.extra.get('page_title')} "
+            f"({len(document.extra.get('pages', []))} page(s), rev "
+            f"{document.extra.get('revision')})"
+        )
 
-    if not document.sections:
+    if not document or not document.sections:
         book = blocked_book(entry, reason="Extraction produced no chapters.")
-        if not dry_run:
-            _finish(book, entry, say=say)
-        return book, "empty"
+        return _finish(book, entry, say=say, dry_run=dry_run), "empty"
+
+    words = sum(s.word_count for s in document.sections)
+    expect = entry.get("expect_chapters")
+    say(
+        f"  [extract] {slug}: {len(document.sections)} chapters, {words} words"
+        + (f" (catalog expects {expect})" if expect else "")
+    )
+    if isinstance(expect, int) and expect and len(document.sections) != expect:
+        notes.append(
+            f"chapter count {len(document.sections)} != catalog expect_chapters {expect}; "
+            f"the source has no more structure than this"
+        )
+
+    # ---- 2b. a chapter too long for one track gets split mechanically ----
+    before = len(document.sections)
+    document.sections = split_oversized(document.sections, max_words=max_chapter_words)
+    if len(document.sections) != before:
+        say(
+            f"  [split] {slug}: {before} -> {len(document.sections)} chapters "
+            f"(max {max_chapter_words} words/chapter; the source has no headings)"
+        )
+        notes.append(
+            f"{before} source section(s) were split into {len(document.sections)} audio "
+            f"chapters at {max_chapter_words} words; the work has no internal headings, "
+            f"so part titles are mechanical continuations, not real chapters"
+        )
 
     # ---- 3. translate stage --------------------------------------------
-    from sachnoi.config import Config
-
-    cfg = Config.load()
-    # TranslateConfig is a frozen dataclass, so swap the mode with a copy rather
-    # than mutating the shared config object.
-    translate_cfg = _with_mode(cfg.translate, translate_mode)
+    cfg = dataclasses.replace(Config.load().translate, mode=translate_mode)
     try:
-        engine = build_engine(translate_cfg)
-    except TranslationError as exc:
-        say(f"  [mode] {slug}: {exc}")
-        return None, "bad-mode"
-    try:
-        translate_document(document, config=translate_cfg, engine=engine, notes=notes)
+        engine = build_engine(cfg)
+        translate_document(document, config=cfg, engine=engine, notes=notes)
     except TranslationError as exc:
         say(f"  [translate] {slug}: {exc}")
         return None, "translate-failed"
 
-    if document.language != "vi":
-        # Only reachable with an explicit --fallback-language. Say so loudly
-        # rather than shipping English text in a book marked `language: vi`.
+    if document.language != entry.get("language", "vi"):
         say(f"  [translate] {slug}: NOT Vietnamese (got {document.language})")
         book = blocked_book(
             entry,
             reason=(
-                f"Khong co ban tieng Viet public-domain; chi tai duoc ban "
-                f"{document.language} tu {document.source_url}."
+                f"Chi nap duoc ban {document.language}, khong phai tieng Viet. "
+                f"CONTRACT.md cam may dich."
             ),
-            status=f"{NO_VI_SOURCE_STATUS} (fallback {document.language})",
-            translator=(
-                f"Ban goc {document.language} cua {entry.get('author', '')}. "
-                f"CHUA CO BAN TIENG VIET -- can nguoi dich tay."
-            ),
+            status=f"{BLOCKED_STATUS} (source is {document.language})",
         )
-        if not dry_run:
-            _finish(book, entry, say=say)
-        return book, "fallback-non-vi"
+        return _finish(book, entry, say=say, dry_run=dry_run), "wrong-language"
+
+    if dry_run:
+        return None, "dry-run"
 
     # ---- 4/5. text + book.json -----------------------------------------
     from sachnoi.extract import assemble_book
 
-    if dry_run:
-        words = sum(count_words(s.text) for s in document.sections)
-        say(f"  [dry-run] {slug}: {len(document.sections)} chapters, {words} words")
-        return None, "dry-run"
-
     book = assemble_book(entry, document)
     book.status = "translated" if translate_mode != "off" else "extracted"
-    return _finish(book, entry, notes=notes, document=document, say=say), "ok"
+    if entry.get("translator"):
+        book.translator = entry["translator"]
+    book = _finish(book, entry, notes=notes, document=document, say=say)
+    if cache and not local:
+        try:
+            cache_source(slug, document)
+            say(f"  [cache] raw wikitext under books/{slug}/source/ (gitignored)")
+        except Exception as exc:  # noqa: BLE001 - caching is a convenience
+            say(f"  [cache] skipped: {exc}")
+    return book, "ok"
+
+
+def _from_local(files: list[Path], entry: dict[str, Any]):
+    """Rebuild a document from cached files in `books/<slug>/source/`."""
+    from sachnoi.extract import Document, Section
+    from sachnoi.extract.txt import extract as extract_txt
+
+    sections: list[Section] = []
+    source_path = ""
+    for path in files:
+        source_path = str(path)
+        for sec in extract_txt(path).sections:
+            # A single subpage has no heading of its own; its filename is the name.
+            if not sec.title.strip() or sec.title.strip() in {"Nội dung", "Phần mở đầu"}:
+                sec.title = path.stem.split("__")[-1]
+            sections.append(sec)
+    return Document(
+        sections=sections,
+        title=entry.get("title", ""),
+        source_format=entry.get("source_format", "wikisource"),
+        source_path=source_path,
+        source_url=source_url_of(entry),
+        language="vi",
+        extra={"cached_files": [p.name for p in files]},
+    )
 
 
 def _finish(
     book: Book,
     entry: dict[str, Any],
     *,
-    notes: Sequence[str],
+    notes: Sequence[str] = (),
     document: Any = None,
     say=lambda _m: None,
+    dry_run: bool = False,
 ) -> Book:
     """Write `book.json` + the cross-machine manifest, and report the paths."""
+    if dry_run:
+        return book
     book_dir = BOOKS_DIR / entry["slug"]
     out = book_dir / "book.json"
-    book.save(out)
-    extra_notes = list(notes) + list(getattr(document, "notes", []) or [])
-    write_manifest(book, book_dir / "manifest.json", notes=extra_notes)
+    save_book(book, out, extra=_extra_for(entry, document))
+    all_notes = list(notes) + list(getattr(document, "notes", []) or [])
+    if book.status == BLOCKED_STATUS:
+        all_notes.insert(0, "BLOCKED: no Vietnamese edition; no machine translation applied.")
+    write_manifest(book, book_dir / "manifest.json", notes=all_notes)
     say(
         f"  [done] {entry['slug']}: {len(book.chapters)} chapters -> "
-        f"{book.text_path} + {out.relative_to(CONFIG_ROOT)} + manifest.json"
+        f"{book.text_path or '(no text)'} + {out.relative_to(CONFIG_ROOT)} + manifest.json"
     )
     return book
 
 
-def _with_mode(base, mode: str):
-    import dataclasses
+def cache_source(slug: str, document: Any) -> None:
+    """Store the raw wikitext under `books/<slug>/source/` so --offline works.
 
-    return dataclasses.replace(base, mode=mode)
+    That directory is gitignored, so this is a local cache, never a commit.
+    """
+    src = BOOKS_DIR / slug / "source"
+    src.mkdir(parents=True, exist_ok=True)
+    with wikisource.MediaWikiClient("vi") as mw:
+        root = document.extra.get("page_title", "")
+        if not root:
+            return
+        _, wiki = mw.wikitext(root)
+        (src / f"{slug}.wikitext").write_text(wiki, encoding="utf-8")
+        for page in document.extra.get("pages", [])[1:]:
+            _, sub = mw.wikitext(page)
+            (src / f"{slug}__{page.split('/')[-1]}.wikitext").write_text(sub, encoding="utf-8")
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -292,26 +352,38 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--translate-mode",
         default="off",
         choices=["off", "gloss", "command", "http"],
-        help="default off: the Wikisource source is already Vietnamese",
-    )
-    parser.add_argument(
-        "--fallback-language",
-        default="",
-        help="try this Wikisource language if no Vietnamese edition exists. "
-        "The result is marked NOT narratable as Vietnamese.",
+        help="default off: every catalog entry is already a Vietnamese edition",
     )
     parser.add_argument("--offline", action="store_true", help="never hit the network")
     parser.add_argument("--dry-run", action="store_true", help="fetch and report, write nothing")
+    parser.add_argument(
+        "--no-cache", action="store_true", help="do not write the raw wikitext under source/"
+    )
+    parser.add_argument("--probe", action="store_true", help="alias for --dry-run")
+    parser.add_argument(
+        "--min-words",
+        type=int,
+        default=250,
+        help="reject a source below this many words as an index/stub, not the work",
+    )
+    parser.add_argument(
+        "--max-chapter-words",
+        type=int,
+        default=6000,
+        help="split a longer chapter at paragraph boundaries (0 disables)",
+    )
     args = parser.parse_args(argv)
 
-    entries = pick(load_catalog(args.catalog), args.slug or [])
-    if not entries:
-        print("no matching books", file=sys.stderr)
-        return 1
+    entries, _meta = load_catalog(args.catalog)
+    if args.slug:
+        wanted = set(args.slug)
+        entries = [e for e in entries if e["slug"] in wanted]
+        if not entries:
+            print(f"no catalog book matches {sorted(wanted)}", file=sys.stderr)
+            return 1
 
-    report: list[str] = []
     tally: dict[str, int] = {}
-    books: list[Book] = []
+    rc = 0
     for entry in entries:
         print(f"[{entry['slug']}]")
         try:
@@ -319,29 +391,26 @@ def main(argv: Sequence[str] | None = None) -> int:
                 entry,
                 translate_mode=args.translate_mode,
                 offline=args.offline,
-                dry_run=args.dry_run,
-                fallback_language=args.fallback_language,
-                report=report,
+                dry_run=args.dry_run or args.probe,
+                cache=not args.no_cache,
+                max_chapter_words=args.max_chapter_words,
+                min_words=args.min_words,
+                say=lambda m: print(m, flush=True),
             )
         except Exception as exc:  # noqa: BLE001 - one bad book must not kill the run
             print(f"  [error] {entry['slug']}: {type(exc).__name__}: {exc}", file=sys.stderr)
-            status = "error"
-            book = None
+            status, book = "error", None
+            rc = 1
         tally[status] = tally.get(status, 0) + 1
-        if book is not None:
-            books.append(book)
-        for line in report:
-            print(line)
-        report.clear()
 
     print("\n=== summary ===")
     for status, count in sorted(tally.items()):
         print(f"  {status:<18} {count}")
-    if not args.dry_run and books:
-        print(f"  wrote {len(books)} book.json file(s) under {BOOKS_DIR}")
-    if "rights-blocked" in tally or "error" in tally or "bad-mode" in tally:
+    if tally.get("rights-blocked") or tally.get("translate-failed"):
         return 1
-    return 2 if tally.get("no-source") or tally.get("empty") or tally.get("fallback-non-vi") else 0
+    if tally.get("no-source") or tally.get("empty") or tally.get("wrong-language") or tally.get("offline"):
+        return 2
+    return rc
 
 
 if __name__ == "__main__":
