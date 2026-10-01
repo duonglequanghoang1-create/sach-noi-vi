@@ -1,17 +1,17 @@
-# TỪ-HẢI ĐỀ DUYÊN.
+# THỐNG KHỐC TỪ-CÔNG.
 
-Vổng lay còn vướng dạ xót thay!
+Trời cao chẳng nhẽ thấu hay chăng,
 
-Mưa gió đâu mà kéo đến ngay?
+Bỗng-chúc xuôi nên phụ tấm lòng.
 
-Cá chậu đam buông dòng nước chảy,
+Trăm trận oai-danh đèn dưới gió,
 
-Chim lồng ra khỏi cửa trời bay.
+Năm năm công nghiệp bọt ngoài sông.
 
-​ Vẫy-vùng bốn bể bù khi trước.
+Trần-ai thương-hại người xương trắng,
 
-Ngang-dọc trăm chìu bỏ bấy nay,
+Non nước bơ-vơ phận má-hồng.
 
-Hoa giải xuân về chưa gió tạnh.
+Sự thế ai ngờ dâu hóa bể.
 
-Lại tan dầu tuyết cõi chơn mây.
+Thôi thời quyết một thác cho xong.

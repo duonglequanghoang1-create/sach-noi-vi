@@ -1,17 +1,17 @@
-# NGỘ KIM-TRỌNG.
+# KIỀU VÃNG TRỌNG HIÊN.
 
-Trong tiết thanh-minh hội dập-diều,
+Những là rày gió với mai mưa,
 
-Tình-cờ gây dựng truyện Kim Kiều,
+Lần-lựa nên mang tiếng hẩng-hờ.
 
-Lạc vàng trổi tiếng cương dừng lại,
+Cam tệ bấy lâu tin nhạn vắng,
 
-Cây ngọc xa chừng mắt ghé theo,
+Nên giờ gọi chút tạ tình xưa.
 
-​ Đoạn thảm chưa nguôi thơ mả vắn,
+Lời thề vững một niềm son-sắt.
 
-Cơn buồn như giục cảnh trời chiều,
+Vừng nguyệt soi chung dạ tóc-tơ.
 
-Mối tơ rối-rắm vương từ đấy.
+Sông dải non mai duyên vẫn thắm.
 
-Tài bấy nhiêu tình cũng bấy nhiêu.
+Tuyết-sương kẻo chẳng vẹn công chờ.

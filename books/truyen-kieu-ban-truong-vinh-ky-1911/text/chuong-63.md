@@ -1,17 +1,17 @@
-# CHÂU-THAI ĐÃI TỪ-CÔNG.
+# HẠ GIÁ THỔ-QUAN.
 
-Võ-võ quê người chốc bấy nay!
+Đã ra nương-dựa mấy cây cao,
 
-Niềm riêng riêng nặng có ai hay?
+Có nhẽ đưa chơn lại bước vào,
 
-Năm canh luống những chiêm-bao vẩn,
+Mặt ấy hẳn không tơ ấy vướng,
 
-Ngàn dặm khôn ngăn chắp cánh bay.
+Thân nầy đâu có nợ nầy sao?
 
-Mấy độ sen tàn màu nắng lợt?
+Đã thừa nếm trải mùi cay-đắng.
 
-Đôi phen cúc nhuốm vẻ sương say.
+Còn thiếu chi mà phải ước-ao?
 
-Ba sinh đã biết duyên hay nợ.
+Ơn ấy âu thì theo hải thượng,
 
-Một gánh tương-tư nặng một ngày.
+Sống thừa chi để tiếng đời phao?

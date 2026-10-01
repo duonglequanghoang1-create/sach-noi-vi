@@ -6,7 +6,7 @@ của Nguyễn Du , do Trương Vĩnh Ký dịch
 
 Nguyễn Du 25040 Truyện Kiều 1911 Trương Vĩnh Ký
 
-​ 金 雲 翹 傳
+金 雲 翹 傳
 
 TRANSCRIT POUR LA PREMIÈRE FOIS EN QUỐC-NGỮ AVEC DES NOTES EXPLICATIVES, ET PRÉCÉDÉ D’UN RÉSUMÉ SUCCINCT DU SUJET EN PROSE
 

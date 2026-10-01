@@ -1,17 +1,17 @@
-# NGƯ ÔNG CỨU MẠNG.
+# TRỌNG ĐỀ DUYÊN.
 
-Mười lăm năm những bước long-đong!
+Luống những đào đông với liễu tây.
 
-Muốn phụ tình chung phụ há xong?
+Mênh-mông trời bể bấy lâu nay,
 
-Còn vướng tình trong vòng tạo hóa,
+Ngờ đâu cơ hội đền bồi đó,
 
-Khó đem mình trả nợ non sông.
+Lại có nhơn-duyên gặp gỡ đây?
 
-Bởi đưa chơn lánh miền phi thị,
+Ước cũ hãy còn trăng gió ấy,
 
-Lại gởi duyên vào cửa sắc không.
+Thề xưa chẳng thẹn nước non nầy.
 
-Nên bỏ tấm thân dòng nước chảy,
+Tỉnh dần giấc mộng huỳnh-lương dậy.
 
-Không hay thoát khỏi lưới ngư-ông.
+Cái nợ phong trần vỗ trắng tay.

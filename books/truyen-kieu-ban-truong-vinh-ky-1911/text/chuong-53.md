@@ -1,17 +1,17 @@
-# TRÚNG SỞ KHANH KẾ.
+# THỊ THÚC HOẠN AM.
 
-Nghĩ người tế độ kẻ trầm-luân.
+Trần-ai kia biết bỡi vì đâu?
 
-Nên chắc đinh ninh hết nợ trần,
+Dẫu tuổi xuân xanh cũng bạc đầu.
 
-Nương gió không ngờ bay mắc lưới.
+Đọng giọt huỳnh hoa tan giọt lụy,
 
-Xe dây đâu lại buộc vào chơn!
+Lấp cung bạc mạng nổi cung sầu.
 
-​ Hồng liên phải lép cung Tần-tử,
+Khôn hay lặn-mọc do hàm cá.
 
-Hoa mấy lần kinh trống chúa xuân?
+Mà biết vuông tròn uốn lưỡi câu.
 
-Trong cuộc đoạn-trường chưa bước khỏi,
+Ai dẫu có thương rằng phận bạc,
 
-Trời làm nào có trách chi thân?
+Liệu mà xin mở cửa cho nhau.

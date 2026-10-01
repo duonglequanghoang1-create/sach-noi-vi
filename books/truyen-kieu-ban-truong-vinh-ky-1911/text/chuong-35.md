@@ -1,19 +1,31 @@
-# THẰNG-KHUYỂN, THẰNG-ƯNG ÁN.
+# TÚY-KIỀU VỊNH TÍCH.
 
-Dạ vượn lòng hươu, đầu trâu mặt khỉ.
+←
 
-Tra đến lẽ thuyền-bè riêng vượt bể,
+Kim, Vân, Kiều phú
 
-Bắt người buông lữa há rằng oan?
+Truyện Kiều của Nguyễn Du , do Trương Vĩnh Ký dịch
 
-Thương vì tình cơm áo nặng vào mình,
+Túy Kiều thi tập
 
-Giày lạnh xông than nên phải khó.
+Kim, Vân, Kiều tập án
 
-Tuy biết tứ hành là phạm pháp,
+→
 
-Song mà sở mạng dám từ nan.
+25982 Truyện Kiều — Túy Kiều thi tập Trương Vĩnh Ký Nguyễn Du
 
-Chiếu vi tùng phát phối viễn vi nô
+Giọt nước Tiền-đường chẳng rửa oan,
 
-Chờ hiệu lực hứa hồi dân sinh nghiệp.
+Phong hoa chưa trắng nợ hồng-nhan,
+
+Lòng tơ còn vướng chàng Kim-trọng,
+
+Gót ngọc không thanh chốn thủy quan,
+
+Nửa giấc đoạn trường tan gối điệp,
+
+Một dây bạc mạng giứt cầm loan,
+
+Cho hay những kẻ tài-tình lắm,
+
+Trời bắt làm gương để thế-gian.

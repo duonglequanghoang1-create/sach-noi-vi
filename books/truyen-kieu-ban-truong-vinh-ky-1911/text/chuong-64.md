@@ -1,17 +1,17 @@
-# THĂNG CÔNG-ĐƯỜNG BÁO ĐÁP.
+# ĐẦU TIỀN-ĐƯỜNG GIANG.
 
-Nghĩ cơ tạo hóa lạ lùng thay!
+Thần mộng từ xưa kể xiết bao?
 
-Vô-tích sao mà lại có nay!
+Sông Tiền-đường đó há đâu nào?
 
-Dưới trướng phân-minh người hậu bạc.
+Nói thôi thoát đã lòa gương ngọc.
 
-Trên giường biện-bạch kẻ gian ngay.
+Thì đáp vừa xong bạc má đào.
 
-Nợ tuy trả đặng, lòng còn tức,
+Tài sắc vươn mang hình tạo-hóa,
 
-Ơn dẫu đền xong, dạ chẳng khuây.
+Tình tơ khó vẽ trạng thanh-tao.
 
-Nắng nhọc chẳng hiềm trong một phút.
+Trời xanh nỡ phụ xuân xanh ấy,
 
-Bận lòng nầy hết kể từ đây.
+Có lẽ không đền nghĩa tấc giao?

@@ -1,17 +1,17 @@
-# THỊ VÂN ĐẠI GIÁ
+# TRÚNG SỞ KHANH KẾ.
 
-Miệng ngập-ngừng thay dạ xót-xa!
+Nghĩ người tế độ kẻ trầm-luân.
 
-Ai ngờ bình địa nỗi phong ba!
+Nên chắc đinh ninh hết nợ trần,
 
-Sớm nương gối phụng xe dây-sắt,
+Nương gió không ngờ bay mắc lưới.
 
-Hòm để gương loan thẹn bóng nga.
+Xe dây đâu lại buộc vào chơn!
 
-Thương kẻ quan-sơn khơi dợn bước!
+Hồng liên phải lép cung Tần-tử,
 
-Xót thân bèo-bọt dãi dầu hoa!
+Hoa mấy lần kinh trống chúa xuân?
 
-Dấu xưa còn đoái tờ mây đó,
+Trong cuộc đoạn-trường chưa bước khỏi,
 
-Như có cho đành kẻ bước ra.
+Trời làm nào có trách chi thân?

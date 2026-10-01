@@ -1,17 +1,17 @@
-# BAC TRIỀU HỒ-CÔNG THUYẾT HANG.
+# NGƯ ÔNG CỨU MẠNG.
 
-Hướng dương bao quản phận hoa quì.
+Mười lăm năm những bước long-đong!
 
-Thì lại riêng đâu nỗi biệt-ly.
+Muốn phụ tình chung phụ há xong?
 
-Kể có thần cơ trong sớm liệu,
+Còn vướng tình trong vòng tạo hóa,
 
-Châu về Hiệp-phố họa là khi.
+Khó đem mình trả nợ non sông.
 
-​ Uốn ba tấc lưỡi bày hơn thiệt,
+Bởi đưa chơn lánh miền phi thị,
 
-Chống một thanh gươm rạch thị phi,
+Lại gởi duyên vào cửa sắc không.
 
-Dẫu có oai-linh lừng góc bể,
+Nên bỏ tấm thân dòng nước chảy,
 
-Bên trời chiết nhạn có ra chi?
+Không hay thoát khỏi lưới ngư-ông.

@@ -1,43 +1,15 @@
-# ĐẠM-TIÊN ÁN
+# TỀ TRI PHỦ ÁN
 
-Già nỗi một đời, tiếng bay bốn bể.
+Lồng gương minh-mẫn, mặt sắt đoan-trang.
 
-Hương một nén cũng cám lòng tri ngộ.
+Thấy lá đơn Thúc-lão đã dơ tuồng,
 
-Mơ-màng hồn quế tỉnh dường mê.
+Phụ khống tử tới quan không lẽ bát.
 
-Thơ mười đem thử sức sơ giao,
+Tra đến mặt Thúc sinh mà phá lẽ,
 
-Ngần-ngại chơn giày đi lại đứng.
+Công chế tư mở lý tháo bài hòa.
 
-Nên tài sắc đã mỉa chìu quyền quới,
+Gẫm ngôn từ đáng thể lượng đại thần,
 
-Miền phong hoa mà thấy dạ thủy chung.
-
-Chốn thanh lâu đem túc trái bảo thầm,
-
-Một lời trót đã hẹn-hò.
-
-Nào tiếc sức ngoài mười năm chong bóng?
-
-Áng minh phủ thuở tiền khiên phô trắng,
-
-Hai ngã dầu khôn dan-díu,
-
-Cũng có công chờ ngàn dặm đưa tin.
-
-Nghiệm giao tình trọn-vẹn nên thương,
-
-Xét nghiệp chướng đọa-đày cũng xót.
-
-Phạt một lẽ hững-hờ cùng viễn khách,
-
-Phụ chăng phụ, do nghi ư lý,
-
-Vậy thân nầy quyền ủy nguyệt hoa thần.
-
-Như những đều vất-vả với tri âm,
-
-Tình nên tình diệc túc vi công,
-
-Chờ kiếp khác gia phong cung các nữ.
+Xét khóa tích gia phẩm-trật ngự sữ.

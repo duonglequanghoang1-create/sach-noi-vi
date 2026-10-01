@@ -1,17 +1,17 @@
-# LẦU THƯỢNG ĐỀ SẦU.
+# QUI VÕ-TÍCH TÁC HOA-NÔ.
 
-Quê người võ-võ biết bao lâu?
+Gớm mặt hoa xanh những khéo là!
 
-Buồn dựa song đào đoái trước sau.
+Ghen-tương theo mãi chẳng tha ra,
 
-Ngọn nước lênh-đênh quanh trước án,
+Má hồng phải lấp màu son phấn,
 
-Đóa hoa xiêu-lạc biết về đâu?
+Vóc liễu đam vùi chốn cỏ hoa.
 
-Ngõ phán láng tử ngoài muôn dặm.
+Bóng xế tây hiên quỳnh chén cúc.
 
-Mặt nước chơn mây lẩn một màu?
+Xuân lan đông các điểm hương trà.
 
-Phong-cảnh kìa ai phong-cảnh ấy?
+Đào đà sa ngọc trong vòng ấy,
 
-Cám tình lưu lạc một đôi câu.
+Gở đặng thì xuân cũng phải già.

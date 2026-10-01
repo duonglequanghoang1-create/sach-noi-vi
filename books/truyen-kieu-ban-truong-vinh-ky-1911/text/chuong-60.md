@@ -1,17 +1,17 @@
-# NGỘ BẠC HẠNH.
+# THĂNG CÔNG-ĐƯỜNG BÁO ĐÁP.
 
-Nghĩ kiếp đào hoa cũng lạ dường!
+Nghĩ cơ tạo hóa lạ lùng thay!
 
-Lánh mà lại phải quỉ đem đường.
+Vô-tích sao mà lại có nay!
 
-Đó trời thoát khỏi vườn tơ nguyệt,
+Dưới trướng phân-minh người hậu bạc.
 
-Câu Lữ qua rồi mắc lưới Thang.
+Trên giường biện-bạch kẻ gian ngay.
 
-Như giống chim lồng trong sẵn gạo,
+Nợ tuy trả đặng, lòng còn tức,
 
-Đặng con hạc nội chịu không lương.
+Ơn dẫu đền xong, dạ chẳng khuây.
 
-Cũng nhiều mặt phấn môi son vậy,
+Nắng nhọc chẳng hiềm trong một phút.
 
-Riêng một thân ai sự xiết thương!
+Bận lòng nầy hết kể từ đây.

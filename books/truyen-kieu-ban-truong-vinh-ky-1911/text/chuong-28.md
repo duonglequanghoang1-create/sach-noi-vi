@@ -1,15 +1,19 @@
-# GIÁC-DUYÊN ÁN.
+# SỞ-KHANH ÁN
 
-Nhơn nghĩa đủ đường, tu hành phải đạo!
+Vốn phường xỏ lá, quen thói lừa hoa.
 
-Lời đàn việt hở ra nghe cũng gớm,
+Sấn một tay giún mấy đóa phù dung,
 
-Cửa từ-bi lừa lối gởi ân tình.
+Chứng Mã-kiều khai đã phân minh.
 
-Số tiên cung dẫn lại thấy mà mầng,
+Lật mặt xấp mày tình đã hiển.
 
-Thuyền tế độ giăng sông chờ phước đức.
+Tham ba hốt hại chiếc thân bồ liễu,
 
-Ơn nghĩa ấy trã ngàn vàng cũng phải,
+Tờ tích việt hiện tồn tự tích,
 
-Công quả kia ngồi thập điện cũng nên.
+Vò hồng giày tía tội khôn tha.
+
+Cứ án biên đắc tài luật khoa hình.
+
+Nghĩ cái phận trảm giam hậu đãi thẫm.

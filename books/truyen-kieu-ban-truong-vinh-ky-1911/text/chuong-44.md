@@ -1,17 +1,17 @@
-# HOA VIÊN NGỘ.
+# THỌ GIÁM-SANH SÍNH.
 
-Thơ-thẩn vườn xuân dạo gót chơi,
+Thương hại cùng ai chốc bấy lâu!
 
-Thướt-tha bóng liễu buổi êm trời.
+Xa-xôi biết có thấu cho nhau?
 
-Trên đào đương mó hoa cười gió,
+Phải đam vàng đá ghi lời trước.
 
-Góc núi xa nghe khách ướm lời.
+Gởi vuối non sông trả nghĩa sau.
 
-​ Ngơ-ngẫn hương e cùng phấn lệ,
+Đành phận lưu-ly chi sá quản,
 
-Mơ-màng lá rụng với hoa rơi.
+Những người xa cách nghĩ mà đau!
 
-Một rằng duyên phận hai rằng nợ,
+Cũng liều nhắm mắt đưa chơn vậy,
 
-Mây nước lòng người dễ chắc thôi?
+Xem thữ xây vần mãi đến đâu?

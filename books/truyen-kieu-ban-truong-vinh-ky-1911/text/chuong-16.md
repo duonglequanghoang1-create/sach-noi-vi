@@ -1,61 +1,81 @@
-# THÚC-SANH ÁN.
+# KIM-TRỌNG ÁN.
 
-Rặt nòi tú mỡ, quen thói bốc-rời.
+Dòng-dõi trâm-anh, văn chương đài-các.
 
-Việc tày trời bưng-bít giấu trong bình,
+Bậc tài danh nền phước hậu.
 
-Úp lồng kín giấu voi ruộng rạ.
+Mối hồng lầu, duyên tú các thiếu chi?
 
-Kiến giò đất quanh co bò miệng chén,
+Trong phong nhã ngoài hào hoa,
 
-Cáu tâm dư những thói trẻ ranh.
+Sân ngọc-bội, phường kim-môn dễ mấy?
 
-Tội khi-man đem buộc lấy vào mình.
+Xem đai đất đã vào dòng cụ thể.
 
-Lời định chúc chẳng dám thò ra miệng.
+Gẫm phong quang chưa ra vẻ lão thành.
 
-Tiệc giải cấu muốn đầy hàng khoan nhặt.
+Kẻ tấn thân mà quen thói dông-dài.
 
-Bó tay vào đều cung tửu giấu quanh.
+Mượn bước tầm phương đo sắc nước.
 
-Các viết kinh khi rơi lụy ngắn dài.
+Khách hàn mặc khéo dơ tuồng ve chuốt.
 
-Cắn răng lại chước tại đào phất điểu.
+Thuê hiên Lãm-túy ướm tơ đào.
 
-Cũng mang tiếng là tuồng quân-tử.
+Chữ phất cầu, đà lỗi với gia đình.
 
-Làm ô danh đến bạn đàn-bà.
+Đường phi thể, lại phạm vào công luận.
 
-Dưới gối cha làm luống dở bài-bay.
+Xem buổi mới đã nài hoa ép liễu,
 
-Lời si ngốc đã dơ trong danh-giáo.
+Nỗi trăng gió chẳng nể lòng đoan chính
 
-Trước mặt vợ, sợ quen trưng mắt tráo.
+Án điêu gian, chẳng lựa phải tra.
 
-Lúc lụy rơi thêm dại cả hình-thù.
+Gẫm khi nén còn gạn phấn tưởng hương.
 
-Đả thất cơ mà thua trí đàn-bà,
+Giá bếp buồng nghe thoảng tiếng thị phi.
 
-​ Sao tự thú chằng hết lòng chị nó?
+Luật thất tự, hiện tồn khả cứ.
 
-Xét trong lẽ sinh vi nam tử,
+Xét hữu lộc cố nhứt niên sung dịch.
 
-Oai khổn nội kia nghiêm đường phủ doãn.
+Niệm đa tình cố nhứt thứ tùng khinh.
 
-Xem thể diện có còn ai đến thế,
+Vã thương chàng, nhân ngãi đã đều, thũy chung một mực.
 
-Tội quá nhu ưng định nghĩ mãn xuy.
+Gắn-vó nặng cùng lời non nước.
 
-Thương vì tính tố thị lương nhàn,
+Nuôi hai thân thay mặt khách tình chung.
 
-Quyền tại gia là trũng tể thiên quan.
+Dặn-dò hỏi lại lúc phân-ly,
 
-Ấy tư cơ cũng vì nó mà nên,
+Nối sợi chỉ đền lòng người mạng bạc,
 
-Thế sở bức hãy cô dung nhất thứ.
+Chén nguyện chứa-chan dòng nước-mắt,
 
-Còn như gấm trăm cuốn, bạc ngàn cân.
+Gối tình vơ-vất giấc chiêm-bao.
 
-Tuy Thúc-mỗ chẳng công chi nên thưởng.
+Mười mấy thu phong mở quạt hoa,
 
-Song Kiều-nhi có bụng ấy cũng cho.
+Những là thảm lấp sầu xây,
+
+Nhìn khâm chẩm mơ-màng lời sơn hải.
+
+Ngoài ngàn dặm đổi thay sứ nhạn,
+
+Sá quản của thuê công mướn.
+
+Gẫm đỉnh chung đau-đớn nỗi bình-bồng.
+
+Áng phong trần nhìn thấy mặt mới cam,
+
+Duyên thi tửu phải chìu lòng cho trọn.
+
+Ấy tám đức cũng là tuồng quân-tử,
+
+Tình nên thương mà đắc cách cũng ơn.
+
+Vã văn chương đà đáng bực cao danh,
+
+Tài cũng tiếc xả khí hà trạc dụng.

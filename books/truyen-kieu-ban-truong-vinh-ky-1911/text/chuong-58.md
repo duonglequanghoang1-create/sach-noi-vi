@@ -1,17 +1,17 @@
-# PHẬT CÁC THIÊN KINH.
+# TỪ-HẢI ĐỀ DUYÊN.
 
-Trải mấy thu chầy chốn lửa than?
+Vổng lay còn vướng dạ xót thay!
 
-Nâu sồng nay đỗi dạng hồng nhan.
+Mưa gió đâu mà kéo đến ngay?
 
-Viết kinh-kệ để khuây trần niệm,
+Cá chậu đam buông dòng nước chảy,
 
-Chịu muối dưa qua vuối thế-gian.
+Chim lồng ra khỏi cửa trời bay.
 
-Trải tháng ngày vui niềm Phật-lão,
+Vẫy-vùng bốn bể bù khi trước.
 
-Tính gang tấc mấy độ quan-san.
+Ngang-dọc trăm chìu bỏ bấy nay,
 
-Thôi thôi nương gối Quan-âm vậy,
+Hoa giải xuân về chưa gió tạnh.
 
-Thì nợ phong trần họa có tan.
+Lại tan dầu tuyết cõi chơn mây.

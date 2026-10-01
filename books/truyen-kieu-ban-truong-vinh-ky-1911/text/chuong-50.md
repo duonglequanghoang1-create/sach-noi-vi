@@ -1,17 +1,17 @@
-# DỮ MÃ ĐĂNG TRÌNH.
+# DỮ THÚC THÀNH HÔN
 
-Giấc mộng còn mơ ngãi cố-tri,
+Trăng gió mà ra cuộc đá vàng,
 
-Tiếng gà đâu đã giục ra đi.
+Lưng-lưng giũ sạch nợ hồng-nhan,
 
-Trông mây dường vẽ tình lưu-lạc,
+Hạ qua nắng dãi xen màu nhụy,
 
-Nghe nói như đờn khúc-biệt ly.
+Xuân đến mưa dày liễu vẻ-vang,
 
-​ Ví biết thân nầy ra phận thế,
+Ngày vắng im-liềm chăn túy võ.
 
-Thì đừng ngày trước nặng nguyền chi?
+Đêm thanh khoan-nhặc khúc cầm loan,
 
-Còn non còn nước còn trăng đó,
+Tuy trong chưa biết duyên hay nợ,
 
-Thì nợ Châu Trần cũng có khi.
+Mầng trộm cho thân thoát đoạn-tràng.

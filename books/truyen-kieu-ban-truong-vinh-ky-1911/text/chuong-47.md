@@ -1,17 +1,17 @@
-# VĂN TỤNG TỪ.
+# BIỆT MÃI THANH LÂU TÚ-BA.
 
-Thương ôi cá thớt biết sao đây!
+Từ ngày xa cách chốn tha hương.
 
-Bay-bốc ai làm đến nỗi nầy!
+Xót phận lưu ly đãi tuyết sương,
 
-Cơ biến khó đem tình hậu bạc.
+Vẻ mặt những là dơ dạng phấn,
 
-U-minh khôn bạch nổi gian ngay.
+Châu mày thêm luống thẹn-thùng gương.
 
-​ Bơ-vơ chín khúc tơ tằm rối,
+Trời ghen chi mãi người tư sắc,
 
-Lã-chã năm canh nước mắt dầy.
+Tên bắt đem vào số đoạn-trường?
 
-Bát-ngát đêm thu chong bóng thỏ.
+Nông-nổi dường nầy ai có biết,
 
-Nỗi niềm tâm sự có ai hay?
+Một mình mình nghĩ lại mình thương!

@@ -1,17 +1,17 @@
-# KÍ NGỤ GIÁC-DUYÊN.
+# CHÂU-THAI ĐÃI TỪ-CÔNG.
 
-Mô-phật tình không phụ cố-tri,
+Võ-võ quê người chốc bấy nay!
 
-Cũng vì cay-đắng phải sanh li.
+Niềm riêng riêng nặng có ai hay?
 
-Câu thơ cù mộc chưa ngâm hết.
+Năm canh luống những chiêm-bao vẩn,
 
-Mà dải đồng tâm đã xé đi.
+Ngàn dặm khôn ngăn chắp cánh bay.
 
-​ Kiểng quạnh đưa chơn dầu có nhớ,
+Mấy độ sen tàn màu nắng lợt?
 
-Am thanh nương bóng họa là khi.
+Đôi phen cúc nhuốm vẻ sương say.
 
-Sa cơ nghĩ bước phong trần trước,
+Ba sinh đã biết duyên hay nợ.
 
-Lại giựt mình thay nỗi bất kì.
+Một gánh tương-tư nặng một ngày.

@@ -1,17 +1,17 @@
-# DU THANH MINH.
+# HOA VIÊN NGỘ.
 
-Vừa tiết xuân sang liễu xủ mành,
+Thơ-thẩn vườn xuân dạo gót chơi,
 
-Dập-diều ai cũng hội thanh-minh,
+Thướt-tha bóng liễu buổi êm trời.
 
-Tro tàn lẩn-quẩn đàng xe-ngựa,
+Trên đào đương mó hoa cười gió,
 
-Gò đống xa gần nức yến-anh,
+Góc núi xa nghe khách ướm lời.
 
-Nấm đất thương đau người chín suối,
+Ngơ-ngẫn hương e cùng phấn lệ,
 
-Bên cầu gặp-gở khách ba sanh,
+Mơ-màng lá rụng với hoa rơi.
 
-Tình kia kiểng nọ càng lai-láng,
+Một rằng duyên phận hai rằng nợ,
 
-Khi trở gót hài bóng đã chênh.
+Mây nước lòng người dễ chắc thôi?

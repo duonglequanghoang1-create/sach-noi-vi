@@ -1,17 +1,17 @@
-# MỘNG ĐẠM-TIÊN
+# VĂN TỤNG TỪ.
 
-Trước loan nương gối giấc vừa êm,
+Thương ôi cá thớt biết sao đây!
 
-Chợt thấy người đâu độ thiểu niên.
+Bay-bốc ai làm đến nỗi nầy!
 
-Tha-thướt phô màu in vóc tố,
+Cơ biến khó đem tình hậu bạc.
 
-Thanh tân dạng dấu chốn đào nguyên.
+U-minh khôn bạch nổi gian ngay.
 
-Giất tan gối điệp bâng-khuâng những.
+Bơ-vơ chín khúc tơ tằm rối,
 
-Sầu vẫn canh gà chất-chứa nên,
+Lã-chã năm canh nước mắt dầy.
 
-Còn nghĩ chưa xong duyên phận ấy,
+Bát-ngát đêm thu chong bóng thỏ.
 
-Bóng trăng đâu đã xế ngoài hiên.
+Nỗi niềm tâm sự có ai hay?

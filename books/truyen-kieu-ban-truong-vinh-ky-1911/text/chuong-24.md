@@ -1,23 +1,15 @@
-# THÚC-CHÁNH-ÔNG ÁN
+# GIÁC-DUYÊN ÁN.
 
-Khéo đường buôn-bán, vụng nỗi ở-ăn.
+Nhơn nghĩa đủ đường, tu hành phải đạo!
 
-Bề khuyên răn không sớm thuở còn thơ,
+Lời đàn việt hở ra nghe cũng gớm,
 
-Miền hàng chợ để hư thân lêu-lỏng.
+Cửa từ-bi lừa lối gởi ân tình.
 
-Duyên gặp-gỡ tới khi tình đã nặng,
+Số tiên cung dẫn lại thấy mà mầng,
 
-Chốn quan tư đem lại việc quàng-xuyên.
+Thuyền tế độ giăng sông chờ phước đức.
 
-Sao chẳng suy kiện cáo ích gì.
+Ơn nghĩa ấy trã ngàn vàng cũng phải,
 
-​ Mà nở để tiếng-tăm là thế?
-
-Xét đến lẽ xử gia giáo tử,
-
-Tội bất nghiêm ưng định trượng tám mươi.
-
-Thương vì tình chất phát niên cao,
-
-Luật chuẩn thục hứa nạp ngàn tứ lượng.
+Công quả kia ngồi thập điện cũng nên.

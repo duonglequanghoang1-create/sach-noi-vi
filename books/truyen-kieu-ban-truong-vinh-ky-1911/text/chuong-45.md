@@ -1,17 +1,17 @@
-# KIỀU VÃNG TRỌNG HIÊN.
+# THỊ VÂN ĐẠI GIÁ
 
-Những là rày gió với mai mưa,
+Miệng ngập-ngừng thay dạ xót-xa!
 
-Lần-lựa nên mang tiếng hẩng-hờ.
+Ai ngờ bình địa nỗi phong ba!
 
-Cam tệ bấy lâu tin nhạn vắng,
+Sớm nương gối phụng xe dây-sắt,
 
-Nên giờ gọi chút tạ tình xưa.
+Hòm để gương loan thẹn bóng nga.
 
-Lời thề vững một niềm son-sắt.
+Thương kẻ quan-sơn khơi dợn bước!
 
-Vừng nguyệt soi chung dạ tóc-tơ.
+Xót thân bèo-bọt dãi dầu hoa!
 
-Sông dải non mai duyên vẫn thắm.
+Dấu xưa còn đoái tờ mây đó,
 
-Tuyết-sương kẻo chẳng vẹn công chờ.
+Như có cho đành kẻ bước ra.

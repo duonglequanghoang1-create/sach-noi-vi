@@ -1,17 +1,17 @@
-# TƯƠNG-TƯ
+# TỐNG TRỌNG QUI TANG.
 
-Bóng trăng hé-hé giọi bên lầu,
+Đau lòng ai lắm hởi ai ôi!
 
-Ngồi với trăng mà ngở những đâu.
+Thệ hải minh sơn đã có rồi,
 
-Trăm mối vò tơ lần gở khắc.
+Mối thảm ngậm-ngùi khi sẽ nữa,
 
-Một mình nương gối trót canh thâu,
+Bước đường ngần-ngại lúc chia đôi,
 
-Ba sanh âu hản còn vương nợ.
+Tháng ngày đành phận ba thu lụn,
 
-Tấc dạ nay khôn dập mối sầu.
+Mưa gió thương người mấy dặm khơi.
 
-Mới biết tương-tư là thể ấy.
+Hai chữ đồng tâm cùng tạc để,
 
-Cho hay chớ trách kẻ ôm cầu.
+Mặc ai trăng gió dám sai lời.

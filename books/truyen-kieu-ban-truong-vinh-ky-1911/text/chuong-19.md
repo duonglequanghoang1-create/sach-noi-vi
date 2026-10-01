@@ -1,35 +1,15 @@
-# TÚY-VÂN ÁN.
+# VƯƠNG-QUAN ÁN
 
-Tuyết nhượng màu da, mây thua nước tóc.
+Quả người lương thiện, thiệt dạ thủy chung:
 
-Sắc chẳng kém mười phần trọn-vẹn,
+Chốn tụng đình giục Chung lão sở mưu,
 
-Duyên lại thêm bốn bể gồm no.
+Hết tư sản cũng không lòng oán hận.
 
-Nặng vì cha chịu đựng lấy tờ-bồi.
+Phen hoàng bảng lấy kim gia làm bạn,
 
-Tơ-tóc ngập-ngừng dường biết thẹn.
+Kết hôn nhơn cho trọn nghĩa thủy chung.
 
-Thương đến chị đền-bồi cùng non nước.
+Xét tên nầy tuy cạnh góc chửa tròn.
 
-Hiển-vinh gặp-gở há rằng cầu?
-
-Nết đoan trang xem phải khổ nữ trung.
-
-Khuôn đầy-đặn đủ vào đồ tướng pháp.
-
-Xét đến thuở phụ tù tỉ mại,
-
-Cơn khống-tống dám hít-ha là thế.
-
-Chữ vô tâm coi thấy cũng nên dường.
-
-Xem chưng khi phu ấm thê vinh.
-
-Nhẽ kinh quyền khéo nhường nhẩn đến đều.
-
-Đường xử kỷ cũng là đà đáng thưởng.
-
-Công tội bình phán, án đoạn trường miễn nghị.
-
-Nết-na phải thói, ngôi mạng phụ gia vinh
+Soi dạ ấy cũng nên gia phước lộc.

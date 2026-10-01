@@ -1,15 +1,39 @@
-# HOẠN A GIA ÁN.
+# MÃ-GIÁM-SANH, TÚ-BÀ ÁN.
 
-Tính hạnh ngay lành, nết na nhẹ-nhuyễn.
+Chung lưng hương phấn, mở phố nguyệt hoa.
 
-Tinh con mắt biết kẻ khinh người trọng,
+Một đứa là bợm xác gặp hồi đen,
 
-Lời hiếu sinh tường kẻ tóc chơn tơ.
+Quen tuồng cũ kiếm ăn lập nghiệp.
 
-Rộng lòng thương khi thang thuốc chén trà,
+Một con là đĩ già đà hết lộc,
 
-Đều phương tiện dặm đường ăn nỗi ở.
+Chác nghề riêng chăm-chút sinh nhai.
 
-Nay tiên thưởng ngàn vàng âu cũng phải,
+Mạt cưa mướp đắng, vui phận xác xương.
 
-Chờ tài sanh ngũ phước sẽ phê cho.
+Vỏ lựu máu gà, quen bề truyền miệng,
+
+Mượn tiếng lấy ngàn vàng mua giá ngọc,
+
+Cho con ong mở lối đóa trà mi.
+
+Cố tình đem bác nghệ phá lòng son,
+
+Thuê thằng khoái bẻ khóa buồng ngưng bích.
+
+Chẳng thương đến vàng phai ngọc nát,
+
+Nỡ làm cho bướm chán ong chường.
+
+Xét tên kia quả lãn tích côn đồ,
+
+Phân minh vô nghĩa bất nhơn,
+
+Thẻ yêu trảm phú pháp trường thị chúng.
+
+Trà mụ nọ thị Tú-bà bổn sắc,
+
+Đích xác hiếp lương vi kỉ,
+
+Tội phân thây giao ngũ mã tư hình.

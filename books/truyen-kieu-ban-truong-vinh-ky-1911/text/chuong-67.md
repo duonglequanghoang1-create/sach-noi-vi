@@ -1,17 +1,17 @@
-# HẠ GIÁ THỔ-QUAN.
+# KIM TRỌNG LẬP ĐÀN.
 
-Đã ra nương-dựa mấy cây cao,
+Nhờ nước từ-bi để rửa oan,
 
-Có nhẽ đưa chơn lại bước vào,
+Gọi là cho thấu nghĩa minh san,
 
-Mặt ấy hẳn không tơ ấy vướng,
+Giọt tuôn hòa lẫn mưa ngàn chảy.
 
-Thân nầy đâu có nợ nầy sao?
+Tình gởi đưa theo khói lửa tàn.
 
-Đã thừa nếm trải mùi cay-đắng.
+Tri quỉ ra chiêu miền thủy-quốc.
 
-Còn thiếu chi mà phải ước-ao?
+Vọng sơn nào thấy cõi nhơn-gian?
 
-Ơn ấy âu thì theo hải thượng,
+Gọi-là một chút bên sông vậy,
 
-Sống thừa chi để tiếng đời phao?
+Cho kẻ oan hồn họa khỏi oan.

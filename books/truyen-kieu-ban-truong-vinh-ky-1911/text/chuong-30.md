@@ -1,31 +1,29 @@
-# ĐỀ LẠI CHUNG ÁN.
+# HOẠN-PHU-NHÂN ÁN.
 
-Nhơ thói ruồi xanh, pha nòi cò trắng.
+Nhờ đức ấm phong, chánh ngôi mạng phụ.
 
-Như Vương-lão quả tình nên thứ tội,
+Bề thảo ngay lẽ lấy mình làm trước,
 
-Vã văn lý cũng trong tay mực thước.
+Lập nghiêm cho chính chốn quê môn.
 
-Can gì không xét lẽ rõ oan.
+Đặng ở-ăn không đễ đức cho con,
 
-Thấy Kiều-nhi còn thế bán ra tiền,
+Lưu tệ nỡ hư nền phước lộc.
 
-Giả từ tâm mà lựa khóc lưới-chài.
+Sao không nghĩ phước đức tại mẫu,
 
-Lẽ đâu có đút đây lòn đó.
+Mà nỡ đem bạc-ác giáo nhi?
 
-Người hữu lộc chẳng bỉnh công thủ pháp,
+Chìu con mà hội đảng chỉnh thuyền.
 
-Ăn đã no còn có sự cô ân.
+Ngàn dặm dám buông-tuồng việc dữ.
 
-Bạc tham tang ba trăm lượng tỏ-tường,
+Dự lộc nước mà ỷ quyền lộng phép.
 
-Chiếu quốc luật đã dư trong nhất tử.
+Tấc giang không khiếp-sợ oai trời.
 
-Người hiếu nữ mười lăm năm đày-đọa,
+Nỗi xử tàm quả thật kẻ đa-đoan,
 
-Luận âm công ưng phạt cập tam sinh.
+Cơn đào án tầm phương thoát võng.
 
-Trước cho đoàn chúng thấy giựt mình,
-
-Sau để bàng quan trông sướng mắt.
+Chờ tróc hoạch đích thân, sẻ án luật trị tội.

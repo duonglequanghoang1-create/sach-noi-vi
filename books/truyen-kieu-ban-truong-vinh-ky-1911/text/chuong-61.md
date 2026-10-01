@@ -1,17 +1,17 @@
-# BẠC-SANH CHUYỂN MÃI THANH LÂU.
+# BAC TRIỀU HỒ-CÔNG THUYẾT HANG.
 
-Hoa có ghen gì vuối chủ trương?
+Hướng dương bao quản phận hoa quì.
 
-Mà toan dãi nắng lại dầm sương?
+Thì lại riêng đâu nỗi biệt-ly.
 
-Má hồng lắm lúc trơ màu phấn,
+Kể có thần cơ trong sớm liệu,
 
-Mặt ngọc nhiều phen thẹn bóng gương.
+Châu về Hiệp-phố họa là khi.
 
-Mỏi mắt trông mong niềm cố quốc,
+Uốn ba tấc lưỡi bày hơn thiệt,
 
-Êm chơn lưu-lạc chốn tha hương.
+Chống một thanh gươm rạch thị phi,
 
-Ê-nề trong bấy nhiêu năm ấy,
+Dẫu có oai-linh lừng góc bể,
 
-Trường đoạn chưa thôi lại đoạn trường.
+Bên trời chiết nhạn có ra chi?

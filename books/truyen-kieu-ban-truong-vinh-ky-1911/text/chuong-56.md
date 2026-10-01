@@ -1,17 +1,17 @@
-# QUI VÕ-TÍCH TÁC HOA-NÔ.
+# NGỘ BẠC HẠNH.
 
-Gớm mặt hoa xanh những khéo là!
+Nghĩ kiếp đào hoa cũng lạ dường!
 
-Ghen-tương theo mãi chẳng tha ra,
+Lánh mà lại phải quỉ đem đường.
 
-Má hồng phải lấp màu son phấn,
+Đó trời thoát khỏi vườn tơ nguyệt,
 
-Vóc liễu đam vùi chốn cỏ hoa.
+Câu Lữ qua rồi mắc lưới Thang.
 
-​ Bóng xế tây hiên quỳnh chén cúc.
+Như giống chim lồng trong sẵn gạo,
 
-Xuân lan đông các điểm hương trà.
+Đặng con hạc nội chịu không lương.
 
-Đào đà sa ngọc trong vòng ấy,
+Cũng nhiều mặt phấn môi son vậy,
 
-Gở đặng thì xuân cũng phải già.
+Riêng một thân ai sự xiết thương!

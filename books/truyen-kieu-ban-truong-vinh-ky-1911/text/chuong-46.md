@@ -1,17 +1,17 @@
-# TỐNG TRỌNG QUI TANG.
+# DỮ MÃ ĐĂNG TRÌNH.
 
-Đau lòng ai lắm hởi ai ôi!
+Giấc mộng còn mơ ngãi cố-tri,
 
-Thệ hải minh sơn đã có rồi,
+Tiếng gà đâu đã giục ra đi.
 
-Mối thảm ngậm-ngùi khi sẽ nữa,
+Trông mây dường vẽ tình lưu-lạc,
 
-Bước đường ngần-ngại lúc chia đôi,
+Nghe nói như đờn khúc-biệt ly.
 
-Tháng ngày đành phận ba thu lụn,
+Ví biết thân nầy ra phận thế,
 
-Mưa gió thương người mấy dặm khơi.
+Thì đừng ngày trước nặng nguyền chi?
 
-Hai chữ đồng tâm cùng tạc để,
+Còn non còn nước còn trăng đó,
 
-Mặc ai trăng gió dám sai lời.
+Thì nợ Châu Trần cũng có khi.

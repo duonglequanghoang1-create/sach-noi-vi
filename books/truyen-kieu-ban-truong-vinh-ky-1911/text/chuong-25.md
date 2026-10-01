@@ -1,15 +1,29 @@
-# TỀ TRI PHỦ ÁN
+# THẰNG BÁN-TƠ ÁN.
 
-Lồng gương minh-mẫn, mặt sắt đoan-trang.
+Giả danh thương mãi, vốn đảng côn-quang.
 
-Thấy lá đơn Thúc-lão đã dơ tuồng,
+Thú giang hồ quen lệ đó đây,
 
-Phụ khống tử tới quan không lẽ bát.
+Soát hộ tịch đã toàn vô danh quán.
 
-Tra đến mặt Thúc sinh mà phá lẽ,
+Miền thôn dã nảy nghề buôn-chuốt,
 
-Công chế tư mở lý tháo bài hòa.
+Đáo quan tư đà cụ thổ tình-hình.
 
-Gẫm ngôn từ đáng thể lượng đại thần,
+Tội trạng hiển nhiên, gian tang cụ tại.
 
-Xét khóa tích gia phẩm-trật ngự sữ.
+Thấy viên ngoại ngu tình khả hách.
+
+Trong nhà trông áng đủ làm ăn.
+
+Nghe nha môn liệt chứng tiêu rơi,
+
+Vào phép đua nhau cùng kiếm chác.
+
+Ấy đáo án đã cung chiêu bất húy.
+
+Mà cư tù còn hãm-hại vô cô.
+
+Chiếu cường phạm đắc tài luật khoa hình,
+
+Giao cai hạt áp pháp trường kiên trảm.

@@ -1006,6 +1006,7 @@ def _extract_one(
         rev = mw.revision(title)
         pages: list[str] = [title]
         sections: list[Section] = []
+        html_pages: list[str] = []
         root_is_stub = False
 
         def add(page_title: str, page_wiki: str) -> int:
@@ -1028,6 +1029,9 @@ def _extract_one(
                 )
                 if sum(s.word_count for s in from_html) > from_wikitext:
                     got = from_html
+                    # Remember it, so the raw HTML can be cached and an offline
+                    # rebuild does not need the network.
+                    html_pages.append(page_title)
             for sec in got:
                 # A subpage name ("Chương 4", "IX") is a better title than the
                 # generic placeholder the fallback detector invents.
@@ -1071,6 +1075,7 @@ def _extract_one(
                 "revision_timestamp": rev.timestamp,
                 "revision_user": rev.user,
                 "pages": pages,
+                "html_pages": html_pages,
                 "authorship": page_authorship(wiki),
             },
         )

@@ -1,19 +1,31 @@
-# SỞ-KHANH ÁN
+# HỒ-TÔNG-HIẾN ÁN.
 
-Vốn phường xỏ lá, quen thói lừa hoa.
+Cảm quyền phủ tiện, mang tiếng kinh luân.
 
-Sấn một tay giún mấy đóa phù dung,
+Trải mấy phen xô-xát đã kinh hơi.
 
-Chứng Mã-kiều khai đã phân minh.
+Chực thế tháo lui khôn chống sức.
 
-Lật mặt xấp mày tình đã hiển.
+Nhờ được lúc hẫng-hờ ra rước sứ.
 
-Tham ba hốt hại chiếc thân bồ liễu,
+Đánh kẻ chạy lại lấy làm công.
 
-Tờ tích việt hiện tồn tự tích,
+Lượng bất nhân không thẹn tiếng đến triều,
 
-Vò hồng giày tía tội khôn tha.
+Cống tự đại những khoe ran với chúng.
 
-Cứ án biên đắc tài luật khoa hình.
+Khi quá chén vuốt râu khoe trí cả.
 
-Nghĩ cái phận trảm giam hậu đãi thẫm.
+Trông mặt trưng trào gẫm mà nhơ;
+
+Lúc mê đờn gục mặt động niềm riêng.
+
+Nói tiếng giọng ve nghe cũng lảu.
+
+Công ấy tội nầy vầng thỉnh nghị,
+
+Gươm kia ấn nọ hãy quyền thâu.
+
+Rày nhơn thu thẩm giái ký,
+
+Vâng cụ án văn trình nghị.

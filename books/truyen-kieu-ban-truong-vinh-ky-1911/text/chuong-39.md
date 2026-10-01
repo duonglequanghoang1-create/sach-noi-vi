@@ -1,31 +1,17 @@
-# TÚY-KIỀU VỊNH TÍCH.
+# MỘNG ĐẠM-TIÊN
 
-←
+Trước loan nương gối giấc vừa êm,
 
-Kim, Vân, Kiều phú
+Chợt thấy người đâu độ thiểu niên.
 
-Truyện Kiều của Nguyễn Du , do Trương Vĩnh Ký dịch
+Tha-thướt phô màu in vóc tố,
 
-Túy Kiều thi tập
+Thanh tân dạng dấu chốn đào nguyên.
 
-Kim, Vân, Kiều tập án
+Giất tan gối điệp bâng-khuâng những.
 
-→
+Sầu vẫn canh gà chất-chứa nên,
 
-25982 Truyện Kiều — Túy Kiều thi tập Trương Vĩnh Ký Nguyễn Du
+Còn nghĩ chưa xong duyên phận ấy,
 
-Giọt nước Tiền-đường chẳng rửa oan,
-
-Phong hoa chưa trắng nợ hồng-nhan,
-
-Lòng tơ còn vướng chàng Kim-trọng,
-
-Gót ngọc không thanh chốn thủy quan,
-
-Nửa giấc đoạn trường tan gối điệp,
-
-Một dây bạc mạng giứt cầm loan,
-
-Cho hay những kẻ tài-tình lắm,
-
-Trời bắt làm gương để thế-gian.
+Bóng trăng đâu đã xế ngoài hiên.

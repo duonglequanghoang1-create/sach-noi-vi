@@ -1,17 +1,17 @@
-# DỮ GIÁC-DUYÊN.
+# GIÁC-DUYÊN DẪN TRỌNG KIẾM KIỀU.
 
-Thân quan đôi-lứa vuối gia thân,
+Sớm buông rèm gió tối trăng hiên.
 
-Chìm nỗi duyên nên nghĩa Tấn Tần,
+Nương gối từ-bi trải mấy phen.
 
-Tuy có y như lời cựu ước,
+Giồi vẽ nâu sồng pha má đỏ
 
-Bao-giờ trả đặng nghĩa giai nhân?
+Đam màu son phấn giả con-đen.
 
-Bể kia phỏng độ sâu bao nả,
+Ruổi dung phách lạc tan niềm tục,
 
-Trời nọ dường như ngất mấy lần.
+Chuông trống hồn quê tỉnh giấc tiên.
 
-Ví bẳng thân nầy như yến-tử,
+Lánh gót bụi hồng nương cõi phật,
 
-Quyết bay cho đến tận sông ngân.
+Họa là giũ sạch nợ trần duyên.

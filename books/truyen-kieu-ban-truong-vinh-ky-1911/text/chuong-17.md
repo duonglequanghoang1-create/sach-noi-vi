@@ -1,47 +1,43 @@
-# TỪ-HẢI ÁN.
+# ĐẠM-TIÊN ÁN
 
-Thao lược đủ tài, côn quyền hơn sức.
+Già nỗi một đời, tiếng bay bốn bể.
 
-Giơ tay trắng gọi anh-hùng bốn bể,
+Hương một nén cũng cám lòng tri ngộ.
 
-Thét lưỡi gươm cất muôn đội tì hưu.
+Mơ-màng hồn quế tỉnh dường mê.
 
-Thổi đất bằng rầm sóng gió một phương,
+Thơ mười đem thử sức sơ giao,
 
-Đá chơn ngựa xô năm tòa thành-quách.
+Ngần-ngại chơn giày đi lại đứng.
 
-Thế hoanh-liệt quanh sông nhảy núi.
+Nên tài sắc đã mỉa chìu quyền quới,
 
-Sức tung-hoành lở đất long trời.
+Miền phong hoa mà thấy dạ thủy chung.
 
-Cám một lời tri kỉ, giữa trần ai.
+Chốn thanh lâu đem túc trái bảo thầm,
 
-Đem vinh hiễn vẽ tươi màn phấn đại.
+Một lời trót đã hẹn-hò.
 
-Nghe mấy truyện bất bình, phen lưu-lạc,
+Nào tiếc sức ngoài mười năm chong bóng?
 
-Ra oai-linh rửa sạch hận thuyền quyên,
+Áng minh phủ thuở tiền khiên phô trắng,
 
-Trong năm năm vùng-vẫy nghiệp bá vương,
+Hai ngã dầu khôn dan-díu,
 
-Dư trăm trận ra vào tài trí dỏng.
+Cũng có công chờ ngàn dặm đưa tin.
 
-Lời trong trướng gẩm thị phi hữu lý,
+Nghiệm giao tình trọn-vẹn nên thương,
 
-​ Động lương tâm thương trăm họ vô cô.
+Xét nghiệp chướng đọa-đày cũng xót.
 
-Lệnh dưới cờ truyền bộ khúc chỉnh nghi,
+Phạt một lẽ hững-hờ cùng viễn khách,
 
-Giải binh bính quyết một bề qui thuận.
+Phụ chăng phụ, do nghi ư lý,
 
-Ý khinh tín sơ phòng cũng phải,
+Vậy thân nầy quyền ủy nguyệt hoa thần.
 
-Rằng đắm tình ngộ sự thời oan.
+Như những đều vất-vả với tri âm,
 
-Trước thiên tải, tưởng cơ đồ còn tiếc nhớ,
+Tình nên tình diệc túc vi công,
 
-Kìa nhứt thì tuy thành bại cũng anh-hùng.
-
-Thôi hãy về tạm quản lấy ôn binh.
-
-Rồi sẽ nghĩ tấu cho làm thống tướng.
+Chờ kiếp khác gia phong cung các nữ.

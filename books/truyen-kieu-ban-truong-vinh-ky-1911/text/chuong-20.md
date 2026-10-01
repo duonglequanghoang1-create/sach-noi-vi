@@ -1,81 +1,23 @@
-# KIM-TRỌNG ÁN.
+# THÚC-CHÁNH-ÔNG ÁN
 
-Dòng-dõi trâm-anh, văn chương đài-các.
+Khéo đường buôn-bán, vụng nỗi ở-ăn.
 
-Bậc tài danh nền phước hậu.
+Bề khuyên răn không sớm thuở còn thơ,
 
-Mối hồng lầu, duyên tú các thiếu chi?
+Miền hàng chợ để hư thân lêu-lỏng.
 
-Trong phong nhã ngoài hào hoa,
+Duyên gặp-gỡ tới khi tình đã nặng,
 
-​ Sân ngọc-bội, phường kim-môn dễ mấy?
+Chốn quan tư đem lại việc quàng-xuyên.
 
-Xem đai đất đã vào dòng cụ thể.
+Sao chẳng suy kiện cáo ích gì.
 
-Gẫm phong quang chưa ra vẻ lão thành.
+Mà nở để tiếng-tăm là thế?
 
-Kẻ tấn thân mà quen thói dông-dài.
+Xét đến lẽ xử gia giáo tử,
 
-Mượn bước tầm phương đo sắc nước.
+Tội bất nghiêm ưng định trượng tám mươi.
 
-Khách hàn mặc khéo dơ tuồng ve chuốt.
+Thương vì tình chất phát niên cao,
 
-Thuê hiên Lãm-túy ướm tơ đào.
-
-Chữ phất cầu, đà lỗi với gia đình.
-
-Đường phi thể, lại phạm vào công luận.
-
-Xem buổi mới đã nài hoa ép liễu,
-
-Nỗi trăng gió chẳng nể lòng đoan chính
-
-Án điêu gian, chẳng lựa phải tra.
-
-Gẫm khi nén còn gạn phấn tưởng hương.
-
-Giá bếp buồng nghe thoảng tiếng thị phi.
-
-Luật thất tự, hiện tồn khả cứ.
-
-Xét hữu lộc cố nhứt niên sung dịch.
-
-Niệm đa tình cố nhứt thứ tùng khinh.
-
-Vã thương chàng, nhân ngãi đã đều, thũy chung một mực.
-
-Gắn-vó nặng cùng lời non nước.
-
-Nuôi hai thân thay mặt khách tình chung.
-
-Dặn-dò hỏi lại lúc phân-ly,
-
-Nối sợi chỉ đền lòng người mạng bạc,
-
-Chén nguyện chứa-chan dòng nước-mắt,
-
-Gối tình vơ-vất giấc chiêm-bao.
-
-Mười mấy thu phong mở quạt hoa,
-
-Những là thảm lấp sầu xây,
-
-Nhìn khâm chẩm mơ-màng lời sơn hải.
-
-Ngoài ngàn dặm đổi thay sứ nhạn,
-
-Sá quản của thuê công mướn.
-
-Gẫm đỉnh chung đau-đớn nỗi bình-bồng.
-
-Áng phong trần nhìn thấy mặt mới cam,
-
-Duyên thi tửu phải chìu lòng cho trọn.
-
-​ Ấy tám đức cũng là tuồng quân-tử,
-
-Tình nên thương mà đắc cách cũng ơn.
-
-Vã văn chương đà đáng bực cao danh,
-
-Tài cũng tiếc xả khí hà trạc dụng.
+Luật chuẩn thục hứa nạp ngàn tứ lượng.

@@ -1,29 +1,21 @@
-# THẰNG BÁN-TƠ ÁN.
+# BẠC-HẠNH, BẠC-BÀ ÁN.
 
-Giả danh thương mãi, vốn đảng côn-quang.
+Một ổ bợm già, vốn nghề hàng viện.
 
-Thú giang hồ quen lệ đó đây,
+Mầng được khách son phai phấn lợt,
 
-Soát hộ tịch đã toàn vô danh quán.
+Tìm đường hung-hiểm ép tơ đào.
 
-Miền thôn dã nảy nghề buôn-chuốt,
+Dòm-dỏi khuôn vốn một lời mười,
 
-Đáo quan tư đà cụ thổ tình-hình.
+Lập chước đảo-điên tranh mặt bạc.
 
-Tội trạng hiển nhiên, gian tang cụ tại.
+Án từ đích xác, tang vật hiển nhiên.
 
-​ Thấy viên ngoại ngu tình khả hách.
+Đứa mụ dầu mà lấy sáu mươi quan,
 
-Trong nhà trông áng đủ làm ăn.
+Tình khả ố gia giảo giam hậu.
 
-Nghe nha môn liệt chứng tiêu rơi,
+Thằng buôn sông kể đà hai mươi hốt,
 
-Vào phép đua nhau cùng kiếm chác.
-
-Ấy đáo án đã cung chiêu bất húy.
-
-Mà cư tù còn hãm-hại vô cô.
-
-Chiếu cường phạm đắc tài luật khoa hình,
-
-Giao cai hạt áp pháp trường kiên trảm.
+Tội nan dung ưng nghị trảm kiêu.

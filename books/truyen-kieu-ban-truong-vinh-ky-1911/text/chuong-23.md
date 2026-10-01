@@ -1,15 +1,15 @@
-# VƯƠNG-QUAN ÁN
+# HOẠN A GIA ÁN.
 
-Quả người lương thiện, thiệt dạ thủy chung:
+Tính hạnh ngay lành, nết na nhẹ-nhuyễn.
 
-Chốn tụng đình giục Chung lão sở mưu,
+Tinh con mắt biết kẻ khinh người trọng,
 
-Hết tư sản cũng không lòng oán hận.
+Lời hiếu sinh tường kẻ tóc chơn tơ.
 
-Phen hoàng bảng lấy kim gia làm bạn,
+Rộng lòng thương khi thang thuốc chén trà,
 
-Kết hôn nhơn cho trọn nghĩa thủy chung.
+Đều phương tiện dặm đường ăn nỗi ở.
 
-Xét tên nầy tuy cạnh góc chửa tròn.
+Nay tiên thưởng ngàn vàng âu cũng phải,
 
-Soi dạ ấy cũng nên gia phước lộc.
+Chờ tài sanh ngũ phước sẽ phê cho.

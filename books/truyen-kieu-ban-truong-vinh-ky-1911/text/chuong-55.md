@@ -1,17 +1,17 @@
-# TỐNG THÚC NINH GIA.
+# KÍ NGỤ GIÁC-DUYÊN.
 
-Đã nặng nguyền xưa với nước non,
+Mô-phật tình không phụ cố-tri,
 
-Nhưng cơ tạo hóa chửa vuông-tròn.
+Cũng vì cay-đắng phải sanh li.
 
-Quản bao bồ liễu hơi sương tuyết,
+Câu thơ cù mộc chưa ngâm hết.
 
-Chớ để nàng Dương tủi phấn son,
+Mà dải đồng tâm đã xé đi.
 
-Một chén riêng đưa muôn dặm thẳng.
+Kiểng quạnh đưa chơn dầu có nhớ,
 
-Đôi tình như gởi mối sầu tuôn,
+Am thanh nương bóng họa là khi.
 
-Bao giờ người xử tờ xin nhủ?
+Sa cơ nghĩ bước phong trần trước,
 
-Dặm nỗi đông phong chớ phụ-phàng?
+Lại giựt mình thay nỗi bất kì.

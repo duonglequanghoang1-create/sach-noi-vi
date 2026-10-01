@@ -1,66 +1,35 @@
-# HOẠN-THƠ ÁN
+# TÚY-VÂN ÁN.
 
-Ông Nguyễn-Van-Thắng
+Tuyết nhượng màu da, mây thua nước tóc.
 
-Tham-hiệp tỉnh Thanh-Hóa
+Sắc chẳng kém mười phần trọn-vẹn,
 
-Tinh-ma nhứt thứ.
-sâu-sắc nước đời:
+Duyên lại thêm bốn bể gồm no.
 
-Vắng mặt chồng riêng hiệp lũ côn-quang,
+Nặng vì cha chịu đựng lấy tờ-bồi.
 
-Miền tha cảnh cướp người buông lửa.
+Tơ-tóc ngập-ngừng dường biết thẹn.
 
-Bắt thứ thiếp nhận làm người mé thất,
+Thương đến chị đền-bồi cùng non nước.
 
-Phen thị tì dập phấn vùi hương.
+Hiển-vinh gặp-gở há rằng cầu?
 
-Thói hồng nhan, không mua lấy dễ-dàng.
+Nết đoan trang xem phải khổ nữ trung.
 
-Tiếng nghiệt-phụ, đã nên rằng độc địa.
+Khuôn đầy-đặn đủ vào đồ tướng pháp.
 
-Trên tiệc để ai cười nước mắt,
+Xét đến thuở phụ tù tỉ mại,
 
-Còn là tiệc rượu, lại còn nỗi thuyền quyên.
+Cơn khống-tống dám hít-ha là thế.
 
-Bên phòng xui kẻ khóc chiêm bao,
+Chữ vô tâm coi thấy cũng nên dường.
 
-Còn bẻ tờ cung, lại còn tra nét mặt.
+Xem chưng khi phu ấm thê vinh.
 
-Tình đã phân-minh, lẽ không hồi hộ.
+Nhẽ kinh quyền khéo nhường nhẩn đến đều.
 
-Tuy ghen-ghét là phụ nhơn chi thường thói,
+Đường xử kỷ cũng là đà đáng thưởng.
 
-Phép thường xét đến cũng không dung.
+Công tội bình phán, án đoạn trường miễn nghị.
 
-Mà trộm cướp là quốc điển chi nghiêm hình,
-
-Phận gái lam quân không lẽ thứ.
-
-Gẩm đến tình-hình thành khả ố,
-
-So vào tội trạng bất ưng khinh.
-
-Song mà còn chút khá ngờ,
-
-Vậy phải cho nên chưa quyết.
-
-​ Quan-âm-các thuở nhãn tiền hiện-hoạch.
-
-Dâm đắc tích, mà thác tự vô tri.
-
-Chiêu-ẩn-am khi gia vật khả bằng,
-
-Đạo đắc tang, cũng tri chi bất vấn.
-
-Ý Hoạn-thị tinh dường xem cũng khá.
-
-Vì Thúc-sanh vụng xử hóa xui nên.
-
-Vã Hoạn-thơ còn đãi án vô nghi,
-
-Chẳng kẻo mẹ nong con là thế.
-
-Thương Thúc-mổ chưa an dâng kế hậu.
-
-Hãy cho chồng lãnh vợ đem về.
+Nết-na phải thói, ngôi mạng phụ gia vinh

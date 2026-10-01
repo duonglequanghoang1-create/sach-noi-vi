@@ -97,15 +97,37 @@ def source_url_of(entry: dict[str, Any]) -> str:
 
 
 def local_source(book_dir: Path) -> list[Path]:
-    """Files the operator dropped into `books/<slug>/source/`, in reading order."""
+    """Files the operator dropped into `books/<slug>/source/`, in reading order.
+
+    Wikitext first, then rendered HTML (a transclusion page's text only exists
+    after expansion), then a plain source file. Natural order throughout, so
+    `II` precedes `X`.
+    """
     src = book_dir / "source"
     if not src.is_dir():
         return []
-    for pattern in ("*.wikitext", "*.txt", "*.md", "*.epub", "*.pdf"):
+    for pattern in ("*.wikitext", "*.html", "*.txt", "*.md", "*.epub", "*.pdf"):
         hits = sorted(src.glob(pattern), key=lambda p: wikisource.natural_key(p.stem))
         if hits:
             return hits
     return []
+
+
+def _slug_equal(a: str, b: str) -> bool:
+    """Compare two page names after reducing both to `[a-z0-9]`."""
+    norm = lambda t: re.sub(r"[^a-z0-9]+", "", t.lower())  # noqa: E731
+    return bool(norm(a)) and norm(a) == norm(b)
+
+
+def cached_meta(book_dir: Path) -> dict[str, Any]:
+    """Provenance written by `cache_source`, so an offline build keeps it."""
+    path = book_dir / "source" / "source_meta.json"
+    if not path.is_file():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:  # pragma: no cover - a corrupt cache is not fatal
+        return {}
 
 
 def blocked_book(entry: dict[str, Any], *, reason: str, status: str = BLOCKED_STATUS) -> Book:
@@ -371,24 +393,56 @@ def _from_local(files: list[Path], entry: dict[str, Any]):
     """Rebuild a document from cached files in `books/<slug>/source/`."""
     from sachnoi.extract import Document, Section
     from sachnoi.extract.txt import extract as extract_txt
+    from sachnoi.extract.wikisource import _sections_from_html
 
     sections: list[Section] = []
     source_path = ""
+    page_names: dict[str, str] = cached_meta(BOOKS_DIR / entry["slug"]).get("page_names", {})
     for path in files:
         source_path = str(path)
-        for sec in extract_txt(path).sections:
-            # A single subpage has no heading of its own; its filename is the name.
-            if not sec.title.strip() or sec.title.strip() in {"Nội dung", "Phần mở đầu"}:
-                sec.title = path.stem.split("__")[-1]
+        # `cache_source` writes "<slug>__<NNN>-<page title>"; strip the ordering
+        # prefix and the slug so a chapter is named after its page, not a file.
+        # `source_meta.json` has the exact name, which the filename cannot hold.
+        from_filename = re.sub(r"^\d+-", "", path.stem.split("__")[-1]).replace("_", " ")
+        name = next(
+            (v for v in page_names.values() if _slug_equal(v, from_filename)), from_filename
+        )
+        if path.suffix.lower() == ".html":  # a transclusion page: only the render has text
+            found = _sections_from_html(
+                path.read_text(encoding="utf-8"), min_words=40, page_title=name
+            )
+        else:
+            found = extract_txt(path).sections
+        for sec in found:
+            # With several cached files, each is one subpage and its page name is
+            # the chapter name. With a single file it is the whole work, so the
+            # placeholder title is left for the length splitter to replace with
+            # the book's real title.
+            if len(files) > 1 and (
+                not sec.title.strip() or sec.title.strip() in {"Nội dung", "Phần mở đầu"}
+            ):
+                sec.title = name
             sections.append(sec)
+    meta = cached_meta(BOOKS_DIR / entry["slug"])
     return Document(
         sections=sections,
-        title=entry.get("title", ""),
+        title=meta.get("page_title") or entry.get("title", ""),
         source_format=entry.get("source_format", "wikisource"),
         source_path=source_path,
-        source_url=source_url_of(entry),
+        # Prefer the resolved, canonical URL over the catalog's raw one.
+        source_url=meta.get("source_url") or source_url_of(entry),
         language="vi",
-        extra={"cached_files": [p.name for p in files]},
+        extra={
+            "cached_files": [p.name for p in files],
+            "page_title": meta.get("page_title", ""),
+            "pageid": meta.get("pageid", 0),
+            "revision": meta.get("revision", 0),
+            "revision_timestamp": meta.get("revision_timestamp", ""),
+            "revision_user": meta.get("revision_user", ""),
+            "pages": meta.get("pages", [p.name for p in files]),
+            "authorship": meta.get("authorship", {}),
+            "from_cache": True,
+        },
     )
 
 
@@ -429,21 +483,56 @@ def _finish(
 
 
 def cache_source(slug: str, document: Any) -> None:
-    """Store the raw wikitext under `books/<slug>/source/` so --offline works.
+    """Store the source under `books/<slug>/source/` so --offline can rebuild.
 
     That directory is gitignored, so this is a local cache, never a commit.
+
+    Three things are written, and all three matter for a faithful rebuild:
+
+    * the raw wikitext, or the **rendered HTML** for a transclusion page (its
+      wikitext has no text in it at all);
+    * a numeric filename prefix, so a natural sort reproduces the reading order
+      instead of sorting `Avant-propos` before the root page;
+    * `source_meta.json`, holding the resolved title, URL, revision and the
+      author the page's own header names. Without it an offline build would lose
+      the provenance and fall back to a different death year.
     """
     src = BOOKS_DIR / slug / "source"
     src.mkdir(parents=True, exist_ok=True)
+    html_pages = set(document.extra.get("html_pages", []))
+    pages = list(document.extra.get("pages", []))
     with wikisource.MediaWikiClient("vi") as mw:
-        root = document.extra.get("page_title", "")
-        if not root:
-            return
-        _, wiki = mw.wikitext(root)
-        (src / f"{slug}.wikitext").write_text(wiki, encoding="utf-8")
-        for page in document.extra.get("pages", [])[1:]:
-            _, sub = mw.wikitext(page)
-            (src / f"{slug}__{page.split('/')[-1]}.wikitext").write_text(sub, encoding="utf-8")
+        for i, page in enumerate(pages):
+            stem = re.sub(r"[^\w.-]+", "_", page.split("/")[-1]) or "root"
+            if page in html_pages:
+                (src / f"{slug}__{i:03d}-{stem}.html").write_text(
+                    mw.rendered_html(page), encoding="utf-8"
+                )
+            else:
+                _, wiki = mw.wikitext(page)
+                (src / f"{slug}__{i:03d}-{stem}.wikitext").write_text(wiki, encoding="utf-8")
+    (src / "source_meta.json").write_text(
+        json.dumps(
+            {
+                "page_title": document.extra.get("page_title", ""),
+                "source_url": document.source_url,
+                "pageid": document.extra.get("pageid", 0),
+                "revision": document.extra.get("revision", 0),
+                "revision_timestamp": document.extra.get("revision_timestamp", ""),
+                "revision_user": document.extra.get("revision_user", ""),
+                "pages": pages,
+                # A page's own title, because a cache filename cannot carry a
+                # comma: "Kim, Van, Kieu tap an" would come back as
+                # "Kim_Van_Kieu_tap_an" and the chapter would lose its commas.
+                "page_names": {p: p.split("/")[-1] for p in pages},
+                "authorship": document.extra.get("authorship", {}),
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
 
 
 def main(argv: Sequence[str] | None = None) -> int:

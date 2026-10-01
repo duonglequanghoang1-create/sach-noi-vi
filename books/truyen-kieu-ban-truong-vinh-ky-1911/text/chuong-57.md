@@ -1,17 +1,17 @@
-# THỊ THÚC HOẠN AM.
+# BẠC-SANH CHUYỂN MÃI THANH LÂU.
 
-Trần-ai kia biết bỡi vì đâu?
+Hoa có ghen gì vuối chủ trương?
 
-Dẫu tuổi xuân xanh cũng bạc đầu.
+Mà toan dãi nắng lại dầm sương?
 
-Đọng giọt huỳnh hoa tan giọt lụy,
+Má hồng lắm lúc trơ màu phấn,
 
-Lấp cung bạc mạng nổi cung sầu.
+Mặt ngọc nhiều phen thẹn bóng gương.
 
-Khôn hay lặn-mọc do hàm cá.
+Mỏi mắt trông mong niềm cố quốc,
 
-Mà biết vuông tròn uốn lưỡi câu.
+Êm chơn lưu-lạc chốn tha hương.
 
-Ai dẫu có thương rằng phận bạc,
+Ê-nề trong bấy nhiêu năm ấy,
 
-Liệu mà xin mở cửa cho nhau.
+Trường đoạn chưa thôi lại đoạn trường.

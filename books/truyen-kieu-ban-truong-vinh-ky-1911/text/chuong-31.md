@@ -1,39 +1,19 @@
-# MÃ-GIÁM-SANH, TÚ-BÀ ÁN.
+# THẰNG-KHUYỂN, THẰNG-ƯNG ÁN.
 
-Chung lưng hương phấn, mở phố nguyệt hoa.
+Dạ vượn lòng hươu, đầu trâu mặt khỉ.
 
-Một đứa là bợm xác gặp hồi đen,
+Tra đến lẽ thuyền-bè riêng vượt bể,
 
-​ Quen tuồng cũ kiếm ăn lập nghiệp.
+Bắt người buông lữa há rằng oan?
 
-Một con là đĩ già đà hết lộc,
+Thương vì tình cơm áo nặng vào mình,
 
-Chác nghề riêng chăm-chút sinh nhai.
+Giày lạnh xông than nên phải khó.
 
-Mạt cưa mướp đắng, vui phận xác xương.
+Tuy biết tứ hành là phạm pháp,
 
-Vỏ lựu máu gà, quen bề truyền miệng,
+Song mà sở mạng dám từ nan.
 
-Mượn tiếng lấy ngàn vàng mua giá ngọc,
+Chiếu vi tùng phát phối viễn vi nô
 
-Cho con ong mở lối đóa trà mi.
-
-Cố tình đem bác nghệ phá lòng son,
-
-Thuê thằng khoái bẻ khóa buồng ngưng bích.
-
-Chẳng thương đến vàng phai ngọc nát,
-
-Nỡ làm cho bướm chán ong chường.
-
-Xét tên kia quả lãn tích côn đồ,
-
-Phân minh vô nghĩa bất nhơn,
-
-Thẻ yêu trảm phú pháp trường thị chúng.
-
-Trà mụ nọ thị Tú-bà bổn sắc,
-
-Đích xác hiếp lương vi kỉ,
-
-Tội phân thây giao ngũ mã tư hình.
+Chờ hiệu lực hứa hồi dân sinh nghiệp.

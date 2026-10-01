@@ -1,17 +1,17 @@
-# ĐẦU TIỀN-ĐƯỜNG GIANG.
+# DỮ CHƯ THÂN CỌNG HỘI.
 
-Thần mộng từ xưa kể xiết bao?
+May sao may khéo thật là may!
 
-Sông Tiền-đường đó há đâu nào?
+Mười mấy năm trời lại có nay,
 
-Nói thôi thoát đã lòa gương ngọc.
+Mầng tủi biết bao ân ái cũ?
 
-Thì đáp vừa xong bạc má đào.
+Công phu kia bỏ nước non nầy,
 
-​ Tài sắc vươn mang hình tạo-hóa,
+Nghĩ rằng phận bạc thôi thì hản,
 
-Tình tơ khó vẽ trạng thanh-tao.
+Ai biết duyên còn vướng lại đây?
 
-Trời xanh nỡ phụ xuân xanh ấy,
+Bởi bấy nhiêu lâu nương cảnh tịnh.
 
-Có lẽ không đền nghĩa tấc giao?
+Nên nhờ tế độ lại ra tay.

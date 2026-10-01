@@ -1,17 +1,17 @@
-# THỐNG KHỐC TỪ-CÔNG.
+# DỮ GIÁC-DUYÊN.
 
-Trời cao chẳng nhẽ thấu hay chăng,
+Thân quan đôi-lứa vuối gia thân,
 
-Bỗng-chúc xuôi nên phụ tấm lòng.
+Chìm nỗi duyên nên nghĩa Tấn Tần,
 
-Trăm trận oai-danh đèn dưới gió,
+Tuy có y như lời cựu ước,
 
-Năm năm công nghiệp bọt ngoài sông.
+Bao-giờ trả đặng nghĩa giai nhân?
 
-Trần-ai thương-hại người xương trắng,
+Bể kia phỏng độ sâu bao nả,
 
-Non nước bơ-vơ phận má-hồng.
+Trời nọ dường như ngất mấy lần.
 
-Sự thế ai ngờ dâu hóa bể.
+Ví bẳng thân nầy như yến-tử,
 
-Thôi thời quyết một thác cho xong.
+Quyết bay cho đến tận sông ngân.

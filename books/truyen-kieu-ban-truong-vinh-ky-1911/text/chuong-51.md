@@ -1,17 +1,17 @@
-# BIỆT MÃI THANH LÂU TÚ-BA.
+# TỐNG THÚC NINH GIA.
 
-Từ ngày xa cách chốn tha hương.
+Đã nặng nguyền xưa với nước non,
 
-Xót phận lưu ly đãi tuyết sương,
+Nhưng cơ tạo hóa chửa vuông-tròn.
 
-Vẻ mặt những là dơ dạng phấn,
+Quản bao bồ liễu hơi sương tuyết,
 
-Châu mày thêm luống thẹn-thùng gương.
+Chớ để nàng Dương tủi phấn son,
 
-Trời ghen chi mãi người tư sắc,
+Một chén riêng đưa muôn dặm thẳng.
 
-Tên bắt đem vào số đoạn-trường?
+Đôi tình như gởi mối sầu tuôn,
 
-Nông-nổi dường nầy ai có biết,
+Bao giờ người xử tờ xin nhủ?
 
-Một mình mình nghĩ lại mình thương!
+Dặm nỗi đông phong chớ phụ-phàng?

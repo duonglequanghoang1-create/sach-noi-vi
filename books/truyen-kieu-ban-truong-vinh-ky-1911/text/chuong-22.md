@@ -1,15 +1,23 @@
-# VƯƠNG-VIÊN-NGOẠI ÁN.
+# ĐỒ LÃO LẠI ÁN
 
-Thương tình tuổi-tác, giữ phận hiền-lành.
+Nhớ dai nhứt thứ, nói khéo dầu dây l
 
-Kẻ vô tri lây vạ gió khôn kêu,
+Ngoài phố-phường sự-tích đã mười năm,
 
-Khiếp dạ đã đến đều khánh kiệt.
+Nhỏ nhặt tóc-tơ tình chẳng lẩn.
 
-Cơn hữu sự gặp túi tham còn nhẹ,
+Trước quan lại ngôn từ thông một mạch,
 
-Cùng đàng cho nên nỗi biệt-ly.
+Đầu đuôi phải chẳng truyện như in.
 
-Tuy ngày sau đà mầng phận rể-con.
+Xét tên nầy chừng đã cao niên,
 
-Nhưng oán ấy cũng nên gia phú quí.
+Xem tài khí cũng nên đại dụng.
+
+Trộm nghĩ người làm báu nước.
+
+Gẫm tên nầy nên hộ vụ thí tài.
+
+Trông lịnh trên thánh mở khoa dời.
+
+Chuẩn khoản ấy hạ lại tào tham nghị.

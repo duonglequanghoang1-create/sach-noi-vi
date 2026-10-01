@@ -11,7 +11,7 @@
     "source_url": "https://vi.wikisource.org/wiki/Lục_Vân_Tiên",
     "license": "public-domain",
     "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "rights_note": "Trương Vĩnh Ký (1837–1898). Tác phẩm thuộc công cộng. VIETNAMESE EDITION: Khong nap duoc trang https://vi.wikisource.org/wiki/Lục_Vân_Tiên (vi: page 'Lục Vân Tiên' yielded only 197 words (floor 250); it is an index or a stub, not the work). No machine translation was applied. This book is NOT narratable until a human translation with clear redistribution rights is added.",
+    "rights_note": "Trương Vĩnh Ký (1837–1898). Tác phẩm thuộc công cộng. VIETNAMESE EDITION: Offline run with no cached source. No machine translation was applied. This book is NOT narratable until a human translation with clear redistribution rights is added.",
     "summary": "Trường thi bằng Hán tự do Trương Vĩnh Ký soạn, lấy theo Văn Tế của Nguyễn Trãi. Trang gốc rất nhỏ, nội dung ở trang con.",
     "narrator": "VN-01",
     "text_path": "",
@@ -21,7 +21,7 @@
     "status": "blocked-no-vi-source"
   },
   "stage": "extract",
-  "created_at": "2026-10-01T18:38:03+00:00",
+  "created_at": "2026-10-01T18:53:26+00:00",
   "notes": [
     "BLOCKED: no Vietnamese edition; no machine translation applied."
   ]

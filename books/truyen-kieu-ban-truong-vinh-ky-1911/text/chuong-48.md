@@ -1,17 +1,17 @@
-# THỌ GIÁM-SANH SÍNH.
+# LẦU THƯỢNG ĐỀ SẦU.
 
-Thương hại cùng ai chốc bấy lâu!
+Quê người võ-võ biết bao lâu?
 
-Xa-xôi biết có thấu cho nhau?
+Buồn dựa song đào đoái trước sau.
 
-Phải đam vàng đá ghi lời trước.
+Ngọn nước lênh-đênh quanh trước án,
 
-Gởi vuối non sông trả nghĩa sau.
+Đóa hoa xiêu-lạc biết về đâu?
 
-Đành phận lưu-ly chi sá quản,
+Ngõ phán láng tử ngoài muôn dặm.
 
-Những người xa cách nghĩ mà đau!
+Mặt nước chơn mây lẩn một màu?
 
-Cũng liều nhắm mắt đưa chơn vậy,
+Phong-cảnh kìa ai phong-cảnh ấy?
 
-Xem thữ xây vần mãi đến đâu?
+Cám tình lưu lạc một đôi câu.

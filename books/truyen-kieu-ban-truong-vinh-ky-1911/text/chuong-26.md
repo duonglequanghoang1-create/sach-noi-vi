@@ -1,23 +1,31 @@
-# ĐỒ LÃO LẠI ÁN
+# ĐỀ LẠI CHUNG ÁN.
 
-Nhớ dai nhứt thứ, nói khéo dầu dây l
+Nhơ thói ruồi xanh, pha nòi cò trắng.
 
-Ngoài phố-phường sự-tích đã mười năm,
+Như Vương-lão quả tình nên thứ tội,
 
-Nhỏ nhặt tóc-tơ tình chẳng lẩn.
+Vã văn lý cũng trong tay mực thước.
 
-Trước quan lại ngôn từ thông một mạch,
+Can gì không xét lẽ rõ oan.
 
-Đầu đuôi phải chẳng truyện như in.
+Thấy Kiều-nhi còn thế bán ra tiền,
 
-Xét tên nầy chừng đã cao niên,
+Giả từ tâm mà lựa khóc lưới-chài.
 
-Xem tài khí cũng nên đại dụng.
+Lẽ đâu có đút đây lòn đó.
 
-Trộm nghĩ người làm báu nước.
+Người hữu lộc chẳng bỉnh công thủ pháp,
 
-Gẫm tên nầy nên hộ vụ thí tài.
+Ăn đã no còn có sự cô ân.
 
-Trông lịnh trên thánh mở khoa dời.
+Bạc tham tang ba trăm lượng tỏ-tường,
 
-Chuẩn khoản ấy hạ lại tào tham nghị.
+Chiếu quốc luật đã dư trong nhất tử.
+
+Người hiếu nữ mười lăm năm đày-đọa,
+
+Luận âm công ưng phạt cập tam sinh.
+
+Trước cho đoàn chúng thấy giựt mình,
+
+Sau để bàng quan trông sướng mắt.

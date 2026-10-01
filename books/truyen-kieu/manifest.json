@@ -7,7 +7,7 @@
     "language": "vi",
     "source_language": "vi",
     "source_format": "wikisource",
-    "source_path": "",
+    "source_path": "/home/ubuntu/projects/1/books/truyen-kieu/source/truyen-kieu__000-Truyện_Kiều.wikitext",
     "source_url": "https://vi.wikisource.org/wiki/Truy%E1%BB%87n_Ki%E1%BB%81u",
     "license": "public-domain",
     "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
@@ -76,7 +76,7 @@
     "status": "extracted"
   },
   "stage": "extract",
-  "created_at": "2026-10-01T18:37:33+00:00",
+  "created_at": "2026-10-01T18:53:25+00:00",
   "notes": [
     "chapter count 1 != catalog expect_chapters 92; the source has no more structure than this",
     "1 source section(s) were split into 6 audio chapters at 6000 words; the work has no internal headings, so part titles are mechanical continuations, not real chapters"

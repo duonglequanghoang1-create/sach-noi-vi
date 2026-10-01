@@ -1,17 +1,17 @@
-# DỮ THÚC THÀNH HÔN
+# PHẬT CÁC THIÊN KINH.
 
-Trăng gió mà ra cuộc đá vàng,
+Trải mấy thu chầy chốn lửa than?
 
-Lưng-lưng giũ sạch nợ hồng-nhan,
+Nâu sồng nay đỗi dạng hồng nhan.
 
-Hạ qua nắng dãi xen màu nhụy,
+Viết kinh-kệ để khuây trần niệm,
 
-Xuân đến mưa dày liễu vẻ-vang,
+Chịu muối dưa qua vuối thế-gian.
 
-Ngày vắng im-liềm chăn túy võ.
+Trải tháng ngày vui niềm Phật-lão,
 
-Đêm thanh khoan-nhặc khúc cầm loan,
+Tính gang tấc mấy độ quan-san.
 
-Tuy trong chưa biết duyên hay nợ,
+Thôi thôi nương gối Quan-âm vậy,
 
-Mầng trộm cho thân thoát đoạn-tràng.
+Thì nợ phong trần họa có tan.
