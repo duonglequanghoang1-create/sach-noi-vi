@@ -1,0 +1,40 @@
+# ---- sach-noi-vi ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+
+# Model checkpoints and TTS caches are large and reproducible: never commit.
+models/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+.cache/
+
+# Source books are not redistributed here. Each book dir keeps book.json,
+# text/, audio/ and dist/ only.
+books/*/source/
+
+# Generated audio is rebuilt by the pipeline; keep the repo light.
+books/*/audio/
+!books/*/audio/.gitkeep
+books/*/dist/*.mp3
+books/*/dist/*.wav
+books/*/dist/*.m4b
+
+# Local secrets
+.env
+!.env.example
+*.key
+*.pem
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
