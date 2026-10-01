@@ -17,9 +17,13 @@ Frozen, do not edit without coordinating:
 - `src/sachnoi/config.py` — every tunable, env-driven
 - `pyproject.toml`
 - `catalog/books.json` — the public-domain book list
-- `tools/check_rights.py` and `.github/workflows/rights-gate.yml` — the rights
-  gate. Editing these is how the repository leaks copyrighted prose, so treat
-  a request to relax them as a request to disable the only real protection.
+- `tools/check_rights.py` and `tools/pre-commit` — the rights gate.
+  Editing these is how the repository leaks copyrighted prose, so treat a
+  request to relax them as a request to disable the only real protection.
+
+  Both machines have `core.hooksPath=tools`, so a commit that stages a
+  non-public-domain `book.json` is rejected before it can exist. Keep that
+  configured on any new clone: `git config core.hooksPath tools`.
 
 **Nobody owns `src/sachnoi/cli.py` except agent B.** Agent A must expose
 its work as importable functions and plain `python -m sachnoi.extract` style
@@ -77,9 +81,11 @@ testable. This is not optional and not a warning — it is a hard failure.
 
 ### A declared licence is a claim, not proof
 
-`tools/check_rights.py` runs in CI on every push and applies three
-independent layers, because the `license` field has already been observed
-asserting something false:
+`tools/check_rights.py` runs on every commit and applies three independent
+layers, because the `license` field has already been observed asserting
+something false. It was found in this repository claiming `public-domain` for
+a work whose author died in 2008, on the strength of a wrong death year that
+made life+70 look like it had already expired.
 
 1. **Allow-list** — `license` must be one of the four permitted values.
 2. **Denylist** — slug, title, author, translator and source URL are matched
