@@ -1,44 +1,53 @@
 {
   "slug": "chinh-phu-ngam",
   "title": "Chinh phụ ngâm",
-  "author": "Nguyễn Trãi",
+  "author": "Đặng Trần Côn",
   "translator": "",
   "language": "vi",
   "source_language": "vi",
   "source_format": "wikisource",
-  "source_path": "/home/ubuntu/projects/1/books/chinh-phu-ngam/source/chinh-phu-ngam__000-Chinh_phụ_ngâm.wikitext",
+  "source_path": "",
   "source_url": "https://vi.wikisource.org/wiki/Chinh_ph%E1%BB%A5_ng%C3%A2m",
   "license": "public-domain",
   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-  "rights_note": "Nguyễn Trãi (1380–1442). Tác phẩn thuộc công cộng.",
-  "summary": "Tác phẩm ca ngợi Trung Quân và công đức Trần Hưng Đạo, viết bằng thơ lục bát.",
+  "rights_note": "Đặng Trần Côn (d. 1780). Tác phẩm thuộc công cộng.",
+  "summary": "Chinh phụ ngâm khúc của Đặng Trần Côn, thơ lục bát ra đời khoảng năm 1741 thời Cảnh Hưng.",
   "narrator": "VN-02",
   "text_path": "books/chinh-phu-ngam/text/chinh-phu-ngam.md",
   "chapters": [
     {
       "index": 1,
       "slug": "chuong-01",
-      "title": "Chinh phụ ngâm",
+      "title": "Phần 2 — Thiên địa phong trần",
       "source_path": "books/chinh-phu-ngam/text/chuong-01.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 3618
+      "word_count": 2261
+    },
+    {
+      "index": 2,
+      "slug": "chuong-02",
+      "title": "Phần 3 — Bất thức ly gia thiên lý ngoại",
+      "source_path": "books/chinh-phu-ngam/text/chuong-02.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 893
     }
   ],
   "cover_path": "",
   "m4b_path": "",
   "status": "extracted",
-  "author_dates": "1380–1442",
+  "author_dates": "d. 1780",
   "author_death_year": 1780,
-  "license_basis": "Tác giả chết năm 1442; tác phẩn thuộc công cộng.",
+  "license_basis": "Tác giả chết năm 1780; tác phẩm thuộc công cộng.",
   "wikisource_title": "Chinh phụ ngâm",
   "wikisource_url": "https://vi.wikisource.org/wiki/Chinh_phụ_ngâm",
   "verified": {
     "bytes": 30984,
     "subpages": 0,
-    "checked": "MediaWiki API prop=revisions"
+    "checked": "MediaWiki API prop=revisions; header nguon khai tac gia = Đặng Trần Côn"
   },
-  "expect_chapters": 20,
+  "expect_chapters": 1,
   "source_page": "Chinh phụ ngâm",
   "source_revision": 119129,
   "source_revision_timestamp": "2021-10-24T13:44:32Z",

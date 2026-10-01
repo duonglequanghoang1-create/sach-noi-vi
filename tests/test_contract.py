@@ -20,8 +20,11 @@ from sachnoi.extract import (
     check_license,
     chapter_slug,
     count_words,
+    drop_furniture_lines,
+    merge_small_sections,
     render_chapter_markdown,
     split_oversized,
+    structure_chapters,
     write_markdown,
 )
 from sachnoi.models import Book, Manifest, load_books
@@ -305,28 +308,75 @@ def test_write_markdown_separates_chapters() -> None:
     assert out == "# Chương một\n\nMột.\n\n# Chương hai\n\nHai.\n"
 
 
-def test_split_oversized_labels_continuations() -> None:
-    body = "\n\n".join(f"Đoạn {i}. " + "chữ " * 200 for i in range(6))
-    parts = split_oversized([Section(title="Nội dung", text=body)], max_words=500)
-    assert len(parts) > 1
-    assert parts[0].title == "Nội dung"
-    assert parts[1].title.endswith("(tiếp 2)")
-    assert all(p.word_count <= 800 for p in parts)
+def test_split_oversized_names_parts_systematically() -> None:
+    # A 92-câu poem with no headings in the source: the parts are named from
+    # their own first line, never "(tiep 2)".
+    body = "\n".join(f"Câu thơ số {i} lời ngâm ngùng," for i in range(1200))
+    parts, notes = structure_chapters(
+        [Section(title="Truyện Kiều", text=body)], target_words=400, min_words=300
+    )
+    assert len(parts) > 3
+    assert notes and "no internal headings" in notes[0]
+    for i, part in enumerate(parts, start=1):
+        assert part.title.startswith(f"Phần {i} — ")
+        assert "tiếp" not in part.title
+    # The floor is a guarantee of structure_chapters, not of split_oversized.
+    assert all(p.word_count >= 300 for p in parts)
 
 
 def test_split_oversized_renames_a_placeholder_to_the_work() -> None:
-    parts = split_oversized(
-        [Section(title="Nội dung", text="Một. " * 3000)], max_words=500, base_title="Truyện Kiều"
+    body = "\n".join(f"Câu {i} lời," for i in range(900))
+    parts, _ = structure_chapters(
+        [Section(title="Nội dung", text=body)], target_words=300, base_title="Truyện Kiều"
     )
-    assert parts[0].title == "Truyện Kiều"
-    assert parts[1].title == "Truyện Kiều (tiếp 2)"
+    assert parts[0].title == "Phần 1 — Câu 0 lời"
 
 
 def test_split_oversized_leaves_short_chapters_alone() -> None:
     original = [Section(title="Chương 1", text="Một. " * 10)]
-    assert split_oversized(original, max_words=5000) == original
+    assert split_oversized(original, max_words=5000) == (original, [])
 
 
 def test_split_oversized_is_disabled_by_zero() -> None:
     original = [Section(title="Nội dung", text="Một. " * 5000)]
-    assert split_oversized(original, max_words=0) == original
+    assert split_oversized(original, max_words=0) == (original, [])
+
+
+def test_split_never_breaks_mid_verse_line() -> None:
+    body = "\n".join(f"câu thơ {i} ngân dài," for i in range(600))
+    parts, _ = split_oversized([Section(title="T", text=body)], max_words=200, min_words=100)
+    joined = "\n".join(p.text for p in parts)
+    assert joined == body  # every original line survives, none is cut
+
+
+def test_merge_small_sections_folds_a_stub_forward() -> None:
+    sections = [
+        Section(title="Chương 1", text="A " * 600),
+        Section(title="Phụ án", text="B " * 60),  # an appendix, not a track
+        Section(title="Chương 2", text="C " * 600),
+    ]
+    merged, notes = merge_small_sections(sections, min_words=400)
+    assert len(merged) == 2
+    assert merged[1].title == "Chương 2"  # the longest of the folded pair
+    assert notes and "min_chapter_words" in notes[0]
+
+
+def test_merge_small_sections_folds_a_trailing_stub_backward() -> None:
+    sections = [
+        Section(title="Chương 1", text="A " * 600),
+        Section(title="Phụ lục", text="B " * 50),
+    ]
+    merged, notes = merge_small_sections(sections, min_words=400)
+    assert len(merged) == 1
+    assert notes
+
+
+def test_merge_small_sections_reports_a_work_that_cannot_be_divided() -> None:
+    merged, notes = merge_small_sections([Section(title="Hoành phi", text="A " * 50)], min_words=400)
+    assert len(merged) == 1
+    assert notes and "still below" in notes[0]
+
+
+def test_merge_small_sections_is_a_no_op_without_a_floor() -> None:
+    sections = [Section(title="A", text="A " * 10), Section(title="B", text="B " * 10)]
+    assert merge_small_sections(sections, min_words=0) == (sections, [])

@@ -1,35 +1,141 @@
-# TÚY-VÂN ÁN.
+# ĐỀ LẠI CHUNG ÁN.
 
-Tuyết nhượng màu da, mây thua nước tóc.
+Giả danh thương mãi, vốn đảng cônquang.
 
-Sắc chẳng kém mười phần trọn-vẹn,
+Thú giang hồ quen lệ đó đây,
 
-Duyên lại thêm bốn bể gồm no.
+Soát hộ tịch đã toàn vô danh quán.
 
-Nặng vì cha chịu đựng lấy tờ-bồi.
+Miền thôn dã nảy nghề buônchuốt,
 
-Tơ-tóc ngập-ngừng dường biết thẹn.
+Đáo quan tư đà cụ thổ tìnhhình.
 
-Thương đến chị đền-bồi cùng non nước.
+Tội trạng hiển nhiên, gian tang cụ tại.
 
-Hiển-vinh gặp-gở há rằng cầu?
+Thấy viên ngoại ngu tình khả hách.
 
-Nết đoan trang xem phải khổ nữ trung.
+Trong nhà trông áng đủ làm ăn.
 
-Khuôn đầy-đặn đủ vào đồ tướng pháp.
+Nghe nha môn liệt chứng tiêu rơi,
 
-Xét đến thuở phụ tù tỉ mại,
+Vào phép đua nhau cùng kiếm chác.
 
-Cơn khống-tống dám hít-ha là thế.
+Ấy đáo án đã cung chiêu bất húy.
 
-Chữ vô tâm coi thấy cũng nên dường.
+Mà cư tù còn hãmhại vô cô.
 
-Xem chưng khi phu ấm thê vinh.
+Chiếu cường phạm đắc tài luật khoa hình,
 
-Nhẽ kinh quyền khéo nhường nhẩn đến đều.
+Giao cai hạt áp pháp trường kiên trảm.
 
-Đường xử kỷ cũng là đà đáng thưởng.
+Nhơ thói ruồi xanh, pha nòi cò trắng.
 
-Công tội bình phán, án đoạn trường miễn nghị.
+Như Vươnglão quả tình nên thứ tội,
 
-Nết-na phải thói, ngôi mạng phụ gia vinh
+Vã văn lý cũng trong tay mực thước.
+
+Can gì không xét lẽ rõ oan.
+
+Thấy Kiềunhi còn thế bán ra tiền,
+
+Giả từ tâm mà lựa khóc lướichài.
+
+Lẽ đâu có đút đây lòn đó.
+
+Người hữu lộc chẳng bỉnh công thủ pháp,
+
+Ăn đã no còn có sự cô ân.
+
+Bạc tham tang ba trăm lượng tỏtường,
+
+Chiếu quốc luật đã dư trong nhất tử.
+
+Người hiếu nữ mười lăm năm đàyđọa,
+
+Luận âm công ưng phạt cập tam sinh.
+
+Trước cho đoàn chúng thấy giựt mình,
+
+Sau để bàng quan trông sướng mắt.
+
+Mã giám sanh, Tú Bà ÁN.
+
+Chung lưng hương phấn, mở phố nguyệt hoa.
+
+Một đứa là bợm xác gặp hồi đen,
+
+Quen tuồng cũ kiếm ăn lập nghiệp.
+
+Một con là đĩ già đà hết lộc,
+
+Chác nghề riêng chămchút sinh nhai.
+
+Mạt cưa mướp đắng, vui phận xác xương.
+
+Vỏ lựu máu gà, quen bề truyền miệng,
+
+Mượn tiếng lấy ngàn vàng mua giá ngọc,
+
+Cho con ong mở lối đóa trà mi.
+
+Cố tình đem bác nghệ phá lòng son,
+
+Thuê thằng khoái bẻ khóa buồng ngưng bích.
+
+Chẳng thương đến vàng phai ngọc nát,
+
+Nỡ làm cho bướm chán ong chường.
+
+Xét tên kia quả lãn tích côn đồ,
+
+Phân minh vô nghĩa bất nhơn,
+
+Thẻ yêu trảm phú pháp trường thị chúng.
+
+Trà mụ nọ thị Tú Bà bổn sắc,
+
+Đích xác hiếp lương vi kỉ,
+
+Tội phân thây giao ngũ mã tư hình.
+
+Sở Khanh ÁN
+
+Vốn phường xỏ lá, quen thói lừa hoa.
+
+Sấn một tay giún mấy đóa phù dung,
+
+Chứng Mãkiều khai đã phân minh.
+
+Lật mặt xấp mày tình đã hiển.
+
+Tham ba hốt hại chiếc thân bồ liễu,
+
+Tờ tích việt hiện tồn tự tích,
+
+Vò hồng giày tía tội khôn tha.
+
+Cứ án biên đắc tài luật khoa hình.
+
+Nghĩ cái phận trảm giam hậu đãi thẫm.
+
+Bạch Ánh, Bạc Bà ÁN.
+
+Một ổ bợm già, vốn nghề hàng viện.
+
+Mầng được khách son phai phấn lợt,
+
+Tìm đường hunghiểm ép tơ đào.
+
+Dòmdỏi khuôn vốn một lời mười,
+
+Lập chước đảođiên tranh mặt bạc.
+
+Án từ đích xác, tang vật hiển nhiên.
+
+Đứa mụ dầu mà lấy sáu mươi quan,
+
+Tình khả ố gia giảo giam hậu.
+
+Thằng buôn sông kể đà hai mươi hốt,
+
+Tội nan dung ưng nghị trảm kiêu.

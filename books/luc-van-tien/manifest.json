@@ -3,7 +3,7 @@
     "slug": "luc-van-tien",
     "title": "Lục Vân Tiên",
     "author": "Trương Vĩnh Ký",
-    "translator": "Chua co ban dich tieng Viet public-domain cho tac pham nay. KHONG dung may dich: mot ban dich may la tac pham phai sinh va co the khong duoc phan phoi. Can nguoi dich tay va ghi ten dich gia tai truong 'translator' truoc khi doc.",
+    "translator": "Chưa có bản tiếng Việt public-domain cho tác phẩm này. KHÔNG dùng máy dịch: một bản dịch máy là tác phẩm phái sinh và có thể không được phân phối. Cần người dịch tay và ghi tên dịch giả vào trường 'translator' trước khi đọc.",
     "language": "vi",
     "source_language": "vi",
     "source_format": "wikisource",
@@ -11,7 +11,7 @@
     "source_url": "https://vi.wikisource.org/wiki/Lục_Vân_Tiên",
     "license": "public-domain",
     "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "rights_note": "Trương Vĩnh Ký (1837–1898). Tác phẩm thuộc công cộng. VIETNAMESE EDITION: Offline run with no cached source. No machine translation was applied. This book is NOT narratable until a human translation with clear redistribution rights is added.",
+    "rights_note": "Trương Vĩnh Ký (1837–1898). Tác phẩm thuộc công cộng. KHÔNG NẠP ĐƯỢC: cả bản \"Lục Vân Tiên\" lẫn \"Lục Vân Tiên (bản Quốc ngữ 2082 câu)\" trên vi.wikisource.org đều là trang stub ~1 KB chỉ trỏ sang nomna.org, không có văn bản. Ghi chú \"nội dung nằm ở trang con\" trước đây là SAI. VIETNAMESE EDITION: Nội dung KHÔNG nằm ở trang con. Cả hai bản đều stub. Cần nguồn khác hoặc giữ blocked. Kiểm tra lúc build: Khong nap duoc trang https://vi.wikisource.org/wiki/Lục_Vân_Tiên (vi: page 'Lục Vân Tiên' yielded only 61 words (floor 250); it is an index or a stub, not the work). Không dùng máy dịch. Sách này KHÔNG đọc được cho tới khi có bản dịch tay với quyền phân phối rõ ràng.",
     "summary": "Trường thi bằng Hán tự do Trương Vĩnh Ký soạn, lấy theo Văn Tế của Nguyễn Trãi. Trang gốc rất nhỏ, nội dung ở trang con.",
     "narrator": "VN-01",
     "text_path": "",
@@ -21,7 +21,7 @@
     "status": "blocked-no-vi-source"
   },
   "stage": "extract",
-  "created_at": "2026-10-01T18:53:26+00:00",
+  "created_at": "2026-10-01T19:23:41+00:00",
   "notes": [
     "BLOCKED: no Vietnamese edition; no machine translation applied."
   ]

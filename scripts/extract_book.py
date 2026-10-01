@@ -46,9 +46,10 @@ from sachnoi.extract import (  # noqa: E402
     RightsError,
     check_license,
     count_words,
+    effective_min_chapter_words,
     normalize_license,
     save_book,
-    split_oversized,
+    structure_chapters,
     write_manifest,
 )
 from sachnoi.extract import wikisource  # noqa: E402
@@ -62,9 +63,9 @@ BOOKS_DIR = CONFIG_ROOT / "books"
 #: Not a failure of the build, and never a machine translation.
 BLOCKED_STATUS = "blocked-no-vi-source"
 BLOCKED_TRANSLATOR = (
-    "Chua co ban dich tieng Viet public-domain cho tac pham nay. KHONG dung may dich: "
-    "mot ban dich may la tac pham phai sinh va co the khong duoc phan phoi. Can nguoi dich "
-    "tay va ghi ten dich gia tai truong 'translator' truoc khi doc."
+    "Chưa có bản tiếng Việt public-domain cho tác phẩm này. KHÔNG dùng máy dịch: "
+    "một bản dịch máy là tác phẩm phái sinh và có thể không được phân phối. Cần người "
+    "dịch tay và ghi tên dịch giả vào trường 'translator' trước khi đọc."
 )
 
 #: Keys copied from the catalog into `book.json` on top of the `models.Book`
@@ -132,7 +133,7 @@ def cached_meta(book_dir: Path) -> dict[str, Any]:
 
 def blocked_book(entry: dict[str, Any], *, reason: str, status: str = BLOCKED_STATUS) -> Book:
     """A `book.json` that is honest about having no Vietnamese text yet."""
-    return Book(
+    return Book(  # noqa: RET504
         slug=entry["slug"],
         title=entry.get("title", ""),
         author=entry.get("author", ""),
@@ -146,9 +147,10 @@ def blocked_book(entry: dict[str, Any], *, reason: str, status: str = BLOCKED_ST
         license_url=entry.get("license_url", ""),
         rights_note=(
             f"{entry.get('rights_note', '').rstrip('.')}. "
-            f"VIETNAMESE EDITION: {reason} No machine translation was applied. This book "
-            f"is NOT narratable until a human translation with clear redistribution "
-            f"rights is added."
+            f"VIETNAMESE EDITION: {_block_reason(entry)} "
+            f"Kiểm tra lúc build: {reason} "
+            f"Không dùng máy dịch. Sách này KHÔNG đọc được cho tới khi có bản dịch tay "
+            f"với quyền phân phối rõ ràng."
         ),
         summary=entry.get("summary", ""),
         narrator=entry.get("narrator", ""),
@@ -223,6 +225,28 @@ def _fold(text: str) -> str:
     return " ".join(text.lower().split())
 
 
+def _block_reason(entry: dict[str, Any]) -> str:
+    """The catalog's own explanation, when it documents why a book is blocked.
+
+    `Lục Vân Tiên` failed because both of its vi.wikisource editions are ~1 KB
+    stubs pointing at nomna.org. Writing "offline run with no cached source"
+    instead would be a *different and wrong* reason for the same book, and the
+    operator would have to rediscover the real one. The catalog records it, so
+    the catalog's reason is used; only when it says nothing do we fall back to
+    what this run actually saw.
+    """
+    for key in ("notes", "verified_note"):
+        value = entry.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    verified = entry.get("verified")
+    if isinstance(verified, dict):
+        note = verified.get("note") or verified.get("checked")
+        if isinstance(note, str) and note.strip():
+            return note.strip()
+    return "Khong co ban dich tieng Viet cong khai tren vi.wikisource.org."
+
+
 def _extra_for(entry: dict[str, Any], document: Any = None, **extra_fields: Any) -> dict[str, Any]:
     extra = {key: entry.get(key) for key in EXTRA_FIELDS}
     if document is not None:
@@ -247,8 +271,8 @@ def build_one(
     offline: bool = False,
     dry_run: bool = False,
     cache: bool = True,
-    max_chapter_words: int = 6000,
-    min_words: int = 250,
+    target_chapter_words: int = 2500,
+    min_source_words: int = 250,
     say=lambda _m: None,
 ) -> tuple[Book | None, str]:
     """Build one book. Returns `(book_or_None, status_word)`."""
@@ -273,11 +297,12 @@ def build_one(
         document = _from_local(local, entry)
     elif offline:
         say(f"  [source] {slug}: offline and nothing cached under source/")
-        return _finish(blocked_book(entry, reason="Offline run with no cached source."), entry, say=say, dry_run=dry_run), "offline"
+        book = blocked_book(entry, reason=_block_reason(entry))
+        return _finish(book, entry, say=say, dry_run=dry_run), "offline"
     else:
         try:
             document = wikisource.extract(
-                source_url_of(entry), language="vi", min_total_words=min_words
+                source_url_of(entry), language="vi", min_total_words=min_source_words
             )
         except (LookupError, ValueError, RuntimeError) as exc:
             say(f"  [source] MISS {slug}: {exc}")
@@ -311,20 +336,29 @@ def build_one(
             f"the source has no more structure than this"
         )
 
-    # ---- 2b. a chapter too long for one track gets split mechanically ----
+    # ---- 2b. fit the chapter list to an audiobook ------------------------
+    # `min_chapter_words` comes from the catalog. Without it a facsimile edition
+    # yields a 60-word "chapter" for every phụ -- 30 seconds of narration with a
+    # title card, which is worse than no chapter at all.
+    min_chapter = effective_min_chapter_words(entry.get("min_chapter_words"))
+    if document.extra.get("front_matter"):
+        for note in document.extra["front_matter"]:
+            say(f"  [front] {slug}: {note}")
+            notes.append(note)
     before = len(document.sections)
-    document.sections = split_oversized(
-        document.sections, max_words=max_chapter_words, base_title=entry.get("title", "")
+    document.sections, structure_notes = structure_chapters(
+        document.sections,
+        target_words=target_chapter_words,
+        min_words=min_chapter,
+        base_title=entry.get("title", ""),
     )
+    for note in structure_notes:
+        say(f"  [chapters] {slug}: {note}")
+        notes.append(note)
     if len(document.sections) != before:
         say(
-            f"  [split] {slug}: {before} -> {len(document.sections)} chapters "
-            f"(max {max_chapter_words} words/chapter; the source has no headings)"
-        )
-        notes.append(
-            f"{before} source section(s) were split into {len(document.sections)} audio "
-            f"chapters at {max_chapter_words} words; the work has no internal headings, "
-            f"so part titles are mechanical continuations, not real chapters"
+            f"  [chapters] {slug}: {before} -> {len(document.sections)} audio chapters "
+            f"(target {target_chapter_words} chữ, floor {min_chapter or 'none'})"
         )
 
     # ---- 2c. rights provenance ------------------------------------------
@@ -554,16 +588,17 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     parser.add_argument("--probe", action="store_true", help="alias for --dry-run")
     parser.add_argument(
-        "--min-words",
+        "--min-source-words",
         type=int,
         default=250,
         help="reject a source below this many words as an index/stub, not the work",
     )
     parser.add_argument(
-        "--max-chapter-words",
+        "--target-chapter-words",
         type=int,
-        default=6000,
-        help="split a longer chapter at paragraph boundaries (0 disables)",
+        default=2500,
+        help="split a longer chapter on verse lines (0 disables). The floor comes "
+        "from each catalog entry's min_chapter_words.",
     )
     args = parser.parse_args(argv)
 
@@ -586,8 +621,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                 offline=args.offline,
                 dry_run=args.dry_run or args.probe,
                 cache=not args.no_cache,
-                max_chapter_words=args.max_chapter_words,
-                min_words=args.min_words,
+                target_chapter_words=args.target_chapter_words,
+                min_source_words=args.min_source_words,
                 say=lambda m: print(m, flush=True),
             )
         except Exception as exc:  # noqa: BLE001 - one bad book must not kill the run

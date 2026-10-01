@@ -48,6 +48,15 @@ __all__ = [
     "normalize_license",
     "detect_chapters",
     "chapter_title",
+    "merge_small_sections",
+    "split_oversized",
+    "structure_chapters",
+    "effective_min_chapter_words",
+    "ABSOLUTE_MIN_CHAPTER_WORDS",
+    "drop_furniture_lines",
+    "split_internal_capitals",
+    "repair_glued_words",
+    "GLUED_WORDS",
     "split_sentences",
     "render_chapter_markdown",
     "write_markdown",
@@ -463,6 +472,258 @@ _FORBIDDEN_MD_RE = re.compile(
 )
 
 
+#: Lines that are site or print furniture rather than narration. This is the
+#: second line of defence behind the CSS-class filtering in `epub.py`, and it
+#: exists because the wikitext path has no classes to filter on.
+#:
+#: Every pattern is anchored and whole-line: none of them may remove a line of
+#: prose, only a line that *is* furniture. The first group is MediaWiki's parser
+#: debug report, which a proofread page leaks into the rendered text; the second
+#: is navigation; the third is print furniture; the fourth is a Han-script title
+#: in a Vietnamese book.
+_NEWPP_LINE_RE = re.compile(
+    r"^\s*(?:"
+    r"NewPP limit report"
+    r"|Transclusion expansion time report"
+    r"|(?:CPU|Real|Lua) time usage"
+    r"|Lua memory usage"
+    r"|Preprocessor visited node count"
+    r"|Revision size"
+    r"|Post[-‐‑]expand include size"
+    r"|Template argument size"
+    r"|Highest expansion depth"
+    r"|Expensive parser function count"
+    r"|Unstrip(?:led)?(?: recursion depth| post[-‐‑]expand size)"
+    r"|Number of Wikibase entities loaded"
+    r"|Cached time"
+    r"|Cache expiry"
+    r"|Reduced expiry"
+    r"|Complications"
+    r"|eqiad"
+    r"|main[-‐‑][0-9a-f]{6,}"
+    r"|[-‐‑]?total\b"
+    r")",
+    re.IGNORECASE,
+)
+#: A lone arrow: the `← Previous | Next →` bar of a proofread page, which a
+#: screen reader would otherwise read as "left arrow".
+_LONE_ARROW_RE = re.compile(r"^[\s]*[←→↑↓⇐⇒‹›«»]+[\s]*$")
+#: A printed page number, including the old-style price line `2$00`.
+_PRINTED_PAGENO_RE = re.compile(r"^[\s]*[\d$.,ivxlIVXL]{1,8}[\s]*$")
+#: A line of nothing but Han characters. In a Vietnamese book that is a title in
+#: Nom or Hán (`金 雲 翹 傳`), never something to read aloud.
+_HAN_ONLY_RE = re.compile(r"^[\s　-鿿豈-﫿＀-￯]+[\s]*$")
+#: Print furniture in a scanned edition: a rule, a catchword, an ornament.
+_RULE_RE = re.compile(r"^[\s*_\-=~·—–—─═���]{3,}[\s]*$")
+#: The printed title page of a facsimile, which sits at the top of the first
+#: content page. The 1911 *Truyện Kiều* opens with "TRANSCRIT POUR LA PREMIÈRE FOIS
+#: EN QUỐC-NGỮ…" and "Illustrations de NGUYỄN-HỮU-NHIÊU", which a Vietnamese
+#: narrator has no business reading aloud. Anchored on the edition's own
+#: vocabulary, not on the language, so it cannot touch a Vietnamese sentence.
+#: `\bzh:` catches the Wikidata language links a two-column edition leaves behind.
+_TITLE_PAGE_LINE_RE = re.compile(
+    r"^\s*(?:"
+    r"(?:\d+\s*'\s*|\d+\s*(?:e|ème|eme)\s*)?édition\b"
+    r"|(?:première|premiere)\s+(?:fois|édition|edition)"
+    r"|transcrit\w*\b"
+    r"|avec\s+des\s+notes\b"
+    r"|des\s+notes\s+explicatives\b"
+    r"|(?:illustrations?|figures?|gravures?)\s+(?:de|du|par)\b"
+    r"|prix\b|exemplaires?\b|tirage\b|catalogue\b"
+    r"|revu\b|corrigé\b|corrige\b|augmenté\b|augmente\b"
+    r"|imprimerie\b|librairie\b|presses\b|éditeur\b|editeur\b"
+    r"|poème\b|poeme\b"
+    r"|tous\s+droits\s+réservés"
+    r"|\b(?:zh|ja|ko|en|fr|ru):\S+"
+    r")",
+    re.IGNORECASE,
+)
+
+
+def drop_furniture_lines(text: str) -> str:
+    """Delete whole lines that are site or print furniture.
+
+    Applied to prose on the way to the markdown writer. It is deliberately
+    line-anchored: a debug report is a line, an arrow is a line, a page number
+    is a line, and none of those things share a line with prose in the sources
+    this pipeline reads. A pattern that could match inside a sentence would
+    eventually eat a sentence.
+    """
+    kept: list[str] = []
+    for line in text.split("\n"):
+        if _NEWPP_LINE_RE.match(line):
+            continue
+        if _LONE_ARROW_RE.match(line):
+            continue
+        if _PRINTED_PAGENO_RE.match(line):
+            continue
+        if _HAN_ONLY_RE.match(line):
+            continue
+        if _RULE_RE.match(line):
+            continue
+        if _TITLE_PAGE_LINE_RE.match(line):
+            continue
+        kept.append(line)
+    return "\n".join(kept)
+
+
+#: Words the 1911 facsimile prints with no space between their parts. The
+#: edition transliterates Hán-Nôm proper names, and the compositor ran the two
+#: syllables together: `Túykiều`, `Đạmtiên`, `Kimtrọng`. A TTS says these as one
+#: nonsense word, so they are repaired here.
+#:
+#: Only forms actually observed in the shipped text are listed. This is a
+#: typography repair for one edition, not a Vietnamese lexicon: a general rule
+#: cannot tell `Túykiều` from a real word -- `Túykiều` needs the list, while
+#: `TúyKiều` is handled by the general rule below.
+#:
+#: The list is **bounded and evidence-based, not exhaustive**. It cannot be made
+#: exhaustive without a Vietnamese dictionary: a detector that splits on "both
+#: halves are also words" wrongly breaks `thânthích`, `phongcảnh`, `thôngminh`
+#: and `mênhmông`, which are real words. A reviewer reading the 1911 edition
+#: aloud is a better source of entries than any heuristic, and `GLUED_WORDS` is
+#: where a new one goes.
+GLUED_WORDS: dict[str, str] = {
+    # Proper names
+    "Túykiều": "Túy Kiều",
+    "Túyvân": "Túy Vân",
+    "Túyvăn": "Túy Vân",
+    "TúyVân": "Túy Vân",
+    "TúyKiều": "Túy Kiều",
+    "TúyKièu": "Túy Kiều",
+    "TúyKiểu": "Túy Kiều",
+    "Vươngquan": "Vương Quan",
+    "VươngQuan": "Vương Quan",
+    "Đạmtiên": "Đạm Tiên",
+    "ĐạmTiên": "Đạm Tiên",
+    "Kimtrọng": "Kim Trọng",
+    "KimTrọng": "Kim Trọng",
+    "Quốcngữ": "Quốc ngữ",
+    "QuốcNgữ": "Quốc ngữ",
+    "NguyễnDu": "Nguyễn Du",
+    "TrươngVĩnh": "Trương Vĩnh",
+    "GiaTĩnh": "Gia-tịnh",
+    # The same names in the edition's all-capitals titles
+    "TÚYKIỀU": "Túy Kiều",
+    "TÚYVÂN": "Túy Vân",
+    "KIMTRỌNG": "Kim Trọng",
+    "KIMTRONG": "Kim Trọng",
+    "TÍCHTÚYKIỀU": "Tích Túy Kiều",
+    "TÍCHTÚYKIÊU": "Tích Túy Kiều",
+    "ĐẠMTIÊN": "Đạm Tiên",
+    "HOẠNTHƠ": "Hoạn Thơ",
+    "BẠCHẠNH": "Bạch Ánh",
+    "BẠCBÀ": "Bạc Bà",
+    "THỌGIÁM": "Thọ Giám",
+    "TỪHẢI": "Từ Hải",
+    "QUIVÕTÍCH": "Qui Võt Ích",
+    "SỞKHANH": "Sở Khanh",
+    "TÁCTHOẠNÔ": "Tác Thơ Ôn",
+    # Ordinary compounds the compositor also ran together
+    "nởnang": "nở nang",
+    "khônngoan": "khôn ngoan",
+    "phớtphớt": "phớt phớt",
+    "đuộtduột": "đuột duột",
+    "lảothông": "lảo thông",
+    "vănchương": "văn chương",
+    "kinhsử": "kinh sử",
+    "nguyệtthu": "nguyệt thu",
+    "thanhthu": "thanh thu",
+    "đầuđuối": "đầu đuối",
+    "tâmhồn": "tâm hồn",
+    "tuổitạc": "tuổi tạc",
+    "đoạntrường": "đoạn trường",
+    "phongtrần": "phong trần",
+    "thânphận": "thân phận",
+    "mặttrời": "mặt trời",
+    "thiênhương": "thiên hương",
+    "thươngtâm": "thương tâm",
+    "lầuxanh": "lầu xanh",
+    "thiênđàng": "thiên đàng",
+    "nướcnon": "nước non",
+    "bạcphận": "bạc phận",
+    "thanhlâu": "thanh lâu",
+    "ngọcđàng": "ngọc đàng",
+    "thiêntài": "thiên tài",
+    "tàitình": "tài tình",
+    "đồngthân": "đồng thân",
+    "thươnggia": "thương gia",
+    "quângia": "quân gia",
+    "hàngđầu": "hàng đầu",
+    "ngàyngày": "ngày ngày",
+    "trướcmai": "trước mai",
+    "nướcmặt": "nước mặt",
+    "xuânxanh": "xuân xanh",
+    "thanhthanh": "thanh thanh",
+    "songsong": "sọng sọng",
+    "xanhxanh": "xanh xanh",
+    "lònglòng": "lòng lòng",
+    "ngườingười": "người người",
+    "đườngđường": "đường đường",
+    "thôithôi": "thôi thôi",
+    # Nôm proper names the 1911 edition sets as one word
+    "Thúcsanh": "Thúc sanh",
+    "ThúcSanh": "Thúc sanh",
+    "THÚCSANH": "Thúc sanh",
+    "Mãgiámsanh": "Mã giám sanh",
+    "MÃGIÁMSANH": "Mã giám sanh",
+    "GIÁMSANH": "giám sanh",
+    "Túbà": "Tú Bà",
+    "TÚBÀ": "Tú Bà",
+    "VƯƠNGQUAN": "Vương Quan",
+    "Trạctuyền": "Trạc tuyền",
+    "TRẠCTUYỀN": "Trạc tuyền",
+    "Liêudương": "Liêu Dương",
+    "LIỀDƯƠNG": "Liêu Dương",
+    "Sởkhanh": "Sở Khanh",
+    "SỞKHANH": "Sở Khanh",
+    "Kimtrọng": "Kim Trọng",
+    # Compounds observed glued in the 1911 body text
+    "hôitanh": "hôi tanh",
+    "hôiTanh": "hôi tanh",
+    "hôiTanH": "hôi tanh",
+    "tròntrặn": "tròn trặn",
+    "trònTrặn": "tròn trặn",
+    "dồidào": "dồi dào",
+    "dồiDào": "dồi dào",
+    "bâygiờ": "bây giờ",
+    "bâyGiờ": "bây giờ",
+    "ngạnchung": "ngạn chung",
+    "ThanhLâu": "Thanh Lâu",
+    "THANHLÂU": "Thanh Lâu",
+    "ChânThiện": "Chân Thiện",
+    "ChâuThoa": "Châu Thoa",
+    "thangđinh": "thang đinh",
+}
+
+#: A capital letter inside a word is a word boundary in Vietnamese: `TúyKiều` is
+#: two words. No Vietnamese orthography uses an internal capital, so this cannot
+#: damage a real word -- and it needs no dictionary.
+#:
+#: The classes are built from `str.isupper()`/`islower()` rather than written as
+#: `à-ỹ` ranges, because that range also contains *lowercase* precomposed letters
+#: such as `ơ`, `ư`, `ă` -- which is how this rule first turned "Chương" into
+#: "Ch ư ơng".
+_UPPER_VN = "".join(chr(c) for c in range(0x41, 0x250) if chr(c).isupper())
+_LOWER_VN = "".join(chr(c) for c in range(0x41, 0x250) if chr(c).islower())
+_INTERNAL_CAPITAL_RE = re.compile(
+    f"(?<=[a-z{_LOWER_VN}])(?=[{_UPPER_VN}])"
+)
+
+
+def split_internal_capitals(text: str) -> str:
+    """`TúyKiều` -> `Túy Kiều`. See `_INTERNAL_CAPITAL_RE`."""
+    return _INTERNAL_CAPITAL_RE.sub(" ", text)
+
+
+def repair_glued_words(text: str) -> str:
+    """Undo the 1911 facsimile's missing spaces. See :data:`GLUED_WORDS`."""
+    for glued, fixed in GLUED_WORDS.items():
+        if glued in text:
+            text = text.replace(glued, fixed)
+    return text
+
+
 def sanitize_prose(text: str) -> str:
     """Strip HTML, images, links, tables, footnotes and markup from prose.
 
@@ -483,6 +744,9 @@ def sanitize_prose(text: str) -> str:
     out = re.sub(r"\[\^[^\]]*\]", "", out)  # footnotes
     out = re.sub(r"[ \t]+", " ", out)
     out = re.sub(r" ?\n ?", "\n", out)
+    out = drop_furniture_lines(out)
+    out = split_internal_capitals(out)
+    out = repair_glued_words(out)
     return out
 
 
@@ -680,45 +944,191 @@ def extract_url(
 # --------------------------------------------------------------------------
 
 
+def merge_small_sections(
+    sections: Sequence[Section],
+    *,
+    min_words: int = 0,
+) -> tuple[list[Section], list[str]]:
+    """Fold sections below `min_words` into a neighbour. Returns `(sections, notes)`.
+
+    The rule that matters: a chapter must be worth an audio track. A 60-word
+    "chapter" is 30 seconds of narration with a title card, which is worse than
+    no chapter at all -- and in the 1911 *Truyện Kiều* it is what a naive heading
+    split produces, because the edition gives every *phụ* (appendix) its own
+    heading.
+
+    Folding is forward first (a stub belongs with what follows it, which is
+    usually the part it is an appendix to), then backward for a trailing stub,
+    because a tail that is still short would otherwise be a track of its own.
+    When the result is *still* below the floor the work is not divisible that
+    finely; that is reported, not hidden.
+    """
+    notes: list[str] = []
+    if min_words <= 0 or not sections:
+        return list(sections), notes
+
+    out = [s for s in sections]
+    changed = True
+    while changed:
+        changed = False
+        for i, sec in enumerate(out):
+            if sec.word_count >= min_words:
+                continue
+            if i + 1 < len(out):
+                out[i + 1] = _combine([sec, out[i + 1]])
+                notes.append(
+                    f"merged {sec.title!r} ({sec.word_count} chữ) into "
+                    f"{out[i + 1].title!r}: below min_chapter_words={min_words}"
+                )
+            elif i > 0:
+                out[i - 1] = _combine([out[i - 1], sec])
+                notes.append(
+                    f"merged {sec.title!r} ({sec.word_count} chữ) back into "
+                    f"{out[i - 1].title!r}: below min_chapter_words={min_words}"
+                )
+            else:
+                notes.append(
+                    f"kept {sec.title!r} at {sec.word_count} chữ: it is the whole "
+                    f"work and is still below min_chapter_words={min_words}"
+                )
+                return out, notes
+            del out[i]
+            changed = True
+            break
+
+    # A trailing section that is still short is merged back, even above the
+    # floor: a two-line final track is worse than one slightly long track.
+    if len(out) > 1 and out[-1].word_count < min_words * 0.5:
+        tail = out.pop()
+        out[-1] = _combine([out[-1], tail])
+        notes.append(f"merged the short final part {tail.title!r} backwards")
+    return out, notes
+
+
 def split_oversized(
     sections: Sequence[Section],
     *,
-    max_words: int = 6000,
+    max_words: int = 2500,
     min_words: int = 400,
     base_title: str = "",
-) -> list[Section]:
-    """Break a chapter that is too long for one audio track, at paragraph edges.
+) -> tuple[list[Section], list[str]]:
+    """Split a chapter too long for one track, on verse lines. Returns `(sections, notes)`.
 
-    Some sources have no internal structure at all: *Truyện Kiều* on
-    vi.wikisource is a single 22,000-word `<poem>` with no headings. Emitting
-    that as one track is not usable, but inventing chapter titles would be a
-    lie about the source.
+    Some sources have no internal structure at all: the wikitext of *Truyện Kiều*
+    is one 22,000-word `<poem>` with no heading, and the 1911 edition's main poem
+    is one proofread block of 26,000 words. Emitting that as a single track is not
+    usable, and inventing *Truyện Kiều*'s real part names would be a lie about
+    the source -- its 20 đoạn are not marked up anywhere on the page.
 
-    So the split is mechanical, on paragraph boundaries, and every part is
-    labelled as a continuation (`<title> (tiếp 2)`). The caller records the
-    fact in the manifest, and nothing pretends the work has chapters it does not.
+    So the split is mechanical and honest:
 
-    `base_title` replaces a generic placeholder title ("Nội dung") so a
-    structureless work is named after the work rather than after nothing.
+    * it breaks on a **verse line**, never mid-câu, so each part starts and ends
+      on a real line of the poem;
+    * each part is named `Phần N — <its first line>`, which at least tells a
+      listener where they are in the poem;
+    * the first part keeps the source's own heading when there is one;
+    * no part is emitted below `min_words`.
 
     Returns the input unchanged when nothing is oversized.
     """
+    notes: list[str] = []
     if max_words <= 0:
-        return list(sections)
+        return list(sections), notes
     out: list[Section] = []
+    part_no = 0  # global, so two "Phần 1" can never both exist in one book
     for sec in sections:
         title = _rename_placeholder(sec.title, base_title)
         if sec.word_count <= max_words:
             out.append(dataclasses.replace(sec, title=title))
             continue
-        parts = _split_text_by_words(sec.text, max_words=max_words, min_words=min_words)
-        if len(parts) <= 1:
+        chunks = _split_text_by_words(sec.text, max_words=max_words, min_words=min_words)
+        if len(chunks) <= 1:
             out.append(dataclasses.replace(sec, title=title))
             continue
-        for i, chunk in enumerate(parts, start=1):
-            part_title = title if i == 1 else f"{title} (tiếp {i})"
-            out.append(Section(title=part_title, text=chunk, level=sec.level))
-    return out
+        notes.append(
+            f"split {sec.title!r} ({sec.word_count} chữ, no internal headings) into "
+            f"{len(chunks)} parts of about {max_words} chữ, on verse-line boundaries; "
+            f"the part titles are mechanical, not the work's own"
+        )
+        for chunk in chunks:
+            part_no += 1
+            out.append(Section(title=_part_title(title, chunk, part_no), text=chunk, level=sec.level))
+    return out, notes
+
+
+#: How much of a part's first line goes into its title.
+_PART_TITLE_CHARS = 48
+
+
+#: No book may emit a chapter shorter than this, whatever the catalog says. A
+#: 16-word "chapter" is a title card, not a track, and a `zh:` link left over
+#: from a two-column edition once became one. The catalog's per-book
+#: `min_chapter_words` can be stricter; it is never allowed to be laxer.
+#: A book that is itself shorter than this stays a single chapter -- a 318-word
+#: *hoành phi* is a legitimate one-track work.
+ABSOLUTE_MIN_CHAPTER_WORDS = 150
+
+
+def effective_min_chapter_words(catalog_value: object) -> int:
+    """The floor actually enforced: the catalog's value, or the absolute one."""
+    try:
+        declared = int(catalog_value or 0)
+    except (TypeError, ValueError):
+        declared = 0
+    return max(declared, ABSOLUTE_MIN_CHAPTER_WORDS)
+
+
+def structure_chapters(
+    sections: Sequence[Section],
+    *,
+    target_words: int = 2500,
+    min_words: int = 0,
+    base_title: str = "",
+) -> tuple[list[Section], list[str]]:
+    """Make a document's chapter list fit an audiobook. Returns `(sections, notes)`.
+
+    The one function a caller should use, because the order is load-bearing and
+    getting it wrong is how you get a 60-word "chapter":
+
+    1. **split** anything longer than `target_words` -- on verse lines, with
+       systematic part names (:func:`split_oversized`);
+    2. **merge** anything shorter than the floor into a neighbour
+       (:func:`merge_small_sections`).
+
+    Splitting first is deliberate: folding a stub forward can push a chapter over
+    the target, and folding first would leave an over-long one. Every decision is
+    reported in `notes` so the manifest can record it.
+
+    The floor is `min_words` when given, and
+    :data:`ABSOLUTE_MIN_CHAPTER_WORDS` otherwise -- but only when there is more
+    than one chapter to be short.
+    """
+    floor = effective_min_chapter_words(min_words) if min_words else 0
+    split, notes = split_oversized(
+        sections, max_words=target_words, min_words=floor, base_title=base_title
+    )
+    merge_floor = floor if len(split) > 1 else 0
+    merged, merge_notes = merge_small_sections(split, min_words=merge_floor)
+    return merged, notes + merge_notes
+
+
+def _part_title(base: str, chunk: str, index: int) -> str:
+    """`Phần 2 — Trăm năm trong cõi người ta,` -- systematic, not invented.
+
+    Derived from the part's own first line, so a listener can find the part by
+    remembering a line. The real part names of *Truyện Kiều* are not recoverable
+    from this source, and a title that looks authoritative but is made up would
+    be worse than an honest "Phần 2".
+    """
+    first = next((ln.strip() for ln in chunk.split("\n") if ln.strip()), "")
+    first = first.rstrip(" ,;:-—…")
+    if len(first) > _PART_TITLE_CHARS:
+        cut = first[:_PART_TITLE_CHARS].rsplit(" ", 1)[0]
+        first = (cut or first[:_PART_TITLE_CHARS]).rstrip(" ,;:-—…")
+    label = f"Phần {index}"
+    if first and first.lower() != base.strip().lower():
+        return f"{label} — {first}"
+    return label
 
 
 def _rename_placeholder(title: str, base_title: str) -> str:
@@ -782,7 +1192,7 @@ def _split_long_paragraph(para: str, *, max_words: int) -> list[str]:
         if buf and size + n > max_words:
             # Keep the hard line breaks: for verse one câu thơ per line is the
             # unit the narrator needs, and for prose the lines are already
-            # sentences.
+            # sentences. A part must never begin or end mid-câu.
             out.append("\n".join(buf))
             buf, size = [line], n
             continue
@@ -795,7 +1205,6 @@ def _split_long_paragraph(para: str, *, max_words: int) -> list[str]:
     if buf:
         out.append("\n".join(buf))
     return out
-
 
 def write_chapter_files(book_dir: str | Path, sections: Sequence[Section]) -> dict[int, str]:
     """Write `books/<slug>/text/chNN.md` per chapter; return index -> repo path.

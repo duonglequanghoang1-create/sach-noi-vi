@@ -1,739 +1,10 @@
-# Phần e nỗi khách, phần lo nổi mình.
-
-Tuồng chi là giống hôi-tanh?
-
-thân ngàn vàng để ô danh má hồng.
-
-Thôi còn chi nữa mà mong,
-
-đời người thôi thế là xong một đời.
-
-Giận duyên tủi phận bời-bời,
-
-cầm dao nàng đã toan bài quyên sinh.
-
-Nghĩ đi nghĩ lại một mình:
-
-một mình thì chớ, hai tình thì sao?
-
-Sao dầu sinh sự thể nào,
-
-truy nguyên chẳng kẻo lụy vào song thân?
-
-Nỗi mình âu cũng giãn dần,
-
-kíp chầy thôi cũng một lần mà thôi.
-
-Mã-giám-Sanh đem Túy-Kiều về Lâm-Tri, giao cho Tú-bà.
-Tú-bà bắt Túy-Kiều vô lạy làm lể tiên-sư lầu-xanh, Túy-Kiều liều thân lấy đao đâm họng, ngã chết ngất mê thấy Đạm-Tiên hiện nói số đoạn trường trốn không khỏi đặng, Túy-Kiều tỉnh lại Tú-bà theo dỗ ngọt.
-
-Những là đo-đắn ngược-xuôi,
-
-tiếng gà nghe đã gáy thôi mái tường.
-
-Lầu mai vừa lúc còi sương,
-
-Mã-sinh giục giã vội-vàng ra đi.
-
-Đoạn trường thay, lúc phân kỳ!
-
-vó cu khấp-khảnh bóng xe gập-ghềnh.
-
-Bề ngoài mười dặm trường đình,
-
-Vương-ông gánh tiệc tiễn hành đưa theo;
-
-Ngoài thì chủ khách dập-dều,
-
-một nhà huyên với một Kiều ở trong.
-
-Nhìn càng lã-chã giọt hồng,
-
-dỉ tai nàng mới giãi lòng thấp cao.
-
-Hổ sanh ra phận thơ đào,
-
-công cha ngãi mẹ kiếp nào trả xong?
-
-Lỡ-làng nước đục vùi trong,
-
-trăm năm để mót tấm lòng từ đây.
-
-Xem gương trong bấy nhiêu ngày,
-
-thân con chẳng kẻo mắc tay bợm già.
-
-Khi về bỏ vắng trong nhà,
-
-khi vào dùi-thẳng khi ra vội-vàng.
-
-Khi ăn khi nói lỡ-làng,
-
-khi thầy khi tớ xem thường xem khinh.
-
-Khác màu kẻ quí người thanh,
-
-gẫm ra cho kĩ như hình con buôn.
-
-Thôi con còn nói chi con?
-
-sống nhờ đất khách, thác chôn quê người!
-
-Vương-bà nghe bấy nhiêu lời,
-
-tiếng oan đã muốn vạch trời kêu lên.
-
-Vài tuần chửa cạn chén khuyên,
-
-mái ngoài nghĩ đã giục liền ruổi xe.
-
-Xót con lòng nặng bè-bè,
-
-trước yên ông đã nằn-nì thấp cao.
-
-Xót con liễu yếu thơ đào,
-
-rấp nhà đến nỗi chen vào tôi ngươi!
-
-Từ đây góc biển ven trời,
-
-nắng mưa thủi thủi, quê người một thân.
-
-Ngàn tầm nhờ bóng tùng quân,
-
-tuyết sương che chở cho thân cát đằng.
-
-Cạn lời khách mới thưa rằng:
-
-buộc chơn thôi cũng xích thằng nhiệm sao;
-
-Mai sau dầu đến thể nào,
-
-kìa gương nhựt nguyệt nọ dao quỉ thần.
-
-Đùng-đùng gió hiệp mây tần,
-
-một xe trong cỏi hồng trần như bay.
-
-Trông vơi bặt lụy phân tay,
-
-góc trời thẳm-thẳm, ngày ngày đăm đăm.
-
-Nàng thì cõi khách xa-xăm,
-
-bạc phau cầu giá, chơn dầm ngàn mây.
-
-Bờ lau sát-sát hơi mai,
-
-một trời thu để riêng tây một người.
-
-Dặm khuya-ngớt tạnh mù khơi,
-
-thấy trăng mà thẹn những lời non sông.
-
-Lầu thu tầng biếc úa hồng,
-
-nghe chim như nhắc tấm lòng thần hôn.
-
-Những là lạ nước lạ non,
-
-Lâm-tri vừa một tháng tròn tới nơi.
-
-Xe châu dừng bánh cửa ngoài,
-
-rèm trong đã thấy một người bước ra.
-
-Thoát trông lợt lợt màu da,
-
-ăn chi cao lớn đẫy-đà làm sao!
-
-Trước xe hớn-hở han-chào,
-
-vưng lời nàng mới bước vào tận nơi.
-
-Bên thì mấy ả mày ngài,
-
-bên thì ngồi bốn năm người làng soi.
-
-Giữa thì hương nến hẳn-hoi,
-
-trên treo một tượng trắng đôi lông mày.
-
-Lầu xanh quen lối xưa nay,
-
-nghề nầy thì lấy ông nầy tiên sư.
-
-Hương hôm hoa sớm phượng-thờ.
-
-cô nào xấu vía có thưa mối hàng.
-
-Cổi xiêm lột áo chán-chường,
-
-trước thần sẽ nguyện mảnh hương lầm-dầm.
-
-Nệm hoa lót xuống chiếu nằm,
-
-bướm ong bay lại ầm-ầm tứ vi.
-
-Kiều còn ngơ ngẩn biết gì,
-
-cứ lời lạy xuống mụ thì khấn ngay:
-
-Cửa hàng buôn-bán cho may,
-
-đêm-đêm hàn thực, ngày-ngày nguyên tiêu.
-
-Muôn ngàn người thấy cũng yêu,
-
-xôn-xao anh én dập-diều trước-mai.
-
-Tin ve vạch lá thơ bài,
-
-đưa người cửa trước, rước người cửa sau?
-
-Lạ tai nghe chửa biết đâu,
-
-xem tình ra cũng những màu dỡ-dang.
-
-Lễ xong hương hỏa gia đường,
-
-Tú-Bà vắt nhục lên giường ngồi ngay.
-
-Dạy rằng con lạy mẹ đây,
-
-lạy rồi thì lạy cậu mầy bên kia.
-
-Nàng rằng: phải bước lưu-ly,
-
-phận hèn vưng đã cam bề tiểu tinh;
-
-Đều đâu lấy én làm anh?
-
-ngây-thơ chẳng biết là danh phận gì;
-
-Đủ đều nạp thể vu qui,
-
-đã khi chung chạ, lại khi đứng ngồi;
-
-Giờ ra thay bực đổi ngôi,
-
-dám xin gởi lại một lời cho minh.
-
-Mụ nghe nàng nói hay tình,
-
-bây-giờ mới nổi tam bành mụ lên:
-
-Nầy nầy sự đã quả nhiên,
-
-thôi đà cướp sống chồng min đi rồi!
-
-Bảo thì đi dạo lấy người,
-
-đem về rước khách lấy lời mà ăn.
-
-Tuồng vô ngãi ở vô nhơn,
-
-buồn mình trước đã tằn-mằn thử chơi!
-
-Màu hồ đã mất đi rồi,
-
-thôi-thôi vốn-liếng đi đời nhà ma!
-
-Con kia đã bán cho ta,
-
-nhập gia phải cứ phép nhà tao đây.
-
-Lão kia có dỡ bài-bây,
-
-chẳng phang vào mặt, thì mầy đừng nghe.
-
-Cớ sao chịu trót một bề,
-
-gái tơ mà đã ngứa nghề sớm sao?
-
-Phải làm cho biết phép tao:
-
-giựt bì tiên rắp sấn vào ra tay.
-
-Nàng rằng: trời thẳm đất dày!
-
-thân nầy đã bỏ những ngày ra đi.
-
-Thôi thì thôi có tiếc chi,
-
-sẵn dao tay áo tức-thì dỡ ra.
-
-Sợ gan nát ngọc liều hoa,
-
-mụ còn trông mặt, nàng đà quá tay.
-
-Thương ôi tài sắc mực nầy!
-
-một dao oan nghiệt đứt dây phong trần!
-
-Nỗi oan vỡ-lở xa gần,
-
-trong nhà người chật một lần như nêm.
-
-Nàng thì bặt-bặt giấc tiên,
-
-mụ thì mịt-mịt mặt nhìn hồn bay.
-
-Vực nàng vào chốn hiên tây,
-
-cắt người xem-xóc, chạy thầy thuốc thang.
-
-Nào hay chửa hết trần duyên,
-
-trong mây dường đã đứng bên một nàng.
-
-Dỉ rằng: nhân quả dở dang,
-
-đã toan trốn nợ đoạn tràng được sao?
-
-Số còn nặng nghiệp má đào,
-
-người dầu muốn quyết trời nào đã cho?
-
-Hãy xin hết kiếp liễu bồ,
-
-sông Tiền-đường sẽ hẹn hò về sau.
-
-Thuốc-thang trót một ngày thâu,
-
-giấc mê nghe đã dầu-dầu vừa tan.
-
-Tú-bà chực sẵn bên màn,
-
-gieo lời khuyên giải mên-man gỡ dần:
-
-Một người đễ có mấy thân?
-
-hoa xuân đang nhụy, ngày xuân còn dài;
-
-Cũng là lỡ một lầm hai,
-
-đá vàng sao nở ép nài mưa mây;
-
-Lỡ chơn trót đã vào đây,
-
-khóa buồn xuân, để đợi ngày đào non:
-
-Người còn thì của hãy còn,
-
-tìm nơi xứng đáng là con cái nhà.
-
-Làm chi tội báo oan gia,
-
-thiệt mình mà hại đến ta hay gì?
-
-Kề tai mấy nổi nằn-nì,
-
-nàng nghe dường cũng thị phi rạch-ròi.
-
-Vả suy thần mộng mấy lời,
-
-túc khiên thì cũng có trời ở trong.
-
-Kiếp nầy nợ trả chửa xong,
-
-làm chi thì cũng một chồng kiếp sau.
-
-Lặng nghe đằm-thắm gót đầu,
-
-thưa rằng: ai có muốn đâu thể nầy?
-
-Được như lời thế là may,
-
-hẳn rằng mai có như rày cho chăng?
-
-Sợ khi ong bướm đãi-đằng,
-
-đến đều sống đục, sao bằng thác trong.
-
-Mụ rằng: con hãy thong-dong,
-
-phải đều lòng lại dối lòng mà chơi?
-
-Mai sau ở chẳng như lời,
-
-trên đầu có bóng mặt trời sáng soi.
-
-Thấy lời quyết đoán hẳn-hòi,
-
-đành lòng nàng cũng sẽ nguôi nguôi dần.
-
-Túy-Kiều than thở nhớ nhà.
-
-Trước sau ngừng biếc tỏa xuân,
-
-vít non xa tấm trăng gần ở chung.
-
-Bốn bề bát-ngát xa trông,
-
-cát vàng cồn nọ, doi hồng dặm kia.
-
-Bĩ bàng mây sớm đèn khuya,
-
-nhớ tình nhớ cảnh như chia tấm lòng.
-
-Tưởng người dưới nguyệt chén đồng,
-
-tin sương luống hãy rày trông mài chờ.
-
-Bên trời góc biển bơ-vơ,
-
-tấm son gụt rửa bao giờ cho phai?
-
-Xót người dựa cửa hôm mai,
-
-quạt nồng đắp lạnh, những ai đó chừ?
-
-Bồng lai cách mấy nắng mưa,
-
-có khi gốc tử đã vừa người ôm.
-
-Buồn trông cửa biển gần hôm,
-
-thuyền ai thấp-thoảng cánh buồm xa-xa.
-
-Buồn trông ngọn nước mới sa
-
-hoa trôi man-mác biết là về đâu?
-
-Buồn trông nội cỏ dàu-dàu,
-
-chơn mây mặt đất một màu xanh-xanh.
-
-Buồn trông gió cuốn mặt gành.
-
-om-sòm tiếng sóng kêu quanh ghế ngồi.
-
-Túy-Kiều bị Sở-Khanh gạt dổ đem đi.
-
-Đông-quanh những nước non người,
-
-đau lòng lưu-lạc, nên vài bốn câu.
-
-Ngậm-ngùi xủ bức rèm châu,
-
-cách lầu nghe có tiếng đâu hòa vần.
-
-Một chàng vừa trạc thanh xuân,
-
-hình-dung chai-chuốt áo khăn dịu-dàng.
-
-Nghĩ rằng cũng vẻ thơ hương,
-
-hỏi ra mới biết rằng chàng Sở-khanh ,
-
-Bóng hoa thấp-thoảng dưới mành,
-
-trông chàng nàng cũng ra tình đeo-đai.
-
-Than ôi sắc nước hương trời,
-
-tiếc cho đâu bỗng lạc-loài đến đây!
-
-Giá đành trong nguyệt trên mây,
-
-hoa sao hoa khéo đã-đày bấy hoa.
-
-Nổi cơn riêng giận trời già,
-
-lòng nầy ai tỏ cho ta hỡi lòng!
-
-Thuyền quyên ví biết anh-hùng,
-
-ra tay tháo cũi sổ lồng như chơi.
-
-Song thưa đã khép cánh ngoài,
-
-tai còn đồng vọng mấy lời sắt đinh.
-
-Nghĩ người thôi lại nghĩ mình,
-
-cám lòng chua-xót tạ tình bơ-vơ.
-
-Những là lần-lữa nắng mưa,
-
-kiếp phong trần biết bao giờ là thôi?
-
-Đánh liều nhắn một đôi lời,
-
-nhờ tay tế độ vớt người trầm luân.
-
-Mảnh tiên kể hết xa gần,
-
-nỗi nhà báo đáp, nỗi thân lạc-loài,
-
-Tan sương vừa rạng ngày mai,
-
-cánh hồng nàng mới nhắn lời gởi sang.
-
-Trời tây lửng-đửng bóng vàng,
-
-phục thơ đã thấy tin chàng tới nơi.
-
-Mở xem một bức tiên mai,
-
-rành-rành: tích việt có hai chữ đề.
-
-Lấy trong ý-tứ mà suy,
-
-ngày hai mươi mốt, tuất thì phải chăng?
-
-Chim hôm thôi thoát về rừng,
-
-đoá trà-mi đã ngậm trăng nửa mành.
-
-Tường đông lay-động bóng nhành,
-
-rẽ song đã thấy Sở-khanh bước vào.
-
-Sượng-sùng đánh dạn ra chào
-
-lạy thôi nàng mới dỉ trao ân-cần,
-
-Rằng: tôi bèo bọt chút thân,
-
-lạc đàng mang lấy nợ-nần én-anh.
-
-Dám nhờ cốt nhục tử sanh,
-
-còn nhiều kết cỏ ngậm vành về sau.
-
-Lặng ngồi thầmngẩm gặt đầu,
-
-ta đây phải mượn ai đâu mà rằng.
-
-Nàng đà biết đến ta chăng,
-
-biển trầm luân lấp cho bằng mới thôi.
-
-Nàng rằng: muôn sự ơn người,
-
-thế nào xin quyết một lời cho xong.
-
-Rằng ta có ngựa truy phong,
-
-có tên dưới trướng, vốn dòng kiện nhi.
-
-Thừa cơ lén bước ra đi,
-
-ba mươi sáu chước, chước gì lại hơn.
-
-Dầu khi gió kép mưa đơn,
-
-có ta đây cũng chẳng can-cớ gì?
-
-Nghe lời nàng đã sinh nghi,
-
-song đà quá đất, quản gì đến thân.
-
-Cũng liều nhắm mắt sẩy chơn,
-
-mà xem con tạo xây vần đến đâu.
-
-Cùng nhau lén bước dưới lầu,
-
-song song ngựa trước ngựa sau một đoàn.
-
-Đêm thâu khắc mãn canh tàn,
-
-gió cây lọt lá trăng ngàn ngậm gương.
-
-Lối mòn cỏ lợt màu sương,
-
-lòng quê đi một bước đường một đau.
-
-Tiếng gà eo-óc gáy mau,
-
-tiếng người đâu đã mái sau dậy-dàn.
-
-Nàng càng thốn thức gan vàng,
-
-Sở-khanh đã rẽ dây-cương nẻo nào.
-
-Một mình không biết làm sao,
-
-dặm rừng bước thấp bước cao hãi-hùng.
-
-Túy-Kiều bị Tú-bà theo bắt lại được, đem vô ở thanh lâu ba năm.
-
-Hóa nhi thật có nợ lòng,
-
-làm chi giày tía vò hồng lắm nao!
-
-Một đoàn đua đến trước sau,
-
-vút đâu xuống đất, cánh đâu lên trời?
-
-Tú-bà tốc thẳng đến nơi,
-
-ầm ầm áp điệu một hơi lại nhà.
-
-Hưng-hành chẳng hỏi chẳng tra,
-
-quá tay vùi liễu dập hoa tơi bời.
-
-Thịt da ai cũng là người,
-
-lòng nào hồng rụng thắm rời chẳng đau?
-
-Hết lời thú phục khẩn cầu,
-
-uốn lưng núi đổ, giập đầu máu sa.
-
-Rằng: tôi chút phận đàn-bà,
-
-nước non lìa cửa lìa nhà đến đây.
-
-Bây-giờ sống chết ở tay,
-
-thân nầy đã đến thế nầy thì thôi.
-
-Nhưng tôi có sá chi tôi,
-
-phận tôi đành vậy, vốn người để đâu?
-
-Thân lươn bao quản lấm đầu,
-
-chút lòng trinh bạch từ sau cũng chừa.
-
-Được lời mụ mới tùy cơ,
-
-bắt người bảo-lãnh làm tờ cung-chiêu.
-
-Bày vai có ả Mã-kiều,
-
-xót nàng ra mới đánh liều chịu đoan.
-
-Mụ càng kể nhặt kể khoan,
-
-gạn-gùng đến mực, nồng-nàn mới tha.
-
-Vực nàng vào nghĩ trong nhà,
-
-Mã-kiều lại hở ý ra dặn lời:
-
-Thôi đà mắc lận thì thôi
-
-đi đâu chẳng biết con người Sở-khanh ?
-
-Phụ tình nỗi tiếng lầu xanh,
-
-một tay chôn biết mấy nhành phù-dung.
-
-Đà đao sắp sẵn chước dùng,
-
-lạ chi một cốt một đồng xưa nay,
-
-Có ba trăm lạng trao tay,
-
-không nhưng sao có chuyện nầy trò kia?
-
-Rồi ra trở mặt tức-thì,
-
-bớt lời kêu chớ lay chi mà đời,
-
-Nàng rằng thề-thốt nặng lời,
-
-có đâu mà lại ra lời hiểm-sâu?
-
-Còn đang suy trước nghĩ sau,
-
-mặt mo đã thấy ở đâu dẫn vào.
-
-Sở-khanh lên tiếng rêu-rao ,
-
-độ nghe rằng có con nào ở đây.
-
-Phao cho quến gió rủ mây,
-
-hãy xem có biết mặt nầy là ai?
-
-Nàng rằng: thôi thế thì thôi,
-
-Rằng không thì cũng vưng lời rằng không.
-
-Sở-khanh khoác-mắng đùng-đùng,
-
-sấn vào vừa rắp thị hùng ra tay.
-
-Nàng rằng: trời nhẽ có hay!
-
-quến anh rủ én sự nầy tại ai ?
-
-Đem người giẩy xuống giếng thơi,
-
-nói rồi rồi lại ăn lời được ngay!
-
-Còn tiên tích viẹt ở tay
-
-rõ-ràng mặt ấy mạt nầy chơ ai?
-
-Lời ngay đông mặt trong ngoài,
-
-kẻ chê bất nghĩa, người cười vô lương.
-
-Phụ tình án đã rõ-ràng,
-
-dơ tuồng nghĩ mới kiếm đàng tháo lui.
-
-Trách thầm riêng những sụt-sùi,
-
-nghĩ thân mà lại ngậm-ngùi cho thân.
-
-Tiếc thay trong giá trắng ngần!
-
-đến phong trần cũng phong trần như ai.
-
-Tẻ vui cũng một kiếp người,
-
-hồng nhan phải giống ở đời mãi ru?
-
-Kiếp xưa đã vụng đàng tu,
-
-kiếp nầy chẳng kẻo đền bồ mới xuôi.
-
-Dầu sao bình đã vỡ rồi,
-
-lấy thân mà trả nợ đời cho xong.
-
-Vừa tuần nguyệt rạng gương trong,
-
-Tú-bà ghé lại thong-dong dặn dò:
-
-Nghề chơi cũng lắm công phu,
-
-làng chơi ta phải biết cho đủ đều.
-
-Nàng rằng: mưa gió dập-diều,
-
-liều thân thì cũng phải liều thế thôi.
-
-Mụ rằng: ai cũng như ai,
-
-người ta ai mất tiền hoài đến đây?
-
-Ở trong còn lắm đều hay,
-
-nỗi đêm khép mở, nỗi ngày riêng chung.
-
-Nầy con thuộc lấy làm lòng,
-
-vành ngoài bảy chữ vành trong tám nghề .
-
-Chơi cho liễu chán hoa chê,
-
-cho lăn-lóc đá cho mê mẩn đời.
+# Phần 5 — Khi nghe hạnh, khi nết ngời
 
 Khi nghe hạnh, khi nết ngời,
 
-khi ngâm ngợi nguyệt, khi cười-cợt hoa.
+khi ngâm ngợi nguyệt, khi cườicợt hoa.
 
-Đều là nghề-nghiệp trong nhà,
+Đều là nghềnghiệp trong nhà,
 
 đủ ngằn ấy nết, mới là người chơi.
 
@@ -743,7 +14,7 @@ dường châu nét nguyệt, dường phai vẻ hồng.
 
 Những nghe nói đã thẹn thùng,
 
-nước đời lắm nỗi lạ-lùng khắt khe.
+nước đời lắm nỗi lạlùng khắt khe.
 
 Xót mình cửa các phòng quê,
 
@@ -753,7 +24,7 @@ Khéo là mặt dạn mày dày,
 
 kiếp người đã đến thế nầy thì thôi.
 
-Thương thay thân-phận lạc loài,
+Thương thay thân phận lạc loài,
 
 dẫu sao cũng ở tay người biết sao.
 
@@ -767,7 +38,7 @@ cuộc say đầy tháng, trận cười trót đêm.
 
 Dập diều lá gió nhành chim,
 
-sớm đưa Tống-ngọc, tối tìm Trường-khanh.
+sớm đưa Tốngngọc, tối tìm Trườngkhanh.
 
 Khi tỉnh rượu, lúc tàn canh,
 
@@ -775,7 +46,7 @@ giựt mình mình lại thương mình xót xa.
 
 Khi sao phong gấm xủ là,
 
-giờ sao tan-tác như hoa giữa đường?
+giờ sao tantác như hoa giữa đường?
 
 Mặt sao dày gió dạn sương,
 
@@ -801,9 +72,9 @@ Vui là vui gượn kẻo là,
 
 ai tri âm đó, mặn mà với ai?
 
-Thừa-ưa gió trước mưa mai,
+Thừaưa gió trước mưa mai,
 
-ngẩn-ngơ trăm nỗi, giồi mài một thân.
+ngẩnngơ trăm nỗi, giồi mài một thân.
 
 Ôm lòng đòi đoạn xa gần,
 
@@ -811,19 +82,19 @@ chẳng vò mà rối, chẳng dần mà đau.
 
 Nhớ ơn chín chữ cao sâu,
 
-một ngày một ngã bóng dâu tà-tà.
+một ngày một ngã bóng dâu tàtà.
 
 Dặm ngàn nước thẳm non xa,
 
 nghĩ đâu thân phận con ra thế nầy!
 
-Sân hòe đôi chút thơ-ngây,
+Sân hòe đôi chút thơngây,
 
 trân cam ai kẻ đỡ thay việc mình?
 
-Nhớ lời nguyền-ước ba sinh,
+Nhớ lời nguyềnước ba sinh,
 
-xa-xuôi ai có biết tình chăng ai?
+xaxuôi ai có biết tình chăng ai?
 
 Khi về hỏi liễu chương đài,
 
@@ -837,11 +108,11 @@ Mối tình đòi đoạn vò tơ,
 
 giấc hương quan luống những mơ canh dài.
 
-Song sa võ-võ phương trời,
+Song sa võvõ phương trời,
 
 nay hoàng hôn đã lại mai hôn hoàng.
 
-Lần-lần thỏ bạc ác vàng,
+Lầnlần thỏ bạc ác vàng,
 
 xót người trong hội đoạn tràng đòi cơn.
 
@@ -851,22 +122,22 @@ làm cho, cho hại, cho tàn, cho cân!
 
 Đã đày vào kiếp phong trần,
 
-sao cho sỉ-nhục một lần mới thôi.
+sao cho sỉnhục một lần mới thôi.
 
-Túy-Kiều gặp Thúc-Sanh cưới về làm vợ bé.
-Thúc-ông giận đi thưa quan, bị đòn rồi sau lại cho hiệp lại với nhau ba năm ở với Thúc-Sanh hằng giục Thúc-Sanh thú với vợ chánh.
-Thúc-Sanh về.
-Túy-Kiều ở làm dâu Thúc-ông ba năm.
+Túy Kiều gặp Thúc Sanh cưới về làm vợ bé.
+Thúcông giận đi thưa quan, bị đòn rồi sau lại cho hiệp lại với nhau ba năm ở với Thúc Sanh hằng giục Thúc Sanh thú với vợ chánh.
+Thúc Sanh về.
+Túy Kiều ở làm dâu Thúcông ba năm.
 
 Khách du bổng có một người,
 
-Kỳ-tâm họ Thúc cũng loài thơ hương.
+Kỳtâm họ Thúc cũng loài thơ hương.
 
 Vốn người huyện Tích châu Thường ,
 
 theo nghiêm thân mở ngôi hàng Lâm tri .
 
-Hoa khôi mộ tiếng Kiều-nhi ,
+Hoa khôi mộ tiếng Kiềunhi ,
 
 thiếp hồng tìm đến hương quê gởi vào.
 
@@ -874,7 +145,7 @@ Trướng Tô hiệp mặt hoa đào,
 
 vẻ nào chẳng mặn, nết nào chăng ưa?
 
-Hải đường mởn-mởn nhành tơ,
+Hải đường mởnmởn nhành tơ,
 
 ngày xuân càng gió càng mưa càng nồng.
 
@@ -890,7 +161,7 @@ Sớm đào tối mận lân la,
 
 trước còn trăng gió, sau ra đá vàng.
 
-Dịp đâu may-mắn lạ dường!
+Dịp đâu maymắn lạ dường!
 
 lại vừa gặp khoảng xuân đường về quê.
 
@@ -906,15 +177,15 @@ Khi hương sớm, khi mây trưa,
 
 bàn vây đếm nước, đường tơ hòa đờn.
 
-Mập-mờ trong cuộc truy hoan,
+Mậpmờ trong cuộc truy hoan,
 
-càng quen thuộc nết, càng dan-díu tình.
+càng quen thuộc nết, càng dandíu tình.
 
 Lạ cho cái sóng khuinh thành,
 
 làm cho đổ quán, xiêu đình như chơi!
 
-Thúc-sanh quen nết bốc rời,
+Thúc sanh quen nết bốc rời,
 
 trăm ngàn đổ một trận cười như không
 
@@ -924,15 +195,15 @@ máu tham hễ thấy hơi đồng thì mê.
 
 Dưới trăng quyên đã gọi hè,
 
-đầu tường lửa lựu lập-loè đơm bông.
+đầu tường lửa lựu lậploè đơm bông.
 
-Phòng là phải buổi thong-dong,
+Phòng là phải buổi thongdong,
 
 than hương nưng bức trướng hồng rạch hoa.
 
-Rõ-ràng trong ngọc trắng ngà,
+Rõràng trong ngọc trắng ngà,
 
-dầy-dầy sẵn đúc một toà thiên nhiên.
+dầydầy sẵn đúc một toà thiên nhiên.
 
 Sanh càng tỏ nết, càng khen,
 
@@ -984,13 +255,13 @@ yêu hoa yêu được một màu điểm trang.
 
 Rồi ra lạt phấn phai hương,
 
-lòng kia giữ được thường-thường mãi chăng?
+lòng kia giữ được thườngthường mãi chăng?
 
 Vả trong thềm quế cung trăng,
 
 chủ trương đành đã chị hằng ở trong.
 
-Bây-giờ khăn-khít dải đồng,
+Bâygiờ khănkhít dải đồng,
 
 thêm người, người cũng chia lòng riêng tây.
 
@@ -998,17 +269,17 @@ Vỉ chi chút phận bèo mây,
 
 làm cho bể ái khi đầy khi vơi.
 
-Trăm đều ngang-ngửa vì tôi,
+Trăm đều ngangngửa vì tôi,
 
 thân sau ai chịu tội trời ấy cho?
 
 Như chàng có vững tay co,
 
-mười phần xin đắp-điếm cho một vài.
+mười phần xin đắpđiếm cho một vài.
 
 Thế trong dầu lớn hơn ngoài,
 
-trước hàm sư-tử gởi người đằng la.
+trước hàm sưtử gởi người đằng la.
 
 Cúi đầu lòn xuống mái nhà,
 
@@ -1024,7 +295,7 @@ lầu xanh lại bỏ ra phường lầu xanh.
 
 Lại càng nhơ dạng dại hình,
 
-đành thân-phận thiếp, nghĩ danh-giá chàng.
+đành thân phận thiếp, nghĩ danhgiá chàng.
 
 Thương sao cho vẹn thì thương,
 
@@ -1042,11 +313,11 @@ trăm đều hãy cứ trông vào một ta.
 
 đá vàng cũng quyết, phong ba cũng liều.
 
-Cùng nhau căn-vặn đến đều,
+Cùng nhau cănvặn đến đều,
 
 chỉ non thề biển, nặng gieo đến lời.
 
-Nỉ-non đêm vắng tình dài,
+Nỉnon đêm vắng tình dài,
 
 ngoài hiên thỏ đã non đoài ngậm gương.
 
@@ -1058,11 +329,11 @@ Chiến, hòa sắp sẵn hai bài,
 
 cậy tay thầy thợ mướn người dò la.
 
-Bắn tin đến mặt Tú-bà ,
+Bắn tin đến mặt Tú Bà ,
 
 thua cơ mụ cũng cầu hòa dám sao.
 
-Rõ-ràng của dẫn tay trao,
+Rõràng của dẫn tay trao,
 
 tòng lương một thiếp thân vào cửa công.
 
@@ -1070,7 +341,7 @@ Công xem hai lẽ đều xong,
 
 gót tiên phút đã thoát vòng trần ai.
 
-Một nhà sum-hiệp trước mai,
+Một nhà sumhiệp trước mai,
 
 càng sâu ngãi biển, càng dài tình sông.
 
@@ -1086,9 +357,9 @@ Mận thu vừa nảy giò sương,
 
 xe bồ đã thấy xuân đường đến nơi.
 
-Phong lôi nổi trận bời-bời,
+Phong lôi nổi trận bờibời,
 
-sốt long e-ấp tính bài phân-chia.
+sốt long eấp tính bài phânchia.
 
 Quyết ngay biện bạch một bề,
 
@@ -1114,7 +385,7 @@ Lượng trên quyết chẳng thương tình,
 
 bạc đen thôi có tiếc mình làm chi.
 
-Thấy lời vàng đá tri-tri,
+Thấy lời vàng đá tritri,
 
 sốt gan ông mới cáo quì cửa công.
 
@@ -1130,9 +401,9 @@ Trông lên mặt sắt đen sì,
 
 sắp uy trước đã ra uy nặng lời:
 
-Gã kia dại nết chơi-bời,
+Gã kia dại nết chơibời,
 
-mà con người ấy là người đong-đưa.
+mà con người ấy là người đongđưa.
 
 Tuồng chi huê thải hương thừa?
 
@@ -1156,15 +427,15 @@ nhện nầy vương lấy tơ kia mấy lần?
 
 Đục trong thân cũng là thân,
 
-yếu thơ vưng chịu trước sân lôi-đình.
+yếu thơ vưng chịu trước sân lôiđình.
 
 Dạy rằng: cứ phép gia hình,
 
-ba cây chặt lại một nhành mẫu-đơn.
+ba cây chặt lại một nhành mẫuđơn.
 
 Phận đành chi dám kêu oan,
 
-đào giun cuốn má, liễu tan-tác mày.
+đào giun cuốn má, liễu tantác mày.
 
 Một sân lầm cát đã đầy,
 
@@ -1172,7 +443,7 @@ gương lờ nước thủy, mai gầy vóc sương.
 
 Nghĩ tình chàng Thúc mà thương,
 
-nẽo xa trông thấy lòng càng xót-xa.
+nẽo xa trông thấy lòng càng xótxa.
 
 Khóc rằng: oan khúc vì ta,
 
@@ -1186,7 +457,7 @@ Phủ đường nghe thoảng vào tai,
 
 động lòng lại gạn đến lời riêng tây.
 
-Sụt-sùi chàng mới thưa ngay,
+Sụtsùi chàng mới thưa ngay,
 
 đầu đuôi lại kể sự ngày cầu thân.
 
@@ -1206,7 +477,7 @@ Rằng: như hẳn có thế thì,
 
 trăng hoa song cũng thị phi biết đều.
 
-Sanh rằng: chút phận bọt-bèo,
+Sanh rằng: chút phận bọtbèo,
 
 theo đòi cũng vả ít nhiều bút nghiên.
 
@@ -1222,7 +493,7 @@ Khen rằng: giá lướt thịnh Đường
 
 tài nầy sắc ấy ngàn vàng chửa cân.
 
-Thật là tài-tử giai-nhơn,
+Thật là tàitử giainhơn,
 
 Châu Trần còn có Châu Trần nào hơn.
 
@@ -1238,33 +509,33 @@ Dâu con trong đạo gia đình,
 
 thôi thì dẹp nỗi bất bình là xong.
 
-Kiếp truyền sắm-sửa lễ công,
+Kiếp truyền sắmsửa lễ công,
 
 kiệu hoa lướt gió, đuốc hồng điểm sao.
 
-Bày hàng cổ-nhạc xôn-xao,
+Bày hàng cổnhạc xônxao,
 
 song song đưa tới trướng đào sánh đôi.
 
 Thương vì nết, trượng vì tài,
 
-Thúc-ông thôi cũng dẹp lời phong ba.
+Thúcông thôi cũng dẹp lời phong ba.
 
-Huệ lan náo-nức một nhà,
+Huệ lan náonức một nhà,
 
-từng cay đắng lại mặn-mà hơn xưa.
+từng cay đắng lại mặnmà hơn xưa.
 
 Mãng vui rượu sớm cờ trưa,
 
 đào đà bay thắm, sen vừa nảy xanh.
 
-Trướng hồ vắng-vẻ đêm thanh,
+Trướng hồ vắngvẻ đêm thanh,
 
 e tình nàng mới bày tình riêng chung;
 
 Phận bồ từ vẹn chữ tùng,
 
-đổi-thay nhàn cá đã hòng đầy niên.
+đổithay nhàn cá đã hòng đầy niên.
 
 Tin nhà ngày một thầm tin,
 
@@ -1272,11 +543,11 @@ mặn tình cát lụy, lạt nền tào khang.
 
 Nghĩ ra thật cũng nên dường,
 
-tăm-hơi ai kẻ giữ-giàng cho ta?
+tămhơi ai kẻ giữgiàng cho ta?
 
 Trộm nghe kẻ lớn trong nhà,
 
-ở vào khuôn phép, nói ra mối-giềng.
+ở vào khuôn phép, nói ra mốigiềng.
 
 E thay những dạ phi thường,
 
@@ -1286,12 +557,12 @@ Mà ta trót một năm ròng,
 
 thế nào cũng chẳng giấu giung được nào.
 
-Bây giờ chưa tỏ tiêu-hao,
+Bây giờ chưa tỏ tiêuhao,
 
 hoặc là trong có làm sao chăng là?
 
-Túy-Kiều là đứa biết đều, biết Thúc-Sanh có vợ ở bên nhà, nên năng nói biểu về mà nói cho vợ chính hay kẻo sau rầy rà khó lòng.
-Thúc-Sanh về thì về chớ giấu không cho con Hoạn-thơ là vợ chính biết.
+Túy Kiều là đứa biết đều, biết Thúc Sanh có vợ ở bên nhà, nên năng nói biểu về mà nói cho vợ chính hay kẻo sau rầy rà khó lòng.
+Thúc Sanh về thì về chớ giấu không cho con Hoạnthơ là vợ chính biết.
 
 Xin chàng kíp liệu lại nhà,
 
@@ -1329,7 +600,7 @@ Dể lòn chỉ thắm trôn kim,
 
 làm chi bưng mắt, bắt chim khó lòng.
 
-Đôi ta chút nghĩa đèo-bòng,
+Đôi ta chút nghĩa đèobòng,
 
 đến nhà trước liệu nói sòng cho minh.
 
@@ -1359,7 +630,7 @@ trông người đã khuất mấy ngàn cây xanh.
 
 Người về chiếc bóng năm canh,
 
-kẻ đi muôn dặm, một mình pha-phui.
+kẻ đi muôn dặm, một mình phaphui.
 
 Vầng trăng ai rẽ làm đôi,
 
@@ -1371,7 +642,7 @@ phòng trong lại nỗi chủ trương ở nhà.
 
 Vốn dòng họ Hoạn danh gia,
 
-con quan lại bộ tên là Hoạn-thơ .
+con quan lại bộ tên là Hoạnthơ .
 
 Duyên đằng thuận nẻo gió đưa,
 
@@ -1379,7 +650,7 @@ cùng chàng kết tóc xe tơ những ngày.
 
 Ở ăn thì nết cũng hay,
 
-nói đều ràng-buộc thì tay cũng già.
+nói đều ràngbuộc thì tay cũng già.
 
 Từ nghe vườn mới thêm hoa,
 
@@ -1387,9 +658,9 @@ miệng người đã lắm, tin nhà thì không.
 
 Lửa tâm càng dập càng nồng
 
-trách người đen-bạc ra lòng trăng hoa.
+trách người đenbạc ra lòng trăng hoa.
 
-Ví-bằng thú thật cùng ta,
+Víbằng thú thật cùng ta,
 
 cũng dung kẻ dưới mới là đường trên.
 
@@ -1397,7 +668,7 @@ Dại chi chẳng giữ lấy nền,
 
 sốt chi mà chác tiếng ghen vào mình?
 
-Lại còn bưng-bít giấu quanh
+Lại còn bưngbít giấu quanh
 
 làm chi những thói trẻ ranh nực cười.
 
@@ -1411,7 +682,7 @@ kiến trong miệng chén có bò đi đâu?
 
 Làm cho nhìn chẳng được nhau,
 
-làm cho đày-đọa cất đầu chẳng lên.
+làm cho đàyđọa cất đầu chẳng lên.
 
 Làm cho trông thấy nhãn tiền,
 
@@ -1425,297 +696,20 @@ Tuần sau bỗng thấy hai người,
 
 mách tin ý cũng liệu bài tấn công.
 
-Tiểu-thơ nổi giận đùng đùng,
+Tiểuthơ nổi giận đùng đùng,
 
-gớm thay thêu-dệt đem lòng trêu ngươi!
+gớm thay thêudệt đem lòng trêu ngươi!
 
 Lang quân nào phải như ai,
 
 đều nầy hẳn bởi những người thị phi.
 
-Vội-vàng làm dữ ra uy,
+Vộivàng làm dữ ra uy,
 
 đứa thì vả miệng, đứa thì bẻ răng.
 
-Trong ngoài kín-mít như bưng,
+Trong ngoài kínmít như bưng,
 
 nào ai còn dám nói năng một lời?
 
-Buồng thêu khuya sớm thảnh-thơi,
-
-ra vào một mực nói cười như không
-
-Đêm ngày lòng những dặn lòng,
-
-Sanh đà về đến lầu hồng xuống yên.
-
-Lời tan hiệp nỗi hàn huyên,
-
-chữ tình càng mặn, chữ duyên càng nồng.
-
-Tẩy trần vui chén thong-dong,
-
-nỗi lòng ai ở trong lòng mà ra?
-
-Chàng về xem ý-tứ nhà,
-
-sự mình cũng rắp lân-la giải bày.
-
-Mấy phen cười tỉnh nói say,
-
-tóc tơ chẳng động mảy may sự tình.
-
-Nghĩ đà bưng kín miệng bình,
-
-nào ai có khảo mà mình lại xưng?
-
-Những là e-ấp dùng-dằng,
-
-rút dây sợ nữa động rừng lại thôi.
-
-Có khi vui truyện mua cười,
-
-Tiểu-thơ lại dở những đều đâu đâu.
-
-Rằng: trong ngọc đá vàng thau,
-
-mười phần ta đã tin nhau cả mười.
-
-Khen cho những miệng dông-dài,
-
-bướm ong lại đặt những lời nọ kia.
-
-Thiếp dầu vụng chẳng hay suy,
-
-đã dơ bụng nghĩ, lại bia miệng cười.
-
-Thấy lời thủng thỉnh như chơi,
-
-thuận lời chàng cũng nói xuôi đở đòn.
-
-Những là cười phấn cợt son,
-
-đèn khuya chong bóng trăng tròn sánh vai.
-
-Non xuân gỏi vược bén mùi,
-
-giếng vàng đã nảy một vài tin ngô.
-
-Chạnh niềm nhớ cảnh giang hồ,
-
-một niềm quan tái mấy mùa gió trăng.
-
-Tình riêng chửa dám dỉ răng,
-
-Tiểu-thơ trước đã liệu chừng nhủ qua.
-
-Cách năm mây bạc xa xa,
-
-Lâm-tri cũng phải tính mà thần hôn.
-
-Được lời như mở tấc son,
-
-vó cu thẳng ruổi nước non quê người.
-
-Long-đong đáy nước in trời,
-
-thành xây trổ biếc, non phơi bóng vàng.
-
-Vó cu vừa gióng dặm trường,
-
-xa hương nàng đã thuận đường qui ninh.
-
-Thưa nhà huyên hết mọi tình,
-
-nỗi chàng ở bạc, nỗi mình chịu đen.
-
-Nghĩ rằng giận lẫy hờn ghen,
-
-xấu chàng mà có ai khen gì mình?
-
-Trong nố bạn-bè có thằng Ưng thằng Khuyễn, về nói với con Hoạn-thơ.
-Hoạn-thơ nỗi máu ghen, cho quân ấy qua lén đốt nhà, bắt con Túy-Kiều đem về giao cho mẹ nó hành hà đày-đọa.
-
-Vậy nên ngảnh mặt làm-thinh,
-
-mưu cao vốn đã rắp-ranh những ngày.
-
-Lâm-tri đàng bộ tháng chầy,
-
-mà đàng hải đạo sang ngay thì gần.
-
-Dọn thuyền lựa mặt gia nhân,
-
-hãy đem dây xích buộc chân nàng về.
-
-Làm cho cho mệt cho mê,
-
-làm cho đau-đớn ê-hề cho nao.
-
-Trước cho bỏ ghét những người,
-
-sau cho để một trò cười về sau.
-
-Phu-nhân khen chước rất mầu,
-
-chìu con mới dạy mặc dầu ra tay.
-
-Sửa-sang buồm gió lèo mây,
-
-Khuyển , Ưng lại lựa một bầy côn-quang.
-
-Dặn-dò hết các mọi đàng,
-
-thuận phong một lá vượt sang biển Tề.
-
-Nàng từ chích bóng song the,
-
-đàng kia nỗi nọ như chia mối sầu.
-
-Bóng dâu đã xế ngang đầu,
-
-biết đâu ấm lạnh biết đâu ngọt bùi.
-
-Tóc thề đã chấm quanh vai,
-
-nào lời non nước nào lời sắt son.
-
-Đèo-bòng chút phận con-con,
-
-nhơn-duyên biết có vuông tròn cho chăng?
-
-Thân sao lắm nổi bất bằng,
-
-liều như cung quảng chị Hằng nghĩ nao.
-
-Đêm thu gió lọt song đào,
-
-nữa vành trăng khuyết, ba sao giữa trời.
-
-Nén hương đến trước thiên đài,
-
-nổi lòng khấn chửa cạn lời vân vân.
-
-Lúc cháy nhà, thì quân bạn vớt xác chết trôi ném vào để làm tang.
-Thúc-Sanh khi ấy đi khỏi.
-Cha Thúc-Sanh chạy qua thấy nhà cửa cháy tan hoan, lại có gặp xương nên tưởng Túy-Kiều đã bị chết thiêu rồi.
-
-Dưới hoa dậy lũ ác nhơn
-
-ầm ầm khốc quỉ kinh thần mọc ra.
-
-Đầy sân gươm tót sáng lòa,
-
-thất-kinh nàng chửa biết là làm sao.
-
-Thuốc mê đâu đã rưới vào,
-
-mơ-màng như giấc chiêm-bao biết gì.
-
-Giẩy ngay lên ngựa tức-thì,
-
-phòng thêu, viện sách bốn bề lửa dông.
-
-Sẵn thây vô chủ bên sông,
-
-ném vào để đánh lận sòng ai hay.
-
-Tôi-đòi phách lạc hồn bay,
-
-pha càn bụi cỏ gốc cây ẩn mình.
-
-Thúc-ông nhà cũng gần quanh,
-
-chợt trông ngọn lửa thất-kinh rụng-rời.
-
-Tớ thầy chạy thẳng tới nơi,
-
-tơi-bời rưới nước, tìm người lao-xao.
-
-Gió tung ngọn lủa càng cao,
-
-tôi-đòi tìm đủ, nàng nào thấy đâu?
-
-Hớt-hơ hớt-hải nhìn nhau,
-
-giếng sâu bụi rậm, trước sau tìm quàng.
-
-Chạy ra chốn củ phòng hương,
-
-trong tro thấy một đống xương cháy tàn.
-
-Ngay tình ai biết mưu gian,
-
-hản nàng thôi lại có bàn rằng ai?
-
-Thúc-ông rơi lụy vắn dài,
-
-nghĩ con vắng-vẻ, thương người nết-na.
-
-Di hài nhặt gói về nhà,
-
-nào là khâm liệm, nào là tang trai.
-
-Lễ thường đã vẹn một hai,
-
-lục trình chàng cũng đến nơi bấy-giờ.
-
-Thúc-Sanh về nghe nói lại, thì rầu rỉ khóc lóc.
-Mới đi đánh đồng thiếp mà kiếm Túy-Kiều, thì nói còn sống.
-Một năm nữa sẽ gặp nhau mà không dám nhìn; va không tin lời thầy nói.
-
-Bước vào chốn cũ lầu thơ,
-
-tro than một đống nắng mưa bốn tường.
-
-Sang nhà cha tới trung đường,
-
-linh sàng bài vị thờ nàng ở trên.
-
-Hỗi ôi nói hết sự duyên,
-
-tơ tình đưt ruột, lửa phiền cháy gan.
-
-Gieo mình vật-vã khóc-than,
-
-con người thế ấy, thác oan thế nầy!
-
-Chắc rằng mai trước lại vầy,
-
-ai hay vĩnh quyết là ngày đưa nhau.
-
-Thương càng nghĩ, nghĩ càng đau,
-
-dễ ai lấp thảm, quạt sầu cho khuây.
-
-Gần miền nghe có một thầy,
-
-phi phù trí quỉ cao tay thông huyền.
-
-Trên tam bửu dưới cửu tuyền,
-
-tìm đâu thì cũng biết tin rõ-ràng.
-
-Sắm-sanh lễ-vật đưa sang,
-
-xin tìm cho thấy mặt nàng hỏi-han.
-
-Đạo nhơn phục trước tỉnh đàn,
-
-xuất thần dây-phút chưa tàng nén hương.
-
-Trở về minh-bạch nói tường,
-
-mặt nàng chẳng thấy, việc nàng đã tra.
-
-Người nầy nặng kiếp oan gia,
-
-còn nhiều nợ lắm sao đà thác cho.
-
-Mạng cung đang mắc nạn to,
-
-một năm nữa mới thăm dò được tin.
-
-Hai bên giáp mặt chìn-chìn,
-
-muốn nhìn mà chẳng dám nhìn lạ thay!
+Buồng thêu khuya sớm thảnhthơi,

@@ -7,7 +7,7 @@
     "language": "vi",
     "source_language": "vi",
     "source_format": "wikisource",
-    "source_path": "/home/ubuntu/projects/1/books/hoa-phi/source/hoa-phi__000-Đại_Đồng_phong_cảnh_phú.wikitext",
+    "source_path": "",
     "source_url": "https://vi.wikisource.org/wiki/%C4%90%E1%BA%A1i_%C4%90%E1%BB%93ng_phong_c%E1%BA%A3nh_ph%C3%BA",
     "license": "public-domain",
     "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
@@ -31,6 +31,6 @@
     "status": "extracted"
   },
   "stage": "extract",
-  "created_at": "2026-10-01T18:53:26+00:00",
+  "created_at": "2026-10-01T19:23:36+00:00",
   "notes": []
 }

@@ -26,7 +26,7 @@ from . import (
 )
 from .txt import join_wrapped_lines
 
-__all__ = ["extract", "parse_document"]
+__all__ = ["extract", "parse_document", "FURNITURE_CLASSES", "CONTENT_ROOT_SELECTORS"]
 
 #: Blocks that must not be narrated. Mirrors CONTRACT.md's "no HTML, no images,
 #: no tables, no footnotes".
@@ -62,11 +62,79 @@ _DROP_TAGS = (
     "hr",
 )
 
+#: Subtrees that are site or edition furniture, never narration. On a
+#: Wikisource *Index:* (Page namespace) page these carry, between them,
+#: everything that must not be read aloud:
+#:
+#: * the NewPP parser debug report -- `ws-noexport`;
+#: * the proofread page number printed between stanzas -- `ws-pagenum`;
+#: * the `← Previous | Next →` navigation bar -- `ws-noexport noprint`;
+#: * the running title / author banner of the printed edition;
+#: * the licence banner, the category list, the edit links, the reference list.
+#:
+#: Dropping by class rather than by text pattern is what keeps this from turning
+#: into an arms race: the debug report's wording changes between MediaWiki
+#: releases, its CSS class does not.
+FURNITURE_CLASSES: tuple[str, ...] = (
+    "ws-noexport",
+    "ws-pagenum",
+    "pagenum",
+    "pagenum-inner",
+    "prp-pages-nav",
+    "noprint",
+    "printfooter",
+    "mw-editsection",
+    "mw-editsection-bracket",
+    "mw-jump-link",
+    "navbox",
+    "vertical-navbox",
+    "catlinks",
+    "sisterproject",
+    "references",
+    "reflist",
+    "refbegin",
+    "reference",
+    "reference-text",
+    "licenseContainer",
+    "licensetpl",
+    "headertemplate",
+    "dynlayout-exempt",
+    "ws-data",
+    "toc",
+    "toctitle",
+    "shortdescription",
+    "mw-jump",
+    "thumb",
+    "thumbinner",
+    "gallery",
+    "hatnote",
+    "dablink",
+)
+
+#: When one of these exists it is the whole content of the page. A Wikisource
+#: proofread page wraps the scan in `.prp-pages-output`; everything outside it is
+#: navigation, the debug report and the edition banner. Scoping to it is what
+#: turns a 6,500-line junk dump into 2,600 lines of Vietnamese.
+CONTENT_ROOT_SELECTORS: tuple[str, ...] = (
+    "div.prp-pages-output",
+    "div.prp-page-body",
+    "div.poem",
+    "div.mw-parser-output",
+    "article",
+    "body",
+)
+
 #: Unwrap (keep the text, drop the tag) for annotation-ish elements.
 _UNWRAP_TAGS = ("sup", "span", "a", "b", "i", "em", "strong", "u", "small", "sub", "rt", "rp")
 
 _FOOTNOTE_MARK_RE = re.compile(r"^\s*(?:\[\d+\]|\d{1,3}|[a-z]\)|\*{1,3})\s*$")
 _MD_LIST_RE = re.compile(r"^\s*(?:[-•*+]|\d+[.)])\s+")
+#: Zero-width, bidi and non-breaking control characters that survive copy-paste
+#: out of rendered HTML. A zero-width space at the start of every proofread block
+#: is not prose.
+_INVISIBLE_RE = re.compile(
+    "[-‏‪-‮⁠-⁤﻿­᠎]"
+)
 
 
 def _require_bs4():
@@ -79,6 +147,20 @@ def _require_bs4():
     return BeautifulSoup
 
 
+def _content_root(soup):
+    """The narrowest element that holds only this page's content.
+
+    Scoping to it is the single most valuable rule in this module: it is what
+    keeps a Wikisource proofread page's parser debug report, its navigation bar
+    and its printed page numbers out of the narration without any text matching.
+    """
+    for selector in CONTENT_ROOT_SELECTORS:
+        found = soup.select_one(selector)
+        if found is not None and found.get_text(strip=True):
+            return found
+    return soup.body or soup
+
+
 def _html_to_text(markup: str) -> str:
     """Flatten one XHTML document, keeping `==`-style markers for headings."""
     BeautifulSoup = _require_bs4()
@@ -86,6 +168,11 @@ def _html_to_text(markup: str) -> str:
 
     for tag in soup.find_all(list(_DROP_TAGS)):
         tag.decompose()
+    # Furniture by CSS class, before anything is unwrapped: `span` unwrapping
+    # would otherwise destroy the class names we are matching on.
+    for name in FURNITURE_CLASSES:
+        for tag in soup.find_all(class_=name):
+            tag.decompose()
     for tag in soup.find_all("rt"):
         tag.decompose()  # furigana reading -- reading it aloud would be noise
     for tag in soup.find_all(["sup", "sub"]):
@@ -97,9 +184,7 @@ def _html_to_text(markup: str) -> str:
     for tag in soup.find_all(list(_UNWRAP_TAGS)):
         tag.unwrap()
 
-    # Walk the body once, emitting a marker line for each block-level element so
-    # paragraph boundaries survive the flatten.
-    root = soup.body or soup
+    root = _content_root(soup)
     return "\n".join(_walk(root))
 
 
@@ -110,7 +195,7 @@ def _walk(node) -> list[str]:
     block_tags = {"p", "div", "section", "article", "li", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6", "dt", "dd", "pre", "figcaption"}
     for child in node.children:
         if isinstance(child, NavigableString):
-            text = str(child).replace("\xa0", " ")
+            text = _INVISIBLE_RE.sub("", str(child).replace("\xa0", " "))
             if text.strip():
                 out.append(text)
             continue

@@ -29,6 +29,7 @@ import json
 import re
 import time
 import unicodedata
+import unicodedata
 import urllib.parse
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Sequence
@@ -963,16 +964,120 @@ def _sections_from_wikitext(page_title: str, wiki: str, *, min_words: int) -> li
 def _sections_from_html(html: str, *, min_words: int, page_title: str = "") -> list[Section]:
     """Sections for one page, from the rendered HTML.
 
-    Reuses the EPUB walker: both are XHTML with `<h1>`..`<h6>` for structure.
+    Reuses the EPUB walker: both are XHTML with `<h1>`..`<h6>` for structure, and
+    both carry site furniture that is removed by CSS class.
+
+    A proofread page has no `<h*>` at all -- the section title is the first line of
+    the scan, printed in capitals (`KIM, VÂN, KIỀU TRUYỆN`). When there is no
+    heading element, that first line is promoted to the title and the rest is the
+    body, because otherwise every chapter of a 1911 facsimile is called
+    "Nội dung".
     """
     from .epub import parse_document
 
     found = parse_document(html, min_words=min_words)
-    if page_title:
-        for sec in found:
-            if _is_placeholder_title(sec.title):
-                sec.title = page_title.split("/")[-1] or page_title
+    for sec in found:
+        if not _is_placeholder_title(sec.title):
+            continue
+        head, body = _split_printed_title(sec.text)
+        if head:
+            sec.title = head
+            sec.text = body
+        elif page_title:
+            sec.title = page_title.split("/")[-1] or page_title
     return found
+
+
+#: A printed section title: short, no terminal punctuation, and in capitals the
+#: way a 1911 facsimile sets its headings.
+_PRINTED_TITLE_RE = re.compile(r"^[^.\n]{1,70}$")
+
+
+def _split_printed_title(text: str) -> tuple[str, str]:
+    """Split a proofread block into (printed title, body).
+
+    Returns `("", text)` when the first line does not look like a heading, so a
+    page that simply starts mid-sentence is left alone.
+    """
+    lines = text.split("\n")
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    if len(lines) < 2:
+        return "", text
+    head = lines[0].strip()
+    if not _PRINTED_TITLE_RE.match(head):
+        return "", text
+    letters = [c for c in head if c.isalpha()]
+    if len(letters) < 2 or not all(c.isupper() for c in letters):
+        return "", text
+    if _HAN_ONLY_RE.match(head):
+        # `金 雲 翹 傳` is the title in Nom, not something to read aloud, but it
+        # is still the section's name.
+        return "", text
+    return head, "\n".join(lines[1:]).strip()
+
+
+#: Front and back matter that must not become an audio chapter.
+#:
+#: Matched against `_norm_key(title)`, which accent-folds and drops everything
+#: that is not a letter or a digit -- so the entries are written in ASCII and
+#: have no spaces ("Lời tựa" -> `loitua`). The pattern is anchored at both ends on
+#: purpose: 總 is romanised "chung" and the 1911 edition has a real poem called
+#: "Đề lại chung án", which must not be mistaken for a table of contents.
+FRONT_MATTER_RE = re.compile(
+    r"^(?:"
+    r"avantpropos|prefacedu|prefacedelouvrage"
+    r"|introduction|introducao"
+    r"|propos|prologue"
+    r"|chung|tong|tonglich"
+    r"|mucluc|muclucchinh|danhmuc"
+    r"|loitua|loidatua|loidanudau|loigioithieu|loicaonhan|loigioithieusach"
+    r"|bia|trangbia|halftitle"
+    r"|phandau|tieude|tacgia|nguoidich|dichgia|baigioithieu"
+    r"|edition|editeur|poeme"
+    r")$",
+    re.IGNORECASE,
+)
+#: A title that is only a publisher, a printer or a place: "F.-H. SCHNEIDER,
+#: ÉDITEUR", "SAIGON", "3' ÉDITION", "PRIX".
+_PUBLISHER_RE = re.compile(
+    r"(?:éditeur|editeur|imprimerie|librairie|presses|maisons?|saigon|hanoi|"
+    r"\d+\s*'\s*édition|\d+\s*e\s*édition|prix|exemplaires|catalogues?)",
+    re.IGNORECASE,
+)
+
+
+def _norm_key(text: str) -> str:
+    """Accent-folded, letters and digits only, lowercase.
+
+    Folding matters: the front-matter list below is written in ASCII, so
+    `Mục lục` only normalises to `mucluc` if the diacritics are stripped. An
+    earlier version kept them, which meant `Mục lục` matched nothing at all.
+    """
+    folded = unicodedata.normalize("NFD", text.lower())
+    stripped = "".join(c for c in folded if unicodedata.category(c) != "Mn")
+    stripped = stripped.replace("đ", "d").replace("Đ", "D")
+    return "".join(c for c in stripped if c.isalnum())
+
+
+def is_front_matter(section: Section, *, base_title: str = "") -> bool:
+    """True when `section` is a title page, a preface or a table of contents.
+
+    Front matter must not become an audio chapter: nobody wants "F.-H. SCHNEIDER,
+    ÉDITEUR" read at them, and a 964-word French preface in the middle of a
+    Vietnamese audiobook is simply wrong. The text is dropped and the fact is
+    recorded in the manifest, so the omission is auditable rather than silent.
+    """
+    key = _norm_key(section.title)
+    if not key:
+        return False
+    if base_title and key == _norm_key(base_title):
+        return False
+    if FRONT_MATTER_RE.match(key):
+        return True
+    if _PUBLISHER_RE.search(section.title):
+        return True
+    return False
 
 
 def _extract_one(
@@ -1007,6 +1112,7 @@ def _extract_one(
         pages: list[str] = [title]
         sections: list[Section] = []
         html_pages: list[str] = []
+        front_notes: list[str] = []
         root_is_stub = False
 
         def add(page_title: str, page_wiki: str) -> int:
@@ -1016,6 +1122,7 @@ def _extract_one(
             the rendered HTML of an index page is mostly site navigation and would
             wrongly look like prose.
             """
+            before = len(sections)
             got = _sections_from_wikitext(page_title, page_wiki, min_words=min_words)
             from_wikitext = sum(s.word_count for s in got)
             # (4) wikitext is a transclusion stub -> read the rendered page.
@@ -1029,15 +1136,26 @@ def _extract_one(
                 )
                 if sum(s.word_count for s in from_html) > from_wikitext:
                     got = from_html
-                    # Remember it, so the raw HTML can be cached and an offline
-                    # rebuild does not need the network.
-                    html_pages.append(page_title)
+                # Record that the rendered page was *needed*, not only that it
+                # won. A transclusion page whose render also turns out to be
+                # empty still has to be cached, or an offline rebuild cannot
+                # reproduce the decision that was made here.
+                html_pages.append(page_title)
             for sec in got:
                 # A subpage name ("Chương 4", "IX") is a better title than the
                 # generic placeholder the fallback detector invents.
                 if page_title != title and _is_placeholder_title(sec.title):
                     sec.title = page_title.split("/")[-1]
                 sections.append(sec)
+            if not got and page_title == title and html_pages:
+                # The root page is a title page: everything on it was print
+                # furniture, so there was nothing to narrate. Worth saying, so a
+                # later "why is chapter 1 missing" has an answer.
+                front_notes.append(
+                    f"index page {title!r} contributed no text: it is a printed "
+                    f"title page (publisher, edition, price) and the work is in its "
+                    f"subpages"
+                )
             return from_wikitext
 
         root_is_stub = add(title, wiki) < MIN_PAGE_WORDS
@@ -1061,6 +1179,39 @@ def _extract_one(
         if not sections:
             raise ValueError(f"page {title!r} has no usable prose")
 
+        # (5) A root page that also has subpages is an index: its own text is a
+        # title page or a contents list, not a chapter of the book.
+        if kids:
+            kept: list[Section] = []
+            for sec in sections:
+                if _norm_key(sec.title) == _norm_key(title) or (
+                    _norm_key(sec.title) == _norm_key(title.split("/")[-1])
+                ):
+                    front_notes.append(
+                        f"dropped the index page {title!r} ({sec.word_count} chữ): its "
+                        f"content is the {len(kids)} subpages, not a chapter"
+                    )
+                    continue
+                kept.append(sec)
+            sections = kept
+
+        # (6) Title pages, prefaces and tables of contents.
+        content: list[Section] = []
+        for sec in sections:
+            if is_front_matter(sec, base_title=title):
+                front_notes.append(
+                    f"dropped front matter {sec.title!r} ({sec.word_count} chữ): "
+                    f"not part of the Vietnamese narration"
+                )
+                continue
+            content.append(sec)
+        sections = content
+
+        if not sections:
+            raise ValueError(
+                f"page {title!r} yielded only front matter and index pages"
+            )
+
         return Document(
             sections=sections,
             title=title,
@@ -1077,6 +1228,7 @@ def _extract_one(
                 "pages": pages,
                 "html_pages": html_pages,
                 "authorship": page_authorship(wiki),
+                "front_matter": front_notes,
             },
         )
     finally:

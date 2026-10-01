@@ -6,7 +6,7 @@
   "language": "vi",
   "source_language": "vi",
   "source_format": "wikisource",
-  "source_path": "/home/ubuntu/projects/1/books/truyen-kieu-ban-truong-vinh-ky-1911/source/truyen-kieu-ban-truong-vinh-ky-1911__006-Túy_Kiều_thi_tập.html",
+  "source_path": "",
   "source_url": "https://vi.wikisource.org/wiki/Truy%E1%BB%87n_Ki%E1%BB%81u_%28b%E1%BA%A3n_Tr%C6%B0%C6%A1ng_V%C4%A9nh_K%C3%BD_1911%29",
   "license": "public-domain",
   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
@@ -18,641 +18,182 @@
     {
       "index": 1,
       "slug": "chuong-01",
-      "title": "F.-H. SCHNEIDER, ÉDITEUR",
+      "title": "KIM, VÂN, KIỀU, PHÚ.",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-01.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 144
+      "word_count": 1087
     },
     {
       "index": 2,
       "slug": "chuong-02",
-      "title": "AVANT-PROPOS",
+      "title": "Phần 1 — Tài cao thì mạng kém; được bề nầy, mất bề kia",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-02.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 709
+      "word_count": 2513
     },
     {
       "index": 3,
       "slug": "chuong-03",
-      "title": "KIM, VÂN, KIỀU, PHÚ.",
+      "title": "Phần 2 — Từ phen đá biết tuổi vàng",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-03.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 1114
+      "word_count": 2504
     },
     {
       "index": 4,
       "slug": "chuong-04",
-      "title": "CHUNG",
+      "title": "Phần 3 — tơ duyên còn vướng mối nầy chưa xong.",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-04.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 179
+      "word_count": 935
     },
     {
       "index": 5,
       "slug": "chuong-05",
-      "title": "KIM, VÂN, KIỀU TRUYỆN",
+      "title": "Phần 4 — Tuồng chi là giống hôi tanh?",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-05.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 5893
+      "word_count": 2506
     },
     {
       "index": 6,
       "slug": "chuong-06",
-      "title": "Phần e nỗi khách, phần lo nổi mình.",
+      "title": "Phần 5 — Khi nghe hạnh, khi nết ngời",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-06.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 5958
+      "word_count": 2506
     },
     {
       "index": 7,
       "slug": "chuong-07",
-      "title": "Phần e nỗi khách, phần lo nổi mình. (tiếp 2)",
+      "title": "Phần 6 — ra vào một mực nói cười như không",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-07.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 2395
+      "word_count": 2479
     },
     {
       "index": 8,
       "slug": "chuong-08",
-      "title": "phần e đàng-sá, phần thương dãi-dầu.",
+      "title": "Phần 7 — Thúc Sanh thấy đày đọa Túy Kiều như vậy thì nói",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-08.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 5961
+      "word_count": 953
     },
     {
       "index": 9,
       "slug": "chuong-09",
-      "title": "phần e đàng-sá, phần thương dãi-dầu. (tiếp 2)",
+      "title": "Phần 8 — Trời đông vừa rạng ngàn dâu",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-09.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 2666
+      "word_count": 2510
     },
     {
       "index": 10,
       "slug": "chuong-10",
-      "title": "Kim Vân Kiều tập án",
+      "title": "Phần 9 — bên là Ưng , Khuyển bên là Sở Khanh .",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-10.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 46
+      "word_count": 2509
     },
     {
       "index": 11,
       "slug": "chuong-11",
-      "title": "HOẠN-THƠ ÁN",
+      "title": "Phần 10 — Còn nhiều hưởng thọ về sau",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-11.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 221
+      "word_count": 2509
     },
     {
       "index": 12,
       "slug": "chuong-12",
-      "title": "THÚC-SANH ÁN.",
+      "title": "Phần 11 — Trái mai ba bảy khi vừa",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-12.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 226
+      "word_count": 1230
     },
     {
       "index": 13,
       "slug": "chuong-13",
-      "title": "TỪ-HẢI ÁN.",
+      "title": "KIM, VÂN, KIỀU TẬP ÁN",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-13.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 177
+      "word_count": 1610
     },
     {
       "index": 14,
       "slug": "chuong-14",
-      "title": "TÚY-KIỀU ÁN.",
+      "title": "VƯƠNGVIÊNNGOẠI ÁN.",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-14.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 410
+      "word_count": 431
     },
     {
       "index": 15,
       "slug": "chuong-15",
-      "title": "TÚY-VÂN ÁN.",
+      "title": "ĐỀ LẠI CHUNG ÁN.",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-15.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 124
+      "word_count": 513
     },
     {
       "index": 16,
       "slug": "chuong-16",
-      "title": "KIM-TRỌNG ÁN.",
+      "title": "Tích Túy Kiều",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-16.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 290
+      "word_count": 2238
     },
     {
       "index": 17,
       "slug": "chuong-17",
-      "title": "ĐẠM-TIÊN ÁN",
+      "title": "DU THANH MINH.",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-17.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 152
+      "word_count": 439
     },
     {
       "index": 18,
       "slug": "chuong-18",
-      "title": "VƯƠNG-VIÊN-NGOẠI ÁN.",
+      "title": "VĂN TỤNG TỪ.",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-18.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 53
+      "word_count": 427
     },
     {
       "index": 19,
       "slug": "chuong-19",
-      "title": "VƯƠNG-QUAN ÁN",
+      "title": "QUI VÕTÍCH TÁC HOANÔ.",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-19.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 59
+      "word_count": 441
     },
     {
       "index": 20,
       "slug": "chuong-20",
-      "title": "THÚC-CHÁNH-ÔNG ÁN",
+      "title": "CHÂUTHAI ĐÃI TỪCÔNG.",
       "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-20.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 81
-    },
-    {
-      "index": 21,
-      "slug": "chuong-21",
-      "title": "TỀ TRI PHỦ ÁN",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-21.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 57
-    },
-    {
-      "index": 22,
-      "slug": "chuong-22",
-      "title": "ĐỒ LÃO LẠI ÁN",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-22.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 84
-    },
-    {
-      "index": 23,
-      "slug": "chuong-23",
-      "title": "HOẠN A GIA ÁN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-23.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 60
-    },
-    {
-      "index": 24,
-      "slug": "chuong-24",
-      "title": "GIÁC-DUYÊN ÁN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-24.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 58
-    },
-    {
-      "index": 25,
-      "slug": "chuong-25",
-      "title": "THẰNG BÁN-TƠ ÁN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-25.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 106
-    },
-    {
-      "index": 26,
-      "slug": "chuong-26",
-      "title": "ĐỀ LẠI CHUNG ÁN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-26.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 116
-    },
-    {
-      "index": 27,
-      "slug": "chuong-27",
-      "title": "MÃ-GIÁM-SANH, TÚ-BÀ ÁN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-27.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 146
-    },
-    {
-      "index": 28,
-      "slug": "chuong-28",
-      "title": "SỞ-KHANH ÁN",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-28.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 70
-    },
-    {
-      "index": 29,
-      "slug": "chuong-29",
-      "title": "BẠC-HẠNH, BẠC-BÀ ÁN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-29.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 75
-    },
-    {
-      "index": 30,
-      "slug": "chuong-30",
-      "title": "HOẠN-PHU-NHÂN ÁN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-30.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 104
-    },
-    {
-      "index": 31,
-      "slug": "chuong-31",
-      "title": "THẰNG-KHUYỂN, THẰNG-ƯNG ÁN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-31.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 71
-    },
-    {
-      "index": 32,
-      "slug": "chuong-32",
-      "title": "HỒ-TÔNG-HIẾN ÁN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-32.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 111
-    },
-    {
-      "index": 33,
-      "slug": "chuong-33",
-      "title": "CHUNG.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-33.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 181
-    },
-    {
-      "index": 34,
-      "slug": "chuong-34",
-      "title": "TÍCH TÚY-KIỀU",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-34.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 2083
-    },
-    {
-      "index": 35,
-      "slug": "chuong-35",
-      "title": "TÚY-KIỀU VỊNH TÍCH.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-35.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 94
-    },
-    {
-      "index": 36,
-      "slug": "chuong-36",
-      "title": "DU THANH MINH.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-36.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 53
-    },
-    {
-      "index": 37,
-      "slug": "chuong-37",
-      "title": "NGỘ KIM-TRỌNG.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-37.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 55
-    },
-    {
-      "index": 38,
-      "slug": "chuong-38",
-      "title": "TƯƠNG-TƯ",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-38.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 56
-    },
-    {
-      "index": 39,
-      "slug": "chuong-39",
-      "title": "MỘNG ĐẠM-TIÊN",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-39.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 56
-    },
-    {
-      "index": 40,
-      "slug": "chuong-40",
-      "title": "HOA VIÊN NGỘ.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-40.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 56
-    },
-    {
-      "index": 41,
-      "slug": "chuong-41",
-      "title": "KIỀU VÃNG TRỌNG HIÊN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-41.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 56
-    },
-    {
-      "index": 42,
-      "slug": "chuong-42",
-      "title": "TỐNG TRỌNG QUI TANG.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-42.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 59
-    },
-    {
-      "index": 43,
-      "slug": "chuong-43",
-      "title": "VĂN TỤNG TỪ.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-43.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 55
-    },
-    {
-      "index": 44,
-      "slug": "chuong-44",
-      "title": "THỌ GIÁM-SANH SÍNH.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-44.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 58
-    },
-    {
-      "index": 45,
-      "slug": "chuong-45",
-      "title": "THỊ VÂN ĐẠI GIÁ",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-45.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 56
-    },
-    {
-      "index": 46,
-      "slug": "chuong-46",
-      "title": "DỮ MÃ ĐĂNG TRÌNH.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-46.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 58
-    },
-    {
-      "index": 47,
-      "slug": "chuong-47",
-      "title": "BIỆT MÃI THANH LÂU TÚ-BA.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-47.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 59
-    },
-    {
-      "index": 48,
-      "slug": "chuong-48",
-      "title": "LẦU THƯỢNG ĐỀ SẦU.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-48.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 56
-    },
-    {
-      "index": 49,
-      "slug": "chuong-49",
-      "title": "TRÚNG SỞ KHANH KẾ.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-49.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 58
-    },
-    {
-      "index": 50,
-      "slug": "chuong-50",
-      "title": "DỮ THÚC THÀNH HÔN",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-50.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 55
-    },
-    {
-      "index": 51,
-      "slug": "chuong-51",
-      "title": "TỐNG THÚC NINH GIA.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-51.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 59
-    },
-    {
-      "index": 52,
-      "slug": "chuong-52",
-      "title": "QUI VÕ-TÍCH TÁC HOA-NÔ.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-52.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 60
-    },
-    {
-      "index": 53,
-      "slug": "chuong-53",
-      "title": "THỊ THÚC HOẠN AM.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-53.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 59
-    },
-    {
-      "index": 54,
-      "slug": "chuong-54",
-      "title": "PHẬT CÁC THIÊN KINH.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-54.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 56
-    },
-    {
-      "index": 55,
-      "slug": "chuong-55",
-      "title": "KÍ NGỤ GIÁC-DUYÊN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-55.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 57
-    },
-    {
-      "index": 56,
-      "slug": "chuong-56",
-      "title": "NGỘ BẠC HẠNH.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-56.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 60
-    },
-    {
-      "index": 57,
-      "slug": "chuong-57",
-      "title": "BẠC-SANH CHUYỂN MÃI THANH LÂU.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-57.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 60
-    },
-    {
-      "index": 58,
-      "slug": "chuong-58",
-      "title": "TỪ-HẢI ĐỀ DUYÊN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-58.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 58
-    },
-    {
-      "index": 59,
-      "slug": "chuong-59",
-      "title": "CHÂU-THAI ĐÃI TỪ-CÔNG.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-59.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 57
-    },
-    {
-      "index": 60,
-      "slug": "chuong-60",
-      "title": "THĂNG CÔNG-ĐƯỜNG BÁO ĐÁP.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-60.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 58
-    },
-    {
-      "index": 61,
-      "slug": "chuong-61",
-      "title": "BAC TRIỀU HỒ-CÔNG THUYẾT HANG.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-61.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 59
-    },
-    {
-      "index": 62,
-      "slug": "chuong-62",
-      "title": "THỐNG KHỐC TỪ-CÔNG.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-62.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 54
-    },
-    {
-      "index": 63,
-      "slug": "chuong-63",
-      "title": "HẠ GIÁ THỔ-QUAN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-63.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 57
-    },
-    {
-      "index": 64,
-      "slug": "chuong-64",
-      "title": "ĐẦU TIỀN-ĐƯỜNG GIANG.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-64.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 57
-    },
-    {
-      "index": 65,
-      "slug": "chuong-65",
-      "title": "NGƯ ÔNG CỨU MẠNG.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-65.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 59
-    },
-    {
-      "index": 66,
-      "slug": "chuong-66",
-      "title": "DỮ GIÁC-DUYÊN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-66.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 56
-    },
-    {
-      "index": 67,
-      "slug": "chuong-67",
-      "title": "KIM TRỌNG LẬP ĐÀN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-67.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 57
-    },
-    {
-      "index": 68,
-      "slug": "chuong-68",
-      "title": "DỮ CHƯ THÂN CỌNG HỘI.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-68.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 62
-    },
-    {
-      "index": 69,
-      "slug": "chuong-69",
-      "title": "TRỌNG ĐỀ DUYÊN.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-69.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 57
-    },
-    {
-      "index": 70,
-      "slug": "chuong-70",
-      "title": "GIÁC-DUYÊN DẪN TRỌNG KIẾM KIỀU.",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-70.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 60
-    },
-    {
-      "index": 71,
-      "slug": "chuong-71",
-      "title": "CHUNG",
-      "source_path": "books/truyen-kieu-ban-truong-vinh-ky-1911/text/chuong-71.md",
-      "audio_path": null,
-      "duration_sec": null,
-      "word_count": 183
+      "word_count": 645
     }
   ],
   "cover_path": "",
@@ -669,7 +210,7 @@
     "checked": "MediaWiki API list=allpages apprefix"
   },
   "expect_chapters": 6,
-  "notes": "Dùng mục này để kiểm tra đường 'trang muc + trang con' trong backend wikisource.",
+  "notes": "Ban in 1911. CAN SUA TRUOC KHI NARRATE: 47/71 chuong nguon duoi 100 chu (trung binh 60 chu) => moi chuong ~30 giay audio. Toan bo front matter (nha xuat ban, Avant-propos tieng Phap, muc luc) dang bi coi nhu chuong. Phai don front matter va gom cac phu \"AN\" vao muc cha.",
   "source_page": "Truyện Kiều (bản Trương Vĩnh Ký 1911)",
   "source_revision": 80653,
   "source_revision_timestamp": "2020-01-19T14:27:17Z",

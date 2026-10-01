@@ -1,43 +1,140 @@
-# ĐẠM-TIÊN ÁN
+# DU THANH MINH.
 
-Già nỗi một đời, tiếng bay bốn bể.
+Túy Kiều THI TẬP
 
-Hương một nén cũng cám lòng tri ngộ.
+1.
+Túy Kiều VỊNH TÍCH.
 
-Mơ-màng hồn quế tỉnh dường mê.
+Giọt nước Tiềnđường chẳng rửa oan,
 
-Thơ mười đem thử sức sơ giao,
+Phong hoa chưa trắng nợ hồngnhan,
 
-Ngần-ngại chơn giày đi lại đứng.
+Lòng tơ còn vướng chàng Kim Trọng,
 
-Nên tài sắc đã mỉa chìu quyền quới,
+Gót ngọc không thanh chốn thủy quan,
 
-Miền phong hoa mà thấy dạ thủy chung.
+Nửa giấc đoạn trường tan gối điệp,
 
-Chốn thanh lâu đem túc trái bảo thầm,
+Một dây bạc mạng giứt cầm loan,
 
-Một lời trót đã hẹn-hò.
+Cho hay những kẻ tài tình lắm,
 
-Nào tiếc sức ngoài mười năm chong bóng?
+Trời bắt làm gương để thếgian.
 
-Áng minh phủ thuở tiền khiên phô trắng,
+Vừa tiết xuân sang liễu xủ mành,
 
-Hai ngã dầu khôn dan-díu,
+Dậpdiều ai cũng hội thanhminh,
 
-Cũng có công chờ ngàn dặm đưa tin.
+Tro tàn lẩnquẩn đàng xengựa,
 
-Nghiệm giao tình trọn-vẹn nên thương,
+Gò đống xa gần nức yếnanh,
 
-Xét nghiệp chướng đọa-đày cũng xót.
+Nấm đất thương đau người chín suối,
 
-Phạt một lẽ hững-hờ cùng viễn khách,
+Bên cầu gặpgở khách ba sanh,
 
-Phụ chăng phụ, do nghi ư lý,
+Tình kia kiểng nọ càng lailáng,
 
-Vậy thân nầy quyền ủy nguyệt hoa thần.
+Khi trở gót hài bóng đã chênh.
 
-Như những đều vất-vả với tri âm,
+3.
+NGỘ Kim Trọng.
 
-Tình nên tình diệc túc vi công,
+Trong tiết thanhminh hội dậpdiều,
 
-Chờ kiếp khác gia phong cung các nữ.
+Tìnhcờ gây dựng truyện Kim Kiều,
+
+Lạc vàng trổi tiếng cương dừng lại,
+
+Cây ngọc xa chừng mắt ghé theo,
+
+Đoạn thảm chưa nguôi thơ mả vắn,
+
+Cơn buồn như giục cảnh trời chiều,
+
+Mối tơ rốirắm vương từ đấy.
+
+Tài bấy nhiêu tình cũng bấy nhiêu.
+
+Bóng trăng héhé giọi bên lầu,
+
+Ngồi với trăng mà ngở những đâu.
+
+Trăm mối vò tơ lần gở khắc.
+
+Một mình nương gối trót canh thâu,
+
+Ba sanh âu hản còn vương nợ.
+
+Tấc dạ nay khôn dập mối sầu.
+
+Mới biết tươngtư là thể ấy.
+
+Cho hay chớ trách kẻ ôm cầu.
+
+5.
+MỘNG Đạm Tiên
+
+Trước loan nương gối giấc vừa êm,
+
+Chợt thấy người đâu độ thiểu niên.
+
+Thathướt phô màu in vóc tố,
+
+Thanh tân dạng dấu chốn đào nguyên.
+
+Giất tan gối điệp bângkhuâng những.
+
+Sầu vẫn canh gà chấtchứa nên,
+
+Còn nghĩ chưa xong duyên phận ấy,
+
+Bóng trăng đâu đã xế ngoài hiên.
+
+Thơthẩn vườn xuân dạo gót chơi,
+
+Thướttha bóng liễu buổi êm trời.
+
+Trên đào đương mó hoa cười gió,
+
+Góc núi xa nghe khách ướm lời.
+
+Ngơngẫn hương e cùng phấn lệ,
+
+Mơmàng lá rụng với hoa rơi.
+
+Một rằng duyên phận hai rằng nợ,
+
+Mây nước lòng người dễ chắc thôi?
+
+Những là rày gió với mai mưa,
+
+Lầnlựa nên mang tiếng hẩnghờ.
+
+Cam tệ bấy lâu tin nhạn vắng,
+
+Nên giờ gọi chút tạ tình xưa.
+
+Lời thề vững một niềm sonsắt.
+
+Vừng nguyệt soi chung dạ tóctơ.
+
+Sông dải non mai duyên vẫn thắm.
+
+Tuyếtsương kẻo chẳng vẹn công chờ.
+
+Đau lòng ai lắm hởi ai ôi!
+
+Thệ hải minh sơn đã có rồi,
+
+Mối thảm ngậmngùi khi sẽ nữa,
+
+Bước đường ngầnngại lúc chia đôi,
+
+Tháng ngày đành phận ba thu lụn,
+
+Mưa gió thương người mấy dặm khơi.
+
+Hai chữ đồng tâm cùng tạc để,
+
+Mặc ai trăng gió dám sai lời.

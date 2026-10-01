@@ -1,111 +1,117 @@
-# TÚY-KIỀU ÁN.
+# VƯƠNGVIÊNNGOẠI ÁN.
 
-Hiếu tình có một tài sắc gồm hai:
+Thương tình tuổitác, giữ phận hiềnlành.
 
-Hoa ghen thắm, liễu hờn xanh,
+Kẻ vô tri lây vạ gió khôn kêu,
 
-Ngọc trắng gương trong nền quốc sắc.
+Khiếp dạ đã đến đều khánh kiệt.
 
-Cá mê vần, chim đắm khúc,
+Cơn hữu sự gặp túi tham còn nhẹ,
 
-Non cao nước chảy bậc thương cung.
+Cùng đàng cho nên nỗi biệtly.
 
-Giá thuyền quyên đã đáng chứa nhà vàng,
+Tuy ngày sau đà mầng phận rểcon.
 
-Sức tài nữ cũng nên trao thước ngọc.
+Nhưng oán ấy cũng nên gia phú quí.
 
-Tranh thủy mạc bốn câu ba vận,
+Vương Quan ÁN
 
-Khách chung tình rối ruột động niềm tây.
+Quả người lương thiện, thiệt dạ thủy chung:
 
-Thơ đoạn trường một vẽ mười bài,
+Chốn tụng đình giục Chung lão sở mưu,
 
-Bạn tri kỷ giật mình nhường giải nhất.
+Hết tư sản cũng không lòng oán hận.
 
-Kiếp má phấn tới khi rơi phận bạc,
+Phen hoàng bảng lấy kim gia làm bạn,
 
-Tấm lòng son không chút thẹn vầng hồng.
+Kết hôn nhơn cho trọn nghĩa thủy chung.
 
-Trỏ thịt xương thề trả đức sinh thành,
+Xét tên nầy tuy cạnh góc chửa tròn.
 
-Nhắm mắt đưa chơn theo máy tạo.
+Soi dạ ấy cũng nên gia phước lộc.
 
-Qua dâu bể dám ăn lời ước hẹn?
+Khéo đường buônbán, vụng nỗi ởăn.
 
-Trao tơ chắp chỉ cậy tay em.
+Bề khuyên răn không sớm thuở còn thơ,
 
-Phận bèo mây sá quản áng phong trần.
+Miền hàng chợ để hư thân lêulỏng.
 
-Vừng trăng gió chẳng phải lòng thiết thạch.
+Duyên gặpgỡ tới khi tình đã nặng,
 
-Lời thần mộng gẩm xô-bồ chưa hết,
+Chốn quan tư đem lại việc quàngxuyên.
 
-Cõi Lâm-tri đành ngọc nát vàng tan.
+Sao chẳng suy kiện cáo ích gì.
 
-Nồi thơ hương vì dan-díu đã lâu,
+Mà nở để tiếngtăm là thế?
 
-Miền Võ-tích chịu da chì tóc rối.
+Xét đến lẽ xử gia giáo tử,
 
-Cung khốc tố giải đoàn cứu oán,
+Tội bất nghiêm ưng định trượng tám mươi.
 
-Tờ thân cung động tấm từ bi.
+Thương vì tình chất phát niên cao,
 
-Các viết kinh bấm bụng nói sầu riêng,
+Luật chuẩn thục hứa nạp ngàn tứ lượng.
 
-Cam khất nhục bỡi chưa lời từ-tạ.
+Lồng gương minhmẫn, mặt sắt đoantrang.
 
-Đem tà nguyệt băng mình pha lối lạ,
+Thấy lá đơn Thúclão đã dơ tuồng,
 
-Mắc bô đào vì gớm chước hiểm-sâu.
+Phụ khống tử tới quan không lẽ bát.
 
-Cùng đàng mang nặng ngãi với Sư-già .
+Tra đến mặt Thúc sinh mà phá lẽ,
 
-Túng đất phải chìu lòng cùng Vãi-bạc .
+Công chế tư mở lý tháo bài hòa.
 
-Trải mấy lượt chán-chường tràng phong nguyệt,
+Gẫm ngôn từ đáng thể lượng đại thần,
 
-Buôn đi bán lại thiếu chi nơi?
+Xét khóa tích gia phẩmtrật ngự sữ.
 
-Trong năm năm giật mượn sức anh-hùng,
+Nhớ dai nhứt thứ, nói khéo dầu dây l
 
-Oán trả ơn đền rành các tích.
+Ngoài phốphường sựtích đã mười năm,
 
-Tủi danh-phận xui nên lưu-lạc,
+Nhỏ nhặt tóctơ tình chẳng lẩn.
 
-So tài tình xem cũng phân minh.
+Trước quan lại ngôn từ thông một mạch,
 
-Thuở khuyến hàng mầng tưởng việc như lời.
+Đầu đuôi phải chẳng truyện như in.
 
-Thương muôn họ dân lành đeo tiếng bạc.
+Xét tên nầy chừng đã cao niên,
 
-Cơn khánh hạ bỗng thấy người lật mặt,
+Xem tài khí cũng nên đại dụng.
 
-Đem ngàn vàng thân nặng giấu sông Tiền .
+Trộm nghĩ người làm báu nước.
 
-Hội đoạn trường mong thật hẹn tương tri,
+Gẫm tên nầy nên hộ vụ thí tài.
 
-Thuyền bát-nhã may nhờ tay cứu khổ.
+Trông lịnh trên thánh mở khoa dời.
 
-Sum-hiệp thỏa một nhà như trước,
+Chuẩn khoản ấy hạ lại tào tham nghị.
 
-Ơn chàng Kim cho lấy hiếu làm trinh.
+Tính hạnh ngay lành, nết na nhẹnhuyễn.
 
-Vẻ-vang mầng hai họ hơn xưa.
+Tinh con mắt biết kẻ khinh người trọng,
 
-Tủi phận bạc đàm soi hoa với đuốc?
+Lời hiếu sinh tường kẻ tóc chơn tơ.
 
-Xét sau trước đủ nhàn trinh hiếu nghĩa,
+Rộng lòng thương khi thang thuốc chén trà,
 
-Thương lâu nay lầm tuyết-nguyệt phong hoa.
+Đều phương tiện dặm đường ăn nỗi ở.
 
-Ấy, tình tùng hiếu xuất, sự thuộc vô can.
+Nay tiên thưởng ngàn vàng âu cũng phải,
 
-Kíp truyền hội chủ rút tên ra,
+Chờ tài sanh ngũ phước sẽ phê cho.
 
-Hãy kiếp ấy quyền nghi mạng phụ.
+Nhơn nghĩa đủ đường, tu hành phải đạo!
 
-Vã tội chuẩn công sai, lý ưng gia thưởng.
+Lời đàn việt hở ra nghe cũng gớm,
 
-Hiệp sức nguyệt ông xe chỉ lại,
+Cửa từbi lừa lối gởi ân tình.
 
-Để thân sau chánh phẩm phu nhân.
+Số tiên cung dẫn lại thấy mà mầng,
+
+Thuyền tế độ giăng sông chờ phước đức.
+
+Ơn nghĩa ấy trã ngàn vàng cũng phải,
+
+Công quả kia ngồi thập điện cũng nên.

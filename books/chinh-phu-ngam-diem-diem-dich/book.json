@@ -1,34 +1,52 @@
 {
   "slug": "chinh-phu-ngam-diem-diem-dich",
   "title": "Chinh phụ ngâm (bản dịch của Đoàn Thị Điểm)",
-  "author": "Nguyễn Trãi",
+  "author": "Đặng Trần Côn",
   "translator": "Đoàn Thị Điểm",
   "language": "vi",
   "source_language": "vi",
   "source_format": "wikisource",
-  "source_path": "/home/ubuntu/projects/1/books/chinh-phu-ngam-diem-diem-dich/source/chinh-phu-ngam-diem-diem-dich__000-Chinh_phụ_ngâm_Đoàn_Thị_Điểm_dịch_.wikitext",
+  "source_path": "",
   "source_url": "https://vi.wikisource.org/wiki/Chinh_ph%E1%BB%A5_ng%C3%A2m_%28%C4%90o%C3%A0n_Th%E1%BB%8B_%C4%90i%E1%BB%83m_d%E1%BB%8Bch%29",
   "license": "public-domain",
   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-  "rights_note": "Nguyễn Trãi (1380–1442), bản dịch Đoàn Thị Điểm (d. 1823). Cả hai đều thuộc công cộng.",
-  "summary": "Bản dịch thơ Nôm của Đoàn Thị Điểm, xuất hiện trong tập Lĩnh Nam chích quái (thế kỷ 19).",
+  "rights_note": "Đặng Trần Côn (d. 1780), bản dịch Đoàn Thị Điểm (d. 1823). Cả hai đều thuộc công cộng.",
+  "summary": "Bản dịch thơ Nôm của Đoàn Thị Điểm, lưu trong Lĩnh Nam chích quái (thế kỷ 19).",
   "narrator": "VN-03",
   "text_path": "books/chinh-phu-ngam-diem-diem-dich/text/chinh-phu-ngam-diem-diem-dich.md",
   "chapters": [
     {
       "index": 1,
       "slug": "chuong-01",
-      "title": "Chinh phụ ngâm (bản dịch của Đoàn Thị Điểm)",
+      "title": "Phần 1 — Chữ Nôm",
       "source_path": "books/chinh-phu-ngam-diem-diem-dich/text/chuong-01.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 3027
+      "word_count": 401
+    },
+    {
+      "index": 2,
+      "slug": "chuong-02",
+      "title": "Phần 2 — trời đất gió bụi",
+      "source_path": "books/chinh-phu-ngam-diem-diem-dich/text/chuong-02.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 2013
+    },
+    {
+      "index": 3,
+      "slug": "chuong-03",
+      "title": "Phần 3 — Lạnh lùng thay thu",
+      "source_path": "books/chinh-phu-ngam-diem-diem-dich/text/chuong-03.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 596
     }
   ],
   "cover_path": "",
   "m4b_path": "",
   "status": "extracted",
-  "author_dates": "1380–1442",
+  "author_dates": "d. 1780",
   "author_death_year": 1780,
   "translator_dates": "d. 1823",
   "license_basis": "Cả tác giả và người dịch đều chết trước 1900.",
@@ -37,9 +55,9 @@
   "verified": {
     "bytes": 46251,
     "subpages": 0,
-    "checked": "MediaWiki API prop=revisions"
+    "checked": "MediaWiki API prop=revisions; header nguon khai tac gia = Đặng Trần Côn"
   },
-  "expect_chapters": 20,
+  "expect_chapters": 1,
   "source_page": "Chinh phụ ngâm (Đoàn Thị Điểm dịch)",
   "source_revision": 152269,
   "source_revision_timestamp": "2023-04-14T02:37:54Z",

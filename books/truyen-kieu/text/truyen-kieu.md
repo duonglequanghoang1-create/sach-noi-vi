@@ -1,4 +1,4 @@
-# Truyện Kiều
+# Phần 1 — Trăm năm trong cõi người ta
 
 Trăm năm trong cõi người ta,
 Chữ tài chữ mệnh khéo là ghét nhau.
@@ -286,6 +286,9 @@ Song hồ nửa khép cánh mây,
 Tường đông ghé mắt ngày ngày hằng trông.
 Tấc gang động khóa nguồn phong,
 Tịt mù nào thấy bóng hồng vào ra.
+
+# Phần 2 — Nhẫn từ quán khách lân la
+
 Nhẫn từ quán khách lân la,
 Tuần trăng thấm thoắt nay đà thèm hai.
 Cách tường phải buổi êm trời,
@@ -572,6 +575,9 @@ Nàng còn đứng tựa hiên tây,
 Chín hồi vấn vít như vầy mối tơ.
 Trông chừng khói ngất song thưa,
 Hoa trôi trác thắm, liễu xơ xác vàng.
+
+# Phần 3 — Tần ngần dạo gót lầu trang
+
 Tần ngần dạo gót lầu trang,
 Một đoàn mừng thọ ngoại hương mới về,
 Hàn huyên chưa kịp giãi dề,
@@ -686,9 +692,6 @@ Phải lời ông cũng êm tai,
 Nhìn nhau giọt vắn giọt dài ngổn ngang.
 Mái ngoài họ Mã vừa sang,
 Tờ hoa đã ký, cân vàng mới trao.
-
-# Truyện Kiều (tiếp 2)
-
 Trăng già độc địa làm sao?
 Cầm dây chẳng lựa buộc vào tự nhiên.
 Trong tay đã sẵn đồng tiền,
@@ -862,6 +865,9 @@ Thôi còn chi nữa mà mong?
 Đời người thôi thế là xong một đời.
 Giận duyên tủi phận bời bời,
 Cầm dao nàng đã toan bài quyên sinh.
+
+# Phần 4 — Nghĩ đi nghĩ lại một mình
+
 Nghĩ đi nghĩ lại một mình:
 Một mình thì chớ hai tình thì sao?
 Sao dầu sinh sự thế nào,
@@ -1149,6 +1155,9 @@ Rằng: Tôi chút phận đàn bà,
 Nước non lìa cửa, lìa nhà, đến đây.
 Bây giờ sống chết ở tay,
 Thân này đã đến thế này thì thôi!
+
+# Phần 5 — Nhưng tôi có sá chi tôi
+
 Nhưng tôi có sá chi tôi,
 Phận tôi đành vậy, vốn người để đâu?
 Thân lươn bao quản lấm đầu,
@@ -1377,9 +1386,6 @@ Nỉ non đêm ngắn tình dài,
 Ngoài hiên thỏ đã non đoài ngậm gương.
 Mượn điều trúc viện thừa lương,
 Rước về hãy tạm giấu nàng một nơi.
-
-# Truyện Kiều (tiếp 3)
-
 Chiến hòa sắp sẵn hai bài,
 Cậy tay thầy thợ mượn người dò la.
 Bắn tin đến mặt Tú Bà,
@@ -1438,6 +1444,9 @@ Phận đành chi dám kêu oan,
 Đào hoen quẹn má liễu tan tác mày.
 Một sân lầm cát đã đầy,
 Gương lờ nước thủy mai gầy vóc sương.
+
+# Phần 6 — Nghĩ tình chàng Thúc mà thương
+
 Nghĩ tình chàng Thúc mà thương,
 Nẻo xa trông thấy lòng càng xót xa.
 Khóc rằng: Oan khốc vì ta!
@@ -1724,6 +1733,9 @@ Vực nàng tạm xuống môn phòng,
 Hãy còn thiêm thiếp giấc nồng chưa phai.
 Hoàng lương chợt tỉnh hồn mai,
 Cửa nhà đâu mất lâu đài nào đây?
+
+# Phần 7 — Bàng hoàng giở tỉnh giở say
+
 Bàng hoàng giở tỉnh giở say,
 Sảnh đường mảng tiếng đòi ngay lên hầu.
 A hoàn trên dưới giục mau,
@@ -2010,6 +2022,9 @@ Bao nhiêu đoạn khổ, tình thương,
 Nỗi ông vật vã, nỗi nàng thở than.
 Ngăn tôi đứng lại một bên,
 Chán tai rồi mới bước lên trên lầu.
+
+# Phần 8 — Nghe thôi kinh hãi xiết đâu
+
 Nghe thôi kinh hãi xiết đâu:
 Đàn bà thế ấy thấy âu một người!
 Ấy mới gan ấy mới tài,
@@ -2066,9 +2081,6 @@ Kệ kinh câu cũ thuộc lòng,
 Hương đèn việc cũ, trai phòng quen tay.
 Sớm khuya lá bối phướn mây,
 Ngọn đèn khêu nguyệt, tiếng chày nện sương.
-
-# Truyện Kiều (tiếp 4)
-
 Thấy nàng thông tuệ khác thường,
 Sư càng nể mặt, nàng càng vững chân.
 Cửa thuyền vừa tiết cuối xuân,
@@ -2299,6 +2311,9 @@ Tiệc bày thưởng tướng khao binh
 Om thòm trống trận, rập rình nhạc quân.
 Vinh hoa bõ lúc phong trần,
 Chữ tình ngày lại thêm xuân một ngày.
+
+# Phần 9 — Trong quân có lúc vui vầy
+
 Trong quân có lúc vui vầy,
 Thong dong mới kể sự ngày hàn vi:
 Khi Vô Tích, khi Lâm Tri,
@@ -2586,6 +2601,9 @@ Ve ngâm vượn hót nào tày,
 Lọt tai Hồ cũng nhăn mày rơi châu.
 Hỏi rằng: Này khúc ở đâu?
 Nghe ra muôn oán nghìn sầu lắm thay!
+
+# Phần 10 — Thưa rằng: Bạc mệnh khúc này
+
 Thưa rằng: Bạc mệnh khúc này,
 Phổ vào đàn ấy những ngày còn thơ.
 Cung cầm lựa những ngày xưa,
@@ -2757,9 +2775,6 @@ Từ ngày muôn dặm phù tang,
 Nửa năm ở đất Liêu dương lại nhà.
 Vội sang vườn Thúy dò la,
 Nhìn phong cảnh cũ nay đà khác xưa.
-
-# Truyện Kiều (tiếp 5)
-
 Đầy vườn cỏ mọc lau thưa,
 Song trăng quạnh quẽ vách mưa rã rời.
 Trước sau nào thấy bóng người,
@@ -2876,6 +2891,9 @@ Những là phiền muộn đêm ngày,
 Xuân thu biết đã đổi thay mấy lần?
 Chế khoa gặp hội trường văn.
 Vương, Kim cùng chiếm bảng xuân một ngày.
+
+# Phần 11 — Cửa trời rộng mở đường mây
+
 Cửa trời rộng mở đường mây,
 Hoa chào ngõ hạnh hương bay dặm phần.
 Chàng Vương nhớ đến xa gần,
@@ -3163,6 +3181,9 @@ Tình nhân lại gặp tình nhân,
 Hoa xưa ong cũ mấy phân chung tình.
 Nàng rằng: Phận thiếp đã đành,
 Có làm chi nữa cái mình bỏ đi!
+
+# Phần 12 — Nghĩ chàng nghĩa cũ tình ghi
+
 Nghĩ chàng nghĩa cũ tình ghi,
 Chiều lòng gọi có xướng tùy mảy may.
 Riêng lòng đã thẹn lắm thay,
@@ -3271,8 +3292,6 @@ Thiện căn ở tại lòng ta,
 Chữ tâm kia mới bằng ba chữ tài.
 Lời quê chắp nhặt dông dài,
 Mua vui cũng được một vài trống canh.
-
-# Truyện Kiều (tiếp 6)
 
 Kiều
 

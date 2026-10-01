@@ -6,7 +6,7 @@
   "language": "vi",
   "source_language": "vi",
   "source_format": "wikisource",
-  "source_path": "/home/ubuntu/projects/1/books/truyen-kieu/source/truyen-kieu__000-Truyện_Kiều.wikitext",
+  "source_path": "",
   "source_url": "https://vi.wikisource.org/wiki/Truy%E1%BB%87n_Ki%E1%BB%81u",
   "license": "public-domain",
   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
@@ -18,56 +18,110 @@
     {
       "index": 1,
       "slug": "chuong-01",
-      "title": "Truyện Kiều",
+      "title": "Phần 1 — Trăm năm trong cõi người ta",
       "source_path": "books/truyen-kieu/text/chuong-01.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 4805
+      "word_count": 2012
     },
     {
       "index": 2,
       "slug": "chuong-02",
-      "title": "Truyện Kiều (tiếp 2)",
+      "title": "Phần 2 — Nhẫn từ quán khách lân la",
       "source_path": "books/truyen-kieu/text/chuong-02.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 4807
+      "word_count": 2012
     },
     {
       "index": 3,
       "slug": "chuong-03",
-      "title": "Truyện Kiều (tiếp 3)",
+      "title": "Phần 3 — Tần ngần dạo gót lầu trang",
       "source_path": "books/truyen-kieu/text/chuong-03.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 4807
+      "word_count": 2012
     },
     {
       "index": 4,
       "slug": "chuong-04",
-      "title": "Truyện Kiều (tiếp 4)",
+      "title": "Phần 4 — Nghĩ đi nghĩ lại một mình",
       "source_path": "books/truyen-kieu/text/chuong-04.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 4807
+      "word_count": 2012
     },
     {
       "index": 5,
       "slug": "chuong-05",
-      "title": "Truyện Kiều (tiếp 5)",
+      "title": "Phần 5 — Nhưng tôi có sá chi tôi",
       "source_path": "books/truyen-kieu/text/chuong-05.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 3575
+      "word_count": 2012
     },
     {
       "index": 6,
       "slug": "chuong-06",
-      "title": "Truyện Kiều (tiếp 6)",
+      "title": "Phần 6 — Nghĩ tình chàng Thúc mà thương",
       "source_path": "books/truyen-kieu/text/chuong-06.md",
       "audio_path": null,
       "duration_sec": null,
-      "word_count": 7
+      "word_count": 2012
+    },
+    {
+      "index": 7,
+      "slug": "chuong-07",
+      "title": "Phần 7 — Bàng hoàng giở tỉnh giở say",
+      "source_path": "books/truyen-kieu/text/chuong-07.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 2012
+    },
+    {
+      "index": 8,
+      "slug": "chuong-08",
+      "title": "Phần 8 — Nghe thôi kinh hãi xiết đâu",
+      "source_path": "books/truyen-kieu/text/chuong-08.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 2012
+    },
+    {
+      "index": 9,
+      "slug": "chuong-09",
+      "title": "Phần 9 — Trong quân có lúc vui vầy",
+      "source_path": "books/truyen-kieu/text/chuong-09.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 2012
+    },
+    {
+      "index": 10,
+      "slug": "chuong-10",
+      "title": "Phần 10 — Thưa rằng: Bạc mệnh khúc này",
+      "source_path": "books/truyen-kieu/text/chuong-10.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 2012
+    },
+    {
+      "index": 11,
+      "slug": "chuong-11",
+      "title": "Phần 11 — Cửa trời rộng mở đường mây",
+      "source_path": "books/truyen-kieu/text/chuong-11.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 2012
+    },
+    {
+      "index": 12,
+      "slug": "chuong-12",
+      "title": "Phần 12 — Nghĩ chàng nghĩa cũ tình ghi",
+      "source_path": "books/truyen-kieu/text/chuong-12.md",
+      "audio_path": null,
+      "duration_sec": null,
+      "word_count": 768
     }
   ],
   "cover_path": "",
@@ -84,6 +138,7 @@
     "checked": "MediaWiki API prop=revisions"
   },
   "expect_chapters": 92,
+  "notes": "Phai chia theo CAU TRUC THO CUA BAI (92 cau tho / cac phan), KHONG chia theo so byte. Ban hien tai cat thanh 6 muc ~4800 chu va muc cuoi chi 7 chu.",
   "source_page": "Truyện Kiều",
   "source_revision": 205132,
   "source_revision_timestamp": "2026-05-06T04:49:24Z",

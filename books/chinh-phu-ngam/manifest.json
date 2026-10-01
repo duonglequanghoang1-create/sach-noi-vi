@@ -2,28 +2,37 @@
   "book": {
     "slug": "chinh-phu-ngam",
     "title": "Chinh phụ ngâm",
-    "author": "Nguyễn Trãi",
+    "author": "Đặng Trần Côn",
     "translator": "",
     "language": "vi",
     "source_language": "vi",
     "source_format": "wikisource",
-    "source_path": "/home/ubuntu/projects/1/books/chinh-phu-ngam/source/chinh-phu-ngam__000-Chinh_phụ_ngâm.wikitext",
+    "source_path": "",
     "source_url": "https://vi.wikisource.org/wiki/Chinh_ph%E1%BB%A5_ng%C3%A2m",
     "license": "public-domain",
     "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "rights_note": "Nguyễn Trãi (1380–1442). Tác phẩn thuộc công cộng.",
-    "summary": "Tác phẩm ca ngợi Trung Quân và công đức Trần Hưng Đạo, viết bằng thơ lục bát.",
+    "rights_note": "Đặng Trần Côn (d. 1780). Tác phẩm thuộc công cộng.",
+    "summary": "Chinh phụ ngâm khúc của Đặng Trần Côn, thơ lục bát ra đời khoảng năm 1741 thời Cảnh Hưng.",
     "narrator": "VN-02",
     "text_path": "books/chinh-phu-ngam/text/chinh-phu-ngam.md",
     "chapters": [
       {
         "index": 1,
         "slug": "chuong-01",
-        "title": "Chinh phụ ngâm",
+        "title": "Phần 2 — Thiên địa phong trần",
         "source_path": "books/chinh-phu-ngam/text/chuong-01.md",
         "audio_path": null,
         "duration_sec": null,
-        "word_count": 3618
+        "word_count": 2261
+      },
+      {
+        "index": 2,
+        "slug": "chuong-02",
+        "title": "Phần 3 — Bất thức ly gia thiên lý ngoại",
+        "source_path": "books/chinh-phu-ngam/text/chuong-02.md",
+        "audio_path": null,
+        "duration_sec": null,
+        "word_count": 893
       }
     ],
     "cover_path": "",
@@ -31,9 +40,9 @@
     "status": "extracted"
   },
   "stage": "extract",
-  "created_at": "2026-10-01T18:53:25+00:00",
+  "created_at": "2026-10-01T19:23:11+00:00",
   "notes": [
-    "chapter count 1 != catalog expect_chapters 20; the source has no more structure than this",
-    "AUTHORITY MISMATCH: catalog says author='Nguyễn Trãi', but the source's own header says 'Đặng Trần Côn'. The rights claim follows the source (death year 1780); book.json keeps the catalog's 'author' so the catalog<->book mapping stays intact, and records the source author in 'source_author'. The catalog entry needs fixing."
+    "split 'Nội dung' (3135 chữ, no internal headings) into 3 parts of about 2500 chữ, on verse-line boundaries; the part titles are mechanical, not the work's own",
+    "merged 'Phần 1 — Nguyên bản chữ Hán' (8 chữ) into 'Phần 2 — Thiên địa phong trần': below min_chapter_words=150"
   ]
 }
